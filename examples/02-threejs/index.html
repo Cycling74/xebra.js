@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>My first Three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="../../dist/xebra.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
+		<script src="./TrackballControls.js"></script>
+		<script>
+			
+			// Basic idea: Whenever you add a slider to Max, add a cube to three. The color of the slider controls the color of the cube.
+			// The value of the slider controls the... speed at which the cube rotates?
+			var camera, controls, scene, container;
+			var WIDTH = window.innerWidth, HEIGHT = window.innerHeight;
+			var cubes = {};
+			var cube_rotations = {};
+
+			function addBox(object) {
+				var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+				var material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+				var cube = new THREE.Mesh( geometry, material );
+
+				cubes[object.id] = cube;
+				cube_rotations[object.id] = 0;
+				updateBox(object);
+
+				scene.add( cube );
+			}
+
+			function updateBox(object, type, value) {
+				var mesh = cubes[object.id];
+				switch (type) {
+					case "elementcolor":
+						mesh.material.color = new THREE.Color(value[0], value[1], value[2]);
+						break;
+					case "patching_rect":
+						mesh.scale.set(value[2] / 100, value[3] / 100, 1);
+						mesh.position.set(value[0] / 100, value[1] / 100, 0);
+						break;
+					case "distance":
+						console.log(value);
+						break;
+				}
+			}
+
+			function removeBox(object) {
+				scene.remove(cubes[object.id]);
+				delete cubes[object.id];
+				delete cube_rotations[object.id];
+			}
+
+			function initializeScene() {
+				camera = new THREE.PerspectiveCamera( 40, WIDTH / HEIGHT, 1, 10000 );
+				camera.position.set( 0, 0, 5 );
+				controls = new THREE.TrackballControls( camera );
+				scene = new THREE.Scene();
+
+				container = document.createElement('div');
+				document.body.appendChild(container);
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setClearColor( 0x050505 );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( WIDTH, HEIGHT );
+				container.appendChild(renderer.domElement);
+
+				window.addEventListener("resize", onWindowResize);
+			}
+
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+
+			function connectXebra() {
+				var options = {
+					hostname : "127.0.0.1", // localhost
+					port : 8086,
+					supported_objects : Xebra.SUPPORTED_OBJECTS
+				};
+
+				var xebraState = new Xebra.State(options);
+
+				// Do something when a slider gets added to the Max patcher
+				xebraState.on("object_added", function(object) {
+					if (object.type === "slider") addBox(object);
+				});
+
+				// Do something when a slider is removed
+				xebraState.on("object_removed", function(object) {
+					if (object.type === "slider") removeBox(object);
+				});
+
+				xebraState.on("object_changed", function(object, type, value) {
+					if (object.type === "slider") updateBox(object, type, value);
+				});
+
+				xebraState.connect();
+			}
+
+			function animate() {
+				requestAnimationFrame(animate);
+				render();
+			}
+
+			function render() {
+				renderer.render(scene, camera);
+			}
+
+			window.onload = function() {
+				initializeScene();
+				connectXebra();
+				animate();
+			}
+
+		</script>
+	</body>
+</html>

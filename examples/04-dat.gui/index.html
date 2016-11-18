@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Binding dat.GUI</title>
+		<style>
+			html { height: 100% }
+			body { margin: 0; min-height: 100%; display: flex; }
+			.container { display: flex; align-items: center; justify-content: center; min-width: 100%; min-height: 100% }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+		</div>
+		<script src="../../dist/xebra.js"></script>
+		<script src="../js/lib/dat.gui.min.js"></script>
+		<script>
+
+			var gui;
+			var canvasConfig = {
+				message: "hello",
+				temperature: 0,
+				beAfraid: false,
+				explode: function() {console.log("Boom")}
+			};
+
+			function updateConfigFromMax(object, param) {
+				var target = canvasConfig[object.getParamValue("varname")];
+				if (typeof target === "boolean" && param.type === "value") {
+					canvasConfig[object.getParamValue("varname")] = param.value === 0 ? false : true;
+				} else if (typeof target === "string" && param.type === "textfield") {
+					canvasConfig[object.getParamValue("varname")] = param.value;
+				} else if (typeof target === "number" && param.type === "distance") {
+					canvasConfig[object.getParamValue("varname")] = param.value;
+				} else if (typeof target === "function" && param.type === "value") {
+					if (param.value !== 0) canvasConfig[object.getParamValue("varname")]();
+				}
+			}
+
+			function makeGui() {
+				gui = new dat.GUI();
+				gui.add(canvasConfig, 'message').listen();
+				gui.add(canvasConfig, 'temperature', 0, 100).listen();
+				gui.add(canvasConfig, 'beAfraid').listen();
+				gui.add(canvasConfig, 'explode');
+			}
+
+			function connectXebra() {
+				var options = {
+					hostname : "127.0.0.1", // localhost
+					port : 8086
+				};
+				xebraState = new Xebra.State(options);
+
+				xebraState.on("object_changed", function(object, param) {
+					var scriptingName = object.getParamValue("varname");
+					if (scriptingName && canvasConfig.hasOwnProperty(scriptingName)) {
+						updateConfigFromMax(object, param);
+					}
+				});
+
+				xebraState.connect();
+			}
+
+			window.onload = function() {
+				makeGui();
+				connectXebra();
+			}
+
+		</script>
+	</body>
+</html>
