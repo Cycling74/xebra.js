@@ -1,0 +1,4 @@
+// Temp build approach until xebra-communicator is on npm
+
+cd ./node_modules/xebra-communicator
+npm run lib

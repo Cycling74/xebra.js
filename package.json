@@ -26,10 +26,14 @@
 		"lib" : "babel ./src -d ./lib",
 		"lint": "eslint src -c ./.eslintrc.json",
 
-		"postinstall" : "sh ./.bin/link",
-		"postupdate" : "sh ./.bin/link"
+		"postinstall" : "sh ./.bin/postinstall",
+		"postupdate" : "sh ./.bin/postinstall"
 	},
-	"dependencies" : {},
+	"dependencies" : {
+		"babel-runtime" : "^6.18.0",
+		"lodash.pick" : "^4.4.0",
+		"xebra-communicator" : "git+ssh://github.com/Cycling74/xebra-communicator#master"
+	},
 	"devDependencies" : {
 		"babel-cli" : "^6.18.0",
 		"babelify" : "^7.3.0",
@@ -38,14 +42,12 @@
 		"babel-plugin-add-module-exports" : "^0.2.1",
 		"babel-plugin-transform-runtime" : "^6.15.0",
 		"babel-register" : "^6.18.0",
-		"babel-runtime" : "^6.18.0",
 		"browserify" : "^13.1.0",
 		"eslint": "^3.9.1",
 		"eslint-config-recommended": "^1.5.0",
 		"jsdoc" : "^3.4.2",
 		"jsdoc-babel" : "^0.2.1",
 		"jaguarjs-jsdoc" : "git://github.com/fde31/jaguarjs-jsdoc#xebra_docs",
-		"lodash.pick" : "^4.4.0",
 		"uglify-js" : "^2.7.3"
 	},
 	"browserify": {
