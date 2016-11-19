@@ -1,5 +1,5 @@
 {
-	"name" : "xebra",
+	"name" : "xebra.js",
 	"version" : "1.0.0",
 	"description" : "Xebra connects Max to the browser, and the browser to Max.",
 	"author" : "Cycling '74",
@@ -12,11 +12,11 @@
 	"main" : "lib/index.js",
 	"homepage" : "http://cycling74.com",
 	"readme" : "README.md",
-	"bugs" : "TODO",
+	"bugs" : "https://github.com/Cycling74/xebra.js/issues",
 	"license" : "MIT",
 	"repository" : {
 		"type" : "git",
-		"url" : "todo"
+		"url" : "https://github.com/Cycling74/xebra.js.git"
 	},
 	"scripts" : {
 
@@ -24,10 +24,7 @@
 		"docs" : "sh ./.bin/docs",
 		"gen_objectTut" : "node ./.bin/gen_objList.js",
 		"lib" : "babel ./src -d ./lib",
-		"lint": "eslint src -c ./.eslintrc.json",
-
-		"postinstall" : "sh ./.bin/postinstall",
-		"postupdate" : "sh ./.bin/postinstall"
+		"lint": "eslint src -c ./.eslintrc.json"
 	},
 	"dependencies" : {
 		"babel-runtime" : "^6.18.0",
