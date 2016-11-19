@@ -1,5 +1,5 @@
 {
-	"name" : "xebra",
+	"name" : "xebra.js",
 	"version" : "1.0.0",
 	"description" : "Xebra connects Max to the browser, and the browser to Max.",
 	"author" : "Cycling '74",
