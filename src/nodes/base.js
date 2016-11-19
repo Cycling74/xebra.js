@@ -59,6 +59,16 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
+	 * @desc Have all of the parameters for the object been added yet
+	 * @readonly
+	 * @private
+	 * @type {boolean}
+	 */
+	get isReady() {
+		return true;
+	}
+
+	/**
 	 * Type associated with this node. For Objects, Frames and Patchers, this will correspond to the class name
 	 * of the Max object. For parameters, this will be the name of the associated parameter. Parameters usually
 	 * correspond to the name of a Max object's attribute.

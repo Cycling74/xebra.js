@@ -85,6 +85,11 @@ class PatcherNode extends ObjectNode {
 		this._scriptingNamesById.set(objectId, scriptingName);
 	}
 
+	_onObjectInitialized = (object) => {
+		this.emit("object_added", object);
+		object.removeListener("object_initialized", this._onObjectInitialized);
+	}
+
 	/**
 	 * @private
 	 * @param {ObjectNode} obj - The changed object
@@ -113,7 +118,7 @@ class PatcherNode extends ObjectNode {
 		 * @param {ObjectNode} object 	The changed object
 		 * @param {ParamNode}		param   The changed parameter
 		 */
-		this.emit("object_changed", obj, param);
+		if (obj.isReady) this.emit("object_changed", obj, param);
 	}
 	/**
 	 * @private
@@ -314,7 +319,12 @@ class PatcherNode extends ObjectNode {
 			this._objects.add(obj.id);
 			obj.on("param_changed", this._onObjectChange);
 			obj.on("destroy", this._onObjectDestroy);
-			this.emit("object_added", obj);
+
+			if (obj.isReady) {
+				this.emit("object_added", obj);
+			} else {
+				obj.on("object_initialized", this._onObjectInitialized);
+			}
 		}
 	}
 
@@ -412,8 +422,9 @@ class PatcherNode extends ObjectNode {
 			// make sure to clean up attached event listeners
 			obj.removeListener("param_changed", this._onObjectChange);
 			obj.removeListener("destroy", this._onObjectDestroy);
+			obj.removeListener("object_initialized", this._onObjectInitialized);
 
-			this.emit("object_removed", obj);
+			if (obj.isReady) this.emit("object_removed", obj);
 		}
 	}
 }

@@ -61,6 +61,11 @@ class FrameNode extends ObjectNode {
 
 	// Bound callbacks using fat arrow notation
 
+	_onObjectInitialized = (obj) => {
+		this.emit("object_added", obj);
+		obj.removeListener("object_initialized", this._onObjectInitialized);
+	}
+
 	/**
 	 * @private
 	 * @fires XebraState.object_changed
@@ -97,7 +102,11 @@ class FrameNode extends ObjectNode {
 		obj.on("param_changed", this._onObjectChange);
 		obj.on("destroy", this._onObjectDestroy);
 
-		this.emit("object_added", obj);
+		if (obj.isReady) {
+			this.emit("object_added", obj);
+		} else {
+			obj.on("object_initialized", this._onObjectInitialized);
+		}
 	}
 
 	/**
@@ -177,6 +186,7 @@ class FrameNode extends ObjectNode {
 			// make sure to clean up attached event listeners
 			obj.removeListener("param_changed", this._onObjectChange);
 			obj.removeListener("destroy", this._onObjectDestroy);
+			obj.removeListener("object_initialized", this._onObjectInitialized);
 
 			this.emit("object_removed", obj);
 		}

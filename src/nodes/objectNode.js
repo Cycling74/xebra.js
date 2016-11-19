@@ -21,6 +21,17 @@ class ObjectNode extends XebraNode {
 		super(id, type, creationSeq);
 
 		this._patcherId = patcherId;
+		this._isReady = false;
+	}
+
+	/**
+	 * @desc Have all of the parameters for the object been added yet
+	 * @readonly
+	 * @private
+	 * @type {boolean}
+	 */
+	get isReady() {
+		return this._isReady;
 	}
 
 	/**
@@ -67,6 +78,26 @@ class ObjectNode extends XebraNode {
 	}
 
 	// End of bound callbacks
+
+	addParam(param) {
+		super.addParam(param);
+
+		if (!this._isReady) {
+			let paramTypes = this.getParamTypes();
+			let isReady = true;
+			paramTypes.forEach((type) => {
+				if (!this._paramsNameLookup.has(type)) {
+					isReady = false;
+					return false;
+				}
+			});
+
+			if (isReady) {
+				this._isReady = true;
+				this.emit("object_initialized", this);
+			}
+		}
+	}
 }
 
 export default ObjectNode;

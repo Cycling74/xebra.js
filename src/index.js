@@ -293,7 +293,12 @@ class State extends EventEmitter {
 		 * @param {ObjectNode} object     The changed object
 		 * @param {ParamNode}  param      The parameter node
 		 */
-		this.emit("object_changed", object, param);
+		if (object.isReady) this.emit("object_changed", object, param);
+	}
+
+	_onNodeInitialized = (object) => {
+		this.emit("object_added", object);
+		object.removeListener("object_initialized", this._onNodeInitialized);
 	}
 
 	/**
@@ -419,7 +424,11 @@ class State extends EventEmitter {
 		 * @event State.object_added
 		 * @param {ObjectNode} object The added object
 		 */
-		this.emit("object_added", node);
+		if (node.isReady) {
+			this.emit("object_added", node);
+		} else {
+			node.on("object_initialized", this._onNodeInitialized);
+		}
 	}
 
 	/**
@@ -500,7 +509,7 @@ class State extends EventEmitter {
 		 * @event State.object_removed
 		 * @param {ObjectNode} object The removed object
 		 */
-		this.emit("object_removed", node);
+		if (node.isReady) this.emit("object_removed", node);
 	}
 
 	_destroyNode(node) {
