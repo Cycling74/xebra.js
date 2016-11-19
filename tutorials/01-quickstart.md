@@ -10,7 +10,7 @@ In this guide, we'll make a simple webpage with an HTML button for each Max butt
 
 Let's make a simple webpage to display all of the buttons contained in the Max patcher. To start, make a blank webpage with a container div:
 
-```
+```html
 <!-- index.html -->
 <!DOCTYPE html>
 <html>
@@ -25,7 +25,7 @@ Let's make a simple webpage to display all of the buttons contained in the Max p
 ```
 Now we need to include the xebra-state.js file, which has everything we need to connect to Max. Assuming the javascript file is in the same directory as the .html file, add the following `script` tag before the closing `body` tag to include the xebra-state.js file.
 
-```
+```html
 <script type="text/javascript" src="./xebra-state.js"></script>
 ```
 Finally, let's add some space to write our own simple script. All this script will do is create a new `<button>` element and add it to our webpage whenever a new `button` object is created in Max.
@@ -34,7 +34,7 @@ Finally, let's add some space to write our own simple script. All this script wi
 
 Add the following script to the `index.html` file, before the closing `body` tag but after the `script` tag that includes `xebra-state.js`:
 
-```
+```html
 <script type="text/javascript">
 	var xebraState;
 </script>
@@ -42,7 +42,7 @@ Add the following script to the `index.html` file, before the closing `body` tag
 
 All we've done here is create a variable to store our `Xebra State` object, which will represent our connection to a remote instance of Max. In order to create that object, we need to pass a dictionary of configuration options.
 
-```
+```html
 <script type="text/javascript">
 	var xebraState;
 	var options = {
@@ -57,7 +57,7 @@ In this object, `hostname` and `port` should be the ip address and port number o
 
 Next, we need to listen to events from the `xebraState` object so that we can do something when the Max patch adds or removes a button.
 
-```
+```html
 <script type="text/javascript">
 	...
 	xebraState = new Xebra.State(options);
@@ -79,7 +79,7 @@ The functions `addHTMLButton` and `removeHTMLButton` are functions that we're ab
 
 Now, let's write the functions `addHTMLButton` and `removeHTMLButton`
 
-```
+```html
 <script type="text/javascript">
 	...
 	function addHTMLButton(object) {
@@ -105,7 +105,7 @@ Each object has a property `id`, which is a unique number associated with each M
 
 We're almost done. The last thing to do is to call `connect` on `xebraState` to make the connection to the Max patch.
 
-```
+```html
 <script type="text/javascript">
 	...
 	xebraState.connect();
@@ -114,7 +114,7 @@ We're almost done. The last thing to do is to call `connect` on `xebraState` to 
 
 The full contents of `index.html` should look like this:
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
