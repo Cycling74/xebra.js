@@ -14,35 +14,19 @@
 		</div>
 		<script src="../../dist/xebra.js"></script>
 		<script src="../js/lib/dat.gui.min.js"></script>
+		<script src="./xebra.dat.gui.js"></script>
 		<script>
 
-			var gui;
+			var gui, xebraState;
 			var canvasConfig = {
 				message: "hello",
-				temperature: 0,
+				temperature: 32,
 				beAfraid: false,
 				explode: function() {console.log("Boom")}
 			};
 
-			function updateConfigFromMax(object, param) {
-				var target = canvasConfig[object.getParamValue("varname")];
-				if (typeof target === "boolean" && param.type === "value") {
-					canvasConfig[object.getParamValue("varname")] = param.value === 0 ? false : true;
-				} else if (typeof target === "string" && param.type === "textfield") {
-					canvasConfig[object.getParamValue("varname")] = param.value;
-				} else if (typeof target === "number" && param.type === "distance") {
-					canvasConfig[object.getParamValue("varname")] = param.value;
-				} else if (typeof target === "function" && param.type === "value") {
-					if (param.value !== 0) canvasConfig[object.getParamValue("varname")]();
-				}
-			}
-
 			function makeGui() {
 				gui = new dat.GUI();
-				gui.add(canvasConfig, 'message').listen();
-				gui.add(canvasConfig, 'temperature', 0, 100).listen();
-				gui.add(canvasConfig, 'beAfraid').listen();
-				gui.add(canvasConfig, 'explode');
 			}
 
 			function connectXebra() {
@@ -52,19 +36,28 @@
 				};
 				xebraState = new Xebra.State(options);
 
-				xebraState.on("object_changed", function(object, param) {
-					var scriptingName = object.getParamValue("varname");
-					if (scriptingName && canvasConfig.hasOwnProperty(scriptingName)) {
-						updateConfigFromMax(object, param);
-					}
-				});
+				// xebraState.on("object_changed", function(object, param) {
+				// 	var scriptingName = object.getParamValue("varname");
+				// 	if (scriptingName && canvasConfig.hasOwnProperty(scriptingName)) {
+				// 		updateConfigFromMax(object, param);
+				// 	}
+				// });
 
 				xebraState.connect();
+			}
+
+			function addControllersToGui() {
+				gui.add(canvasConfig, 'message');
+				gui.add(canvasConfig, 'temperature', 32, 212);
+				gui.add(canvasConfig, 'beAfraid');
+				gui.add(canvasConfig, 'explode');
 			}
 
 			window.onload = function() {
 				makeGui();
 				connectXebra();
+				bindGuiToXebra(gui, xebraState);
+				addControllersToGui();
 			}
 
 		</script>
