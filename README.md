@@ -61,25 +61,31 @@ sliderObj.setParamValue("distance", 72);
 ```
 will set the value of the `slider` object associated with `sliderObj` to `72`.
 
-For more examples, tutorials etc please check the examples folder and the tutorials in the documentation.
-// TODO: make PermaLink to these actually
+For more examples, tutorials etc please check the [examples folder](examples/README.md) and the tutorials in the documentation.
+// TODO: make PermaLink to docs
 
 ## Contribute
 
 You like the Xebra project and would like to contribute? Perfect! Please use the GitHub issue tracker in case you experience any bugs or get in touch for your feature requests or potential features you'd like to add. Please make sure to read our Contributing Guide before submitting any changes.
-// TODO: PermaLink to guide here
+
+[Contributing Guide](CONTRIBUTING.md)
 
 ## How To Build
 
 Note that most users won't need to do this and should rather use the pre-built versions or make use of xebra as a npm dependecy. However if you are developing xebra you might need to build.
 
-Xebra is written in ES6. Based on that the build process can either mean generating the ES5 versions to the `lib` folder or generating the bundled `xebra.js` and `xebra.min.js`files in the `dist` folder.
+Make sure you have Node.js and NPM installed and then in the cloned repository folder do the following to install all necessary dependencies:
+
+	npm install
+
+
+Xebra is written in ES6. Based on that the build process can either mean generating the ES5 versions to the `lib` folder or generating the bundled files in the `dist` folder.
 
 To do the former simply run a
 
 	npm run lib
 
-To generate the bundled versions please run
+To generate the bundled versions (`dist/xebra.js` and `dist/xebra.min.js`) please run
 
 	npm run build
 
@@ -96,4 +102,4 @@ Otherwise you can find the current docs conveniently hosted here:
 
 ## License
 
-TODO: Add PermaLink to LICENSE file here once we have a persistent URL on GitHub
+[MIT](LICENSE)
