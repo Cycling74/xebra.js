@@ -303,12 +303,6 @@ class PatcherNode extends ObjectNode {
 	 * @fires XebraState.object_added
 	 */
 	addObject(obj) {
-		// we add the object to the object list but don't directly assign it to a frame. This
-		// is due to the design of the protocol delivering objects without an initial state so we
-		// don't have the "patching_rect" from the beginning on. Ouch! Luckily this will be emitted
-		// as an "param_changed" event so the assignment will happen there as we need to redo it whenever
-		// the object is moved anyway.
-
 		this.addChild(obj.id, obj);
 
 		if (obj.type === "patcherview") {
@@ -317,6 +311,7 @@ class PatcherNode extends ObjectNode {
 			obj.on("destroy", this._onViewDestroy);
 		} else {
 			this._objects.add(obj.id);
+			this._assignObjectToFrames(obj);
 			obj.on("param_changed", this._onObjectChange);
 			obj.on("destroy", this._onObjectDestroy);
 
