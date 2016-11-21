@@ -427,7 +427,7 @@ class State extends EventEmitter {
 		if (node.isReady) {
 			this.emit("object_added", node);
 		} else {
-			node.on("object_initialized", this._onNodeInitialized);
+			node.once("object_initialized", this._onNodeInitialized);
 		}
 	}
 

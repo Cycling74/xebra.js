@@ -105,7 +105,7 @@ class FrameNode extends ObjectNode {
 		if (obj.isReady) {
 			this.emit("object_added", obj);
 		} else {
-			obj.on("object_initialized", this._onObjectInitialized);
+			obj.once("object_initialized", this._onObjectInitialized);
 		}
 	}
 
