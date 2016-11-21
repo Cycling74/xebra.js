@@ -296,9 +296,11 @@ class State extends EventEmitter {
 		if (object.isReady) this.emit("object_changed", object, param);
 	}
 
+	/**
+	 * @private
+	 */
 	_onNodeInitialized = (object) => {
 		this.emit("object_added", object);
-		object.removeListener("object_initialized", this._onNodeInitialized);
 	}
 
 	/**

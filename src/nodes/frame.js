@@ -61,9 +61,13 @@ class FrameNode extends ObjectNode {
 
 	// Bound callbacks using fat arrow notation
 
+	/**
+	 * @private
+	 * @fires XebraState.object_added
+	 * @param {ObjectNode} obj - The new object
+	 */
 	_onObjectInitialized = (obj) => {
 		this.emit("object_added", obj);
-		obj.removeListener("object_initialized", this._onObjectInitialized);
 	}
 
 	/**

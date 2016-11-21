@@ -88,8 +88,9 @@ class ObjectNode extends XebraNode {
 			paramTypes.forEach((type) => {
 				if (!this._paramsNameLookup.has(type)) {
 					isReady = false;
-					return false;
+					return false; // found a missing parameter, so stop
 				}
+				return true; // keep going
 			});
 
 			if (isReady) {

@@ -85,9 +85,13 @@ class PatcherNode extends ObjectNode {
 		this._scriptingNamesById.set(objectId, scriptingName);
 	}
 
+	/**
+	 * @private
+	 * @param {ObjectNode} obj - The new object
+	 * @fires PatcherNode.object_added
+	 */
 	_onObjectInitialized = (object) => {
 		this.emit("object_added", object);
-		object.removeListener("object_initialized", this._onObjectInitialized);
 	}
 
 	/**
