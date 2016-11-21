@@ -249,9 +249,9 @@ class State extends EventEmitter {
 	_onConnectionChange = (status) => {
 		/**
 		 * ConnectionState change event
-		 * @event State#connection_change
+		 * @event State#connection_changed
 		 */
-		this.emit("connection_change", status);
+		this.emit("connection_changed", status);
 	}
 
 	/**
