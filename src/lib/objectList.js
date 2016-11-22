@@ -453,3 +453,8 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"value"
 	])
 });
+
+export const OPTIONAL_OBJECT_PARAMETERS = Object.freeze({
+	[OBJECTS.LIVE_TAB] : ["pictures"]
+});
+

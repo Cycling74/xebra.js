@@ -57,7 +57,25 @@ class ObjectNode extends XebraNode {
 		 * @param {ObjectNode} object     This
 		 * @param {ParamNode}  param      The parameter node
 		 */
-		this.emit("param_changed", this, param);
+		if (!this._isReady) {
+			let paramTypes = this.getParamTypes();
+			let optionalParamTypes = this.getOptionalParamTypes();
+			let isReady = true;
+			for (let i=0; i<paramTypes.length; i++) {
+				const type = paramTypes[i];
+				if ((this.getParamValue(type) == null) && (optionalParamTypes.indexOf(type) === -1)) {
+					isReady = false;
+					break;
+				}
+			}
+
+			if (isReady) {
+				this._isReady = true;
+				this.emit("object_initialized", this);
+			}
+		} else {
+			this.emit("param_changed", this, param);
+		}
 	}
 
 	/**
@@ -78,27 +96,6 @@ class ObjectNode extends XebraNode {
 	}
 
 	// End of bound callbacks
-
-	addParam(param) {
-		super.addParam(param);
-
-		if (!this._isReady) {
-			let paramTypes = this.getParamTypes();
-			let isReady = true;
-			paramTypes.forEach((type) => {
-				if (!this._paramsNameLookup.has(type)) {
-					isReady = false;
-					return false; // found a missing parameter, so stop
-				}
-				return true; // keep going
-			});
-
-			if (isReady) {
-				this._isReady = true;
-				this.emit("object_initialized", this);
-			}
-		}
-	}
 }
 
 export default ObjectNode;

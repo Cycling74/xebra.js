@@ -134,7 +134,7 @@ export default (objClass) => class extends objClass {
 	}
 
 	/**
-	 * Adds the virtual displayvalue parameter to the paramtypes array
+	 * Adds the virtual displayvalue parameter to the paramTypes array
  	 * @ignore
  	 * @override
  	 * @memberof LiveDisplayValueMixin
@@ -142,5 +142,16 @@ export default (objClass) => class extends objClass {
 	 */
 	getParamTypes() {
 		return super.getParamTypes().concat("displayvalue");
+	}
+
+	/**
+	 * Adds the virtual displayvalue parameter to the optionalParamTypes array
+ 	 * @ignore
+ 	 * @override
+ 	 * @memberof LiveDisplayValueMixin
+ 	 * @instance
+	 */
+	getOptionalParamTypes() {
+		return super.getOptionalParamTypes().concat("displayvalue");
 	}
 };

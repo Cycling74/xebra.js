@@ -91,6 +91,7 @@ class PatcherNode extends ObjectNode {
 	 * @fires PatcherNode.object_added
 	 */
 	_onObjectInitialized = (object) => {
+		this._assignObjectToFrames(object);
 		this.emit("object_added", object);
 	}
 
@@ -130,22 +131,6 @@ class PatcherNode extends ObjectNode {
 	 */
 	_onObjectDestroy = (obj) => {
 		this.removeObject(obj.id);
-	}
-
-	/**
-	 * @private
-	 * @param {ParamNode} param - the changed parameter
-	 */
-	_onParamChange = (param) => {
-		this.emit("param_changed", this, param);
-	}
-
-	/**
-	 * @private
-	 * @param {ParamNode} param - the set parameter
-	 */
-	_onParamSet = (param) => {
-		this.emit("param_set", this, param);
 	}
 
 	/**
@@ -315,12 +300,12 @@ class PatcherNode extends ObjectNode {
 			obj.on("destroy", this._onViewDestroy);
 		} else {
 			this._objects.add(obj.id);
-			this._assignObjectToFrames(obj);
 			obj.on("param_changed", this._onObjectChange);
 			obj.on("destroy", this._onObjectDestroy);
 
 			if (obj.isReady) {
 				this.emit("object_added", obj);
+			this._assignObjectToFrames(obj);
 			} else {
 				obj.once("object_initialized", this._onObjectInitialized);
 			}
