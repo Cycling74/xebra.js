@@ -71,7 +71,7 @@ class ObjectNode extends XebraNode {
 
 			if (isReady) {
 				this._isReady = true;
-				this.emit("object_initialized", this);
+				this.emit("initialized", this);
 			}
 		} else {
 			this.emit("param_changed", this, param);
