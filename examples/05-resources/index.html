@@ -57,7 +57,7 @@
 				};
 				xebraState = new Xebra.State(options);
 
-				xebraState.on("connection_change", function(connectionState) {
+				xebraState.on("connection_changed", function(connectionState) {
 					if (connectionState === Xebra.CONNECTION_STATES.CONNECTED) {
 						if (imageResource) imageResource = null;
 						imageResource = xebraState.createResource();

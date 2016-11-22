@@ -51,10 +51,10 @@ var xebraState = new Xebra.State(options);
 xebraState.connect();
 ```
 
-As Xebra.State tries to connect to Max, it will emit "connection_change" events every time the connection state changes. You can listen to these events to be notified of when the connection succeeds, is resolving, fails or closes.
+As Xebra.State tries to connect to Max, it will emit "connection_changed" events every time the connection state changes. You can listen to these events to be notified of when the connection succeeds, is resolving, fails or closes.
 
 ```
-xebraState.on("connection_change", function (status) {
+xebraState.on("connection_changed", function (status) {
 	console.log("Connection status:", status);
 });
 ```
