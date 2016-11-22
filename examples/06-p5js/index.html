@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>p5.js and Xebra</title>
+	<style>
+		html, body {
+			margin: 0;
+		}
+	</style>
+	<script src="../../dist/xebra.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.min.js"></script>
+</head>
+<body>
+	<script>
+		function setup() {
+			connectXebra();
+			createCanvas(500, 500);
+			noStroke();
+		}
+
+		function draw() {
+
+		}
+
+		function connectXebra() {
+			var options = {
+				hostname : "127.0.0.1", // localhost
+				port : 8086,
+				supported_objects : Xebra.SUPPORTED_OBJECTS
+			};
+
+			var xebraState = new Xebra.State(options);
+
+			xebraState.on("frame_added", function(frame) {
+				debugger;
+				console.log(frame.getParamValue("patching_rect"));
+				console.log(frame.getParamValue("presentation_rect"));
+			});
+
+			// Do something when a slider gets added to the Max patcher
+			xebraState.on("object_added", function(object) {
+				if (object.type === "button") {
+					fill(random(255), 200, 200);
+					ellipse(random(width), random(height), 50, 50);
+				}
+			});
+
+			// Do something when a slider is removed
+			xebraState.on("object_removed", function(object) {
+				console.log('object removed!');
+			});
+
+			xebraState.on("object_changed", function(object, type, value) {
+				console.log('object changed!');
+			});
+
+			xebraState.connect();
+		}
+	</script>
+</body>
+</html>
