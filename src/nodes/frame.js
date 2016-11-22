@@ -109,7 +109,7 @@ class FrameNode extends ObjectNode {
 		if (obj.isReady) {
 			this.emit("object_added", obj);
 		} else {
-			obj.once("object_initialized", this._onObjectInitialized);
+			obj.once("initialized", this._onObjectInitialized);
 		}
 	}
 
@@ -190,9 +190,9 @@ class FrameNode extends ObjectNode {
 			// make sure to clean up attached event listeners
 			obj.removeListener("param_changed", this._onObjectChange);
 			obj.removeListener("destroy", this._onObjectDestroy);
-			obj.removeListener("object_initialized", this._onObjectInitialized);
+			obj.removeListener("initialized", this._onObjectInitialized);
 
-			this.emit("object_removed", obj);
+			if (obj.isReady) this.emit("object_removed", obj);
 		}
 	}
 }

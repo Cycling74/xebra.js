@@ -275,7 +275,7 @@ class State extends EventEmitter {
 			 * @param {FrameNode}				frame     The changed frame
 			 * @param {ParamNode}		param      The parameter node
 			 */
-			this.emit("frame_changed", object, param);
+			if (object.isReady) this.emit("frame_changed", object, param);
 		}
 		if (object.type === OBJECTS.PATCHER) {
 			/**
@@ -284,7 +284,7 @@ class State extends EventEmitter {
 			 * @param {PatcherNode}    patcher    The changed patcher
 			 * @param {ParamNode}  param      The parameter node
 			 */
-			this.emit("patcher_changed", object, param);
+			if (object.isReady) this.emit("patcher_changed", object, param);
 		}
 
 		/**
@@ -301,6 +301,20 @@ class State extends EventEmitter {
 	 */
 	_onNodeInitialized = (object) => {
 		this.emit("object_added", object);
+	}
+
+	/**
+	 * @private
+	 */
+	_onFrameInitialized = (frame) => {
+		this.emit("frame_added", frame);
+	}
+
+	/**
+	 * @private
+	 */
+	_onPatcherInitialized = (patcher) => {
+		this.emit("patcher_added", patcher);
 	}
 
 	/**
@@ -399,7 +413,11 @@ class State extends EventEmitter {
 			 * @event State.patcher_added
 			 * @param {PatcherNode} object The added patcher
 			 */
-			this.emit("patcher_added", node);
+			if (node.isReady) {
+				this.emit("patcher_added", node);
+			} else {
+				node.once("initialized", this._onPatcherInitialized);
+			}
 
 		} else if (data.type === OBJECTS.MIRA_FRAME) {
 			const parentPatcher = this._getPatcher(data.parent_id);
@@ -410,7 +428,11 @@ class State extends EventEmitter {
 			 * @event State.frame_added
 			 * @param {FrameNode} object The added frame
 			 */
-			this.emit("frame_added", node);
+			if (node.isReady) {
+				this.emit("frame_added", node);
+			} else {
+				node.once("initialized", this._onFrameInitialized);
+			}
 
 		} else { // object node
 			const parentPatcher = this._getPatcher(data.parent_id);
@@ -429,7 +451,7 @@ class State extends EventEmitter {
 		if (node.isReady) {
 			this.emit("object_added", node);
 		} else {
-			node.once("object_initialized", this._onNodeInitialized);
+			node.once("initialized", this._onNodeInitialized);
 		}
 	}
 
@@ -489,7 +511,7 @@ class State extends EventEmitter {
 			 * @event State.frame_removed
 			 * @param {FrameNode} object The removed frame
 			 */
-			this.emit("frame_removed", node);
+			if (node.isReady) this.emit("frame_removed", node);
 		} else if (node.type === OBJECTS.PATCHER) {
 
 			/**
@@ -497,7 +519,7 @@ class State extends EventEmitter {
 			 * @event State.patcher_removed
 			 * @param {PatcherNode} object The removed patcher
 			 */
-			this.emit("patcher_removed", node);
+			if (node.isReady) this.emit("patcher_removed", node);
 		} else {
 			if (parentPatcher) parentPatcher.removeObject(node.id);
 		}

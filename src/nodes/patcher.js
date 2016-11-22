@@ -52,7 +52,15 @@ class PatcherNode extends ObjectNode {
 		 * @param {FrameNode} frame - The changed frame
 		 * @param {ParamNode} param - The parameter node
 		 */
-		this.emit("frame_changed", frame, param);
+		if (frame.isReady) this.emit("frame_changed", frame, param);
+	}
+
+	/**
+	 * @private
+	 * @param {FrameNode} frame - the initialized frame
+	 */
+	_onFrameInitialized = (frame) => {
+		this.emit("frame_added", frame);
 	}
 
 	/**
@@ -280,7 +288,11 @@ class PatcherNode extends ObjectNode {
 		frame.on("param_changed", this._onFrameChange);
 		frame.on("viewmode_change", this._onFrameViewModeChange);
 
-		this.emit("frame_added", frame);
+		if (frame.isReady) {
+			this.emit("frame_added", frame);
+		} else {
+			frame.once("initialized", this._onFrameInitialized);
+		}
 	}
 
 	/**
@@ -307,7 +319,7 @@ class PatcherNode extends ObjectNode {
 				this.emit("object_added", obj);
 			this._assignObjectToFrames(obj);
 			} else {
-				obj.once("object_initialized", this._onObjectInitialized);
+				obj.once("initialized", this._onObjectInitialized);
 			}
 		}
 	}
@@ -384,8 +396,9 @@ class PatcherNode extends ObjectNode {
 			// make sure to clean up attached event listeners
 			frame.removeListener("param_changed", this._onFrameChange);
 			frame.removeListener("viewmode_change", this._onFrameViewModeChange);
+			frame.removeListener("initialized", this._onFrameInitialized);
 
-			this.emit("frame_removed", frame);
+			if (frame.isReady) this.emit("frame_removed", frame);
 		}
 	}
 
@@ -406,7 +419,7 @@ class PatcherNode extends ObjectNode {
 			// make sure to clean up attached event listeners
 			obj.removeListener("param_changed", this._onObjectChange);
 			obj.removeListener("destroy", this._onObjectDestroy);
-			obj.removeListener("object_initialized", this._onObjectInitialized);
+			obj.removeListener("initialized", this._onObjectInitialized);
 
 			if (obj.isReady) this.emit("object_removed", obj);
 		}
