@@ -33,7 +33,6 @@
 			var xebraState = new Xebra.State(options);
 
 			xebraState.on("frame_added", function(frame) {
-				debugger;
 				console.log(frame.getParamValue("patching_rect"));
 				console.log(frame.getParamValue("presentation_rect"));
 			});

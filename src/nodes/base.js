@@ -1,5 +1,5 @@
 import { EventEmitter } from "events";
-import { OBJECT_PARAMETERS, OPTIONAL_OBJECT_PARAMETERS } from "../lib/objectList.js";
+import { OBJECT_PARAMETERS, OPTIONAL_OBJECT_PARAMETERS, MANDATORY_OBJECTS } from "../lib/objectList.js";
 
 
 /**
@@ -188,7 +188,10 @@ class XebraNode extends EventEmitter {
 	 * @return {string[]}
 	 */
 	getParamTypes() {
-		return Object.freeze(OBJECT_PARAMETERS[this.type] || []);
+		if (OBJECT_PARAMETERS.hasOwnProperty(this.type)) {
+			return Object.freeze(OBJECT_PARAMETERS[this.type] || []);
+		}
+		return Object.freeze(MANDATORY_OBJECTS[this.type] || []);
 	}
 
 	/**
