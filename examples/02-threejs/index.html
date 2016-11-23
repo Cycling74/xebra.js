@@ -10,56 +10,109 @@
 	</head>
 	<body>
 		<script src="../../dist/xebra.js"></script>
+		<script src="./resources.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
-		<script src="./TrackballControls.js"></script>
 		<script>
 			
-			// Basic idea: Whenever you add a slider to Max, add a cube to three. The color of the slider controls the color of the cube.
-			// The value of the slider controls the... speed at which the cube rotates?
-			var camera, controls, scene, container;
+			var camera, scene, container;
+			var rockTexture, rockNormals;
 			var WIDTH = window.innerWidth, HEIGHT = window.innerHeight;
 			var cubes = {};
-			var cube_rotations = {};
+			var miraFrame;
+			var maxObjectTextures = {};
 
 			function addBox(object) {
 				var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-				var material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+				var material = new THREE.MeshPhongMaterial({
+					color: 0xffffff,
+					map: maxObjectTextures[object.type].texture,
+					normalMap: maxObjectTextures[object.type].normals,
+					specular: 0xffffff,
+					shininess: 2,
+					shading: THREE.SmoothShading
+				});
 				var cube = new THREE.Mesh( geometry, material );
 
 				cubes[object.id] = cube;
-				cube_rotations[object.id] = 0;
 				updateBox(object);
-
-				scene.add( cube );
+				scene.add(cube);
 			}
 
-			function updateBox(object, type, value) {
+			function updateBox(object) {
 				var mesh = cubes[object.id];
-				switch (type) {
-					case "elementcolor":
-						mesh.material.color = new THREE.Color(value[0], value[1], value[2]);
-						break;
-					case "patching_rect":
-						mesh.scale.set(value[2] / 100, value[3] / 100, 1);
-						mesh.position.set(value[0] / 100, value[1] / 100, 0);
-						break;
-					case "distance":
-						console.log(value);
-						break;
-				}
+				var maxObjectRect;
+				var relX, relY, relWidth, relHeight;
+				var frameWidth, frameHeight;
+				var screenWidth = renderer.getSize().width, screenHeight = renderer.getSize().height;
+				var magicScale = 0.0021;
+				var relDistance;
+				var color = object.getParamValue("bgcolor");
+
+				mesh.material.color = new THREE.Color(color[0], color[1], color[2]);
+				maxObjectRect = miraFrame.getRelativeRect(object);
+				frameWidth = miraFrame.getParamValue("patching_rect")[2];
+				frameHeight = miraFrame.getParamValue("patching_rect")[3];
+				relWidth = 2 * maxObjectRect[2] / frameWidth;
+				relHeight = 2 * maxObjectRect[3] / frameHeight;
+				relX = ((maxObjectRect[0] / frameWidth) - 0.5) * 2 + relWidth/2;
+				relY = ((1.0 - maxObjectRect[1] / frameHeight) - 0.5) * 2 - relHeight/2;
+				relDistance = object.getParamValue("distance") / object.getParamValue("size");
+
+				mesh.scale.set(relWidth * screenWidth * magicScale, relHeight * screenHeight * magicScale, 1);
+				mesh.position.set(relX * screenWidth * magicScale, relY * screenHeight * magicScale, - relDistance * 5);
+			}
+
+			function updateAllBoxes() {
+				miraFrame.getObjects().forEach(function(object) {
+					if (maxObjectTextures.hasOwnProperty(object.type)) updateBox(object);
+				});
 			}
 
 			function removeBox(object) {
 				scene.remove(cubes[object.id]);
 				delete cubes[object.id];
-				delete cube_rotations[object.id];
+			}
+
+			function createTextureFromUri(uri) {
+				var image = document.createElement('img');
+				var texture = new THREE.Texture(image);
+				image.onload = function()  {
+						texture.needsUpdate = true;
+				};
+				image.src = uri;
+				return texture;
 			}
 
 			function initializeScene() {
 				camera = new THREE.PerspectiveCamera( 40, WIDTH / HEIGHT, 1, 10000 );
 				camera.position.set( 0, 0, 5 );
-				controls = new THREE.TrackballControls( camera );
 				scene = new THREE.Scene();
+
+				var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+				directionalLight.position.set( 1, 1, 1 );
+				scene.add( directionalLight );
+
+				var sphere = new THREE.SphereGeometry( 0.025, 16, 16 );
+				var light1 = new THREE.PointLight( 0xffffdd, 1.0, 50 );
+				light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xffffdd } ) ) );
+				scene.add( light1 );
+
+				var textureLoader = new THREE.TextureLoader();
+				brickTexture = createTextureFromUri(resourcesBrickTextureData);
+				brickNormals = createTextureFromUri(resourcesBrickNormalsData);
+				rockTexture = createTextureFromUri(resourcesStoneTextureData);
+				rockNormals = createTextureFromUri(resourcesStoneNormalsData);
+
+				maxObjectTextures = {
+					slider: {
+						texture: brickTexture,
+						normals: brickNormals
+					},
+					dial: {
+						texture: rockTexture,
+						normals: rockNormals
+					}
+				};
 
 				container = document.createElement('div');
 				document.body.appendChild(container);
@@ -76,6 +129,28 @@
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
 				renderer.setSize( window.innerWidth, window.innerHeight );
+				updateAllBoxes();
+			}
+
+			function bindFrame(frame) {
+				miraFrame = frame;
+				frame.on("object_added", function(object) {
+					if (maxObjectTextures.hasOwnProperty(object.type)) addBox(object);
+				});
+
+				frame.on("object_removed", function(object) {
+					if (maxObjectTextures.hasOwnProperty(object.type)) removeBox(object);
+				});
+
+				frame.on("object_changed", function(object, param) {
+					if (maxObjectTextures.hasOwnProperty(object.type)) updateBox(object);
+				});
+
+				frame.on("param_changed", function(object, param) {
+					if (["patching_rect", "presentation_rect", "presentation"].indexOf(param.type) >= 0) {
+						updateAllBoxes();
+					}
+				});
 			}
 
 			function connectXebra() {
@@ -87,18 +162,9 @@
 
 				var xebraState = new Xebra.State(options);
 
-				// Do something when a slider gets added to the Max patcher
-				xebraState.on("object_added", function(object) {
-					if (object.type === "slider") addBox(object);
-				});
-
-				// Do something when a slider is removed
-				xebraState.on("object_removed", function(object) {
-					if (object.type === "slider") removeBox(object);
-				});
-
-				xebraState.on("object_changed", function(object, type, value) {
-					if (object.type === "slider") updateBox(object, type, value);
+				// Bind to the first mira.frame object that gets added
+				xebraState.once("frame_added", function(frame) {
+					bindFrame(frame);
 				});
 
 				xebraState.connect();

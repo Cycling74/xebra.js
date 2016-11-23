@@ -167,6 +167,18 @@ class FrameNode extends ObjectNode {
 	}
 
 	/**
+	 * Returns the frame of the object relative the the frame, in the current view mode, or null if the object is not in the frame
+	 * @return {Xebra.PatchingRect|null} Relative object frame.
+	 */
+	getRelativeRect(object) {
+		if (!this.containsObject(object.id)) return null;
+		const viewMode = this.viewMode;
+		const objectRect = object.getParamValue(viewMode === VIEW_MODES.PATCHING ? "patching_rect" : "presentation_rect");
+		const thisRect = this.getParamValue(viewMode === VIEW_MODES.PATCHING ? "patching_rect" : "presentation_rect");
+		return [objectRect[0] - thisRect[0], objectRect[1] - thisRect[1], objectRect[2], objectRect[3]];
+	}
+
+	/**
 	 * Check whether the current view mode is linked
 	 * @return {boolean} Whether the frame defers to Max for it's viewMode or not
 	 */
