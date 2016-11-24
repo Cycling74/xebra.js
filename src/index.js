@@ -711,6 +711,16 @@ class State extends EventEmitter {
 		});
 		return retVal;
 	}
+		/**
+		 * Returns the object speficied by the given id
+		 * @param {Xebra.Node} id - The id of the object
+		 * @return {ObjectNode|null} the object or null if not known
+		*/
+	getObjectById(id) {
+		const node = this._state.get(id);
+		if (!node || !(node instanceof ObjectNode)) return null;
+		return node;
+	}
 }
 
 export { State };
