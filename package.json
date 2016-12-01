@@ -7,7 +7,8 @@
 		"Florian Demmer <florian@cycling74.com>",
 		"Sam Tarakajian <sam@cycling74.com>",
 		"Jeremy Bernstein <jeremy@cycling74.com>",
-		"Ben Bracken <ben@cycling74.com>"
+		"Ben Bracken <florian@cycling74.com>",
+		"Cassie Tarakajian <cassie@cycling74.com>"
 	],
 	"main" : "lib/index.js",
 	"homepage" : "http://cycling74.com",
