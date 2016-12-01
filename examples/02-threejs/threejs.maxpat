@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 34.0, 79.0, 1372.0, 783.0 ],
+		"rect" : [ 779.0, 212.0, 1372.0, 783.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -136,7 +136,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 549.900024, 480.799988, 99.0, 22.0 ],
-					"restore" : [ 51 ],
+					"restore" : [ 0 ],
 					"saved_object_attributes" : 					{
 						"parameter_enable" : 0
 					}
@@ -224,7 +224,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 440.0, 480.799988, 99.0, 22.0 ],
-					"restore" : [ 36 ],
+					"restore" : [ 121 ],
 					"saved_object_attributes" : 					{
 						"parameter_enable" : 0
 					}
@@ -309,7 +309,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 997.0, 257.799988, 86.0, 35.0 ],
-					"restore" : [ 30 ],
+					"restore" : [ 25 ],
 					"saved_object_attributes" : 					{
 						"parameter_enable" : 0
 					}
@@ -380,7 +380,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 882.0, 257.799988, 99.0, 22.0 ],
-					"restore" : [ 0 ],
+					"restore" : [ 83 ],
 					"saved_object_attributes" : 					{
 						"parameter_enable" : 0
 					}
@@ -451,7 +451,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 767.0, 257.799988, 99.0, 22.0 ],
-					"restore" : [ 31 ],
+					"restore" : [ 126 ],
 					"saved_object_attributes" : 					{
 						"parameter_enable" : 0
 					}
@@ -522,7 +522,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 652.0, 257.799988, 99.0, 22.0 ],
-					"restore" : [ 95 ],
+					"restore" : [ 102 ],
 					"saved_object_attributes" : 					{
 						"parameter_enable" : 0
 					}
@@ -593,7 +593,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 537.0, 257.799988, 99.0, 22.0 ],
-					"restore" : [ 126 ],
+					"restore" : [ 37 ],
 					"saved_object_attributes" : 					{
 						"parameter_enable" : 0
 					}
@@ -664,7 +664,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 422.0, 257.799988, 99.0, 22.0 ],
-					"restore" : [ 96 ],
+					"restore" : [ 0 ],
 					"saved_object_attributes" : 					{
 						"parameter_enable" : 0
 					}
@@ -827,7 +827,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 248.649994, 156.299988, 46.5, 46.5 ],
+					"patching_rect" : [ 238.399994, 160.549988, 46.5, 46.5 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "dial",
