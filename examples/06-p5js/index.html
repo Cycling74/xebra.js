@@ -1,134 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>p5.js and Xebra</title>
-	<style>
-		html, body {
-			margin: 0;
-		}
-	</style>
-	<script src="../../dist/xebra.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.min.js"></script>
+  <meta charset="UTF-8">
+  <title>p5.js and Xebra</title>
+  <style>
+    html, body {
+      margin: 0;
+    }
+  </style>
+  <script src="../../dist/xebra.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.min.js"></script>
+  <script src="../js/lib/boid.js"></script>
 </head>
 <body>
-	<script>
-		function setup() {
-			connectXebra();
-			createCanvas(500, 500);
-			noStroke();
-		}
+  <script>
+    var boids = [];
+    var sketchFrame;
+    var frameRect;
+    var scaleSketch = 1.5;
 
-		function draw() {
+    function setup() {
+      connectXebra();
+      frameRate(30);
+    }
 
-		}
+    function draw() {
+      background(51);
+      for (var i = 0; i < boids.length; i++) {
+        boids[i].run(boids);
 
-		function connectXebra() {
-			var options = {
-				hostname : "127.0.0.1", // localhost
-				port : 8086,
-				supported_objects : Xebra.SUPPORTED_OBJECTS
-			};
-			const scale = 1.5;
+        //set position of connected button
+        var object = sketchFrame.getObject(boids[i].id);
+        var xPos = frameRect[0] + boids[i].position.x/scaleSketch;
+        var yPos = frameRect[1] + boids[i].position.y/scaleSketch;
 
-			var xebraState = new Xebra.State(options);
-			let frameRect;
-			let viewMode;
+        var buttonRect;
+        if (sketchFrame.viewMode === Xebra.VIEW_MODES.PRESENTATION) {
+          buttonRect = object.getParamValue("presentation_rect");
+          object.setParamValue("presentation_rect",[xPos - buttonRect[2]/2, yPos - buttonRect[3]/2, buttonRect[2], buttonRect[3]]);
+        } else {
+          buttonRect = object.getParamValue("patching_rect");
+          object.setParamValue("patching_rect",[xPos - buttonRect[2]/2, yPos - buttonRect[3]/2, buttonRect[2], buttonRect[3]]);
+        }
+      }
+    }
 
-			xebraState.on("frame_added", function(frame) {
-				if (frame.viewMode === Xebra.VIEW_MODES.PRESENTATION) {
-					frameRect = frame.getParamValue("presentation_rect"); 
-				} else {
-					frameRect = frame.getParamValue("patching_rect");
-				}
-				viewMode = frame.viewMode;
-				createCanvas(frameRect[2]*scale, frameRect[3]*scale);
-				background(240);
-			});
+    function connectXebra() {
+      var options = {
+        hostname : "127.0.0.1", // localhost
+        port : 8086,
+        supported_objects : Xebra.SUPPORTED_OBJECTS
+      };
 
-			// Do something when a slider gets added to the Max patcher
-			xebraState.on("object_added", function(object) {
-				if (object.type === "button") {
-					let buttonRect;
-					if (viewMode === Xebra.VIEW_MODES.PRESENTATION) {
-						buttonRect = object.getParamValue("presentation_rect");
-					} else {
-						buttonRect = object.getParamValue("patching_rect");
-					}
-					const xPos = buttonRect[0] - frameRect[0] + buttonRect[2]/2;
-					const yPos = buttonRect[1] - frameRect[1] + buttonRect[3]/2;
-					fill(random(255), 200, 200);
-					ellipse(xPos*scale, yPos*scale, 20, 20);
-					setInterval(function() {
-						console.log(buttonRect);
-						//drunk walk
-						let newXPos;
-						let newYPos;
-						const direction = Math.floor(random(8));
-						const step = 10;
-						switch (direction) {
-							case 0:
-								newXPos = buttonRect[0] - step;
-								newYPos = buttonRect[1];
-								break;
-							case 1:
-								newXPos = buttonRect[0] - step;
-								newYPos = buttonRect[1] + step;
-								break;
-							case 2:
-								newXPos = buttonRect[0];
-								newYPos = buttonRect[1] + step;
-								break;
-							case 3:
-								newXPos = buttonRect[0] + step;
-								newYPos = buttonRect[1] + step;
-								break;
-							case 4:
-								newXPos = buttonRect[0] + step;
-								newYPos = buttonRect[1];
-								break;
-							case 5:
-								newXPos = buttonRect[0] + step;
-								newYPos = buttonRect[1] - step;
-								break;
-							case 6:
-								newXPos = buttonRect[0];
-								newYPos = buttonRect[1] - step;
-								break;
-							case 7:
-								newXPos = buttonRect[0] - step;
-								newYPos = buttonRect[1] - step;
-								break;
-						}
-						buttonRect = [newXPos, newYPos, buttonRect[2], buttonRect[3]];
-						object.setParamValue("patching_rect", buttonRect);
-					}.bind(this), 500);
-				}
-			});
+      var xebraState = new Xebra.State(options);
 
-			// Do something when a slider is removed
-			xebraState.on("object_removed", function(object) {
-				console.log('object removed!');
-			});
+      xebraState.on("frame_added", function(frame) {
+        sketchFrame = frame;
+        if (frame.viewMode === Xebra.VIEW_MODES.PRESENTATION) {
+          frameRect = frame.getParamValue("presentation_rect"); 
+        } else {
+          frameRect = frame.getParamValue("patching_rect");
+        }
+        createCanvas(frameRect[2]*scaleSketch, frameRect[3]*scaleSketch);
+        background(51);
+      });
 
-			xebraState.on("object_changed", function(object, type, value) {
-				if (object.type === "button") {
-					console.log("object changed");
-					let buttonRect;
-					if (viewMode === Xebra.VIEW_MODES.PRESENTATION) {
-						buttonRect = object.getParamValue("presentation_rect");
-					} else {
-						buttonRect = object.getParamValue("patching_rect");
-					}
-					const xPos = buttonRect[0] - frameRect[0] + buttonRect[2]/2;
-					const yPos = buttonRect[1] - frameRect[1] + buttonRect[3]/2;
-					fill(random(255), 200, 200);
-					ellipse(xPos*scale, yPos*scale, 20, 20);
-				}
-			});
+      xebraState.on("object_added", function(object) {
+        if (object.type === "button") {
+          boids.push(new Boid(random(width), random(height), object._id));
+        }
+      });
 
-			xebraState.connect();
-		}
-	</script>
+      // Do something when a slider is removed
+      xebraState.on("object_removed", function(object) {
+        console.log('object removed!');
+      });
+
+      xebraState.on("object_changed", function(object, type, value) {
+        if (object.type === "button") {
+          // console.log('button changed!');
+        }
+      });
+
+      xebraState.connect();
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>p5.js and Xebra</title>
+	<style>
+		html, body {
+			margin: 0;
+		}
+	</style>
+	<script src="../../dist/xebra.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.min.js"></script>
+</head>
+<body>
+	<script>
+
+		function setup() {
+			connectXebra();
+			createCanvas(500, 500);
+			noStroke();
+		}
+
+		function draw() {
+
+		}
+
+		function connectXebra() {
+			var options = {
+				hostname : "127.0.0.1", // localhost
+				port : 8086,
+				supported_objects : Xebra.SUPPORTED_OBJECTS
+			};
+			const scale = 1.5;
+
+			var xebraState = new Xebra.State(options);
+			let frameRect;
+			let viewMode;
+
+			xebraState.on("frame_added", function(frame) {
+				if (frame.viewMode === Xebra.VIEW_MODES.PRESENTATION) {
+					frameRect = frame.getParamValue("presentation_rect"); 
+				} else {
+					frameRect = frame.getParamValue("patching_rect");
+				}
+				viewMode = frame.viewMode;
+				createCanvas(frameRect[2]*scale, frameRect[3]*scale);
+				background(240);
+			});
+
+			// Do something when a slider gets added to the Max patcher
+			xebraState.on("object_added", function(object) {
+				if (object.type === "button") {
+					let buttonRect;
+					if (viewMode === Xebra.VIEW_MODES.PRESENTATION) {
+						buttonRect = object.getParamValue("presentation_rect");
+					} else {
+						buttonRect = object.getParamValue("patching_rect");
+					}
+					const xPos = buttonRect[0] - frameRect[0] + buttonRect[2]/2;
+					const yPos = buttonRect[1] - frameRect[1] + buttonRect[3]/2;
+					fill(random(255), 200, 200);
+					ellipse(xPos*scale, yPos*scale, 20, 20);
+					setInterval(function() {
+						console.log(buttonRect);
+						//drunk walk
+						let newXPos;
+						let newYPos;
+						const direction = Math.floor(random(8));
+						const step = 5;
+						switch (direction) {
+							case 0:
+								newXPos = buttonRect[0] - step;
+								newYPos = buttonRect[1];
+								break;
+							case 1:
+								newXPos = buttonRect[0] - step;
+								newYPos = buttonRect[1] + step;
+								break;
+							case 2:
+								newXPos = buttonRect[0];
+								newYPos = buttonRect[1] + step;
+								break;
+							case 3:
+								newXPos = buttonRect[0] + step;
+								newYPos = buttonRect[1] + step;
+								break;
+							case 4:
+								newXPos = buttonRect[0] + step;
+								newYPos = buttonRect[1];
+								break;
+							case 5:
+								newXPos = buttonRect[0] + step;
+								newYPos = buttonRect[1] - step;
+								break;
+							case 6:
+								newXPos = buttonRect[0];
+								newYPos = buttonRect[1] - step;
+								break;
+							case 7:
+								newXPos = buttonRect[0] - step;
+								newYPos = buttonRect[1] - step;
+								break;
+						}
+						if (newXPos - frameRect[0] < 0) {
+							newXPos = frameRect[0];
+						}
+						if (newXPos - frameRect[0] > width/scale) {
+							newXPos = frameRect[0] + width/scale;
+						}
+						if (newYPos - frameRect[1] < 0) {
+							newYPos = frameRect[1];
+						}
+						if (newYPos - frameRect[1] > height/scale) {
+							newYpos = frameRect[1] + height/scale;
+						}
+						buttonRect = [newXPos, newYPos, buttonRect[2], buttonRect[3]];
+						object.setParamValue("patching_rect", buttonRect);
+						const xPos = newXPos - frameRect[0] + buttonRect[2]/2;
+						const yPos = newYPos - frameRect[1] + buttonRect[3]/2;
+						fill(random(255), 200, 200);
+						ellipse(xPos*scale, yPos*scale, 20, 20);
+					}.bind(this), 500);
+				}
+			});
+
+			// Do something when a slider is removed
+			xebraState.on("object_removed", function(object) {
+				console.log('object removed!');
+			});
+
+			xebraState.on("object_changed", function(object, type, value) {
+				if (object.type === "button") {
+					console.log("object changed");
+					let buttonRect;
+					if (viewMode === Xebra.VIEW_MODES.PRESENTATION) {
+						buttonRect = object.getParamValue("presentation_rect");
+					} else {
+						buttonRect = object.getParamValue("patching_rect");
+					}
+					const xPos = buttonRect[0] - frameRect[0] + buttonRect[2]/2;
+					const yPos = buttonRect[1] - frameRect[1] + buttonRect[3]/2;
+					fill(random(255), 200, 200);
+					ellipse(xPos*scale, yPos*scale, 20, 20);
+				}
+			});
+
+			xebraState.connect();
+		}
+	</script>
+</body>
+</html>
