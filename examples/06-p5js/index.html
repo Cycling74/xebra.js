@@ -57,7 +57,6 @@
       var xebraState = new Xebra.State(options);
 
       xebraState.on("frame_added", function(frame) {
-        console.log("frame added");
         sketchFrame = frame;
         if (frame.viewMode === Xebra.VIEW_MODES.PRESENTATION) {
           frameRect = frame.getParamValue("presentation_rect"); 
