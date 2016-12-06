@@ -18,6 +18,8 @@
     var sketchFrame;
     var frameRect;
     var scaleSketch = 1.5;
+    var multisliderX;
+    var multisliderY;
 
     function setup() {
       connectXebra();
@@ -26,22 +28,22 @@
 
     function draw() {
       background(51);
-      for (var i = 0; i < boids.length; i++) {
-        boids[i].run(boids);
+      if (sketchFrame) {
+        var distanceX = [];
+        var distanceY = [];
+        for (var i = 0; i < boids.length; i++) {
+          boids[i].run(boids);
 
-        //set position of connected button
-        var object = sketchFrame.getObject(boids[i].id);
-        var xPos = frameRect[0] + boids[i].position.x/scaleSketch;
-        var yPos = frameRect[1] + boids[i].position.y/scaleSketch;
-
-        var buttonRect;
-        if (sketchFrame.viewMode === Xebra.VIEW_MODES.PRESENTATION) {
-          buttonRect = object.getParamValue("presentation_rect");
-          object.setParamValue("presentation_rect",[xPos - buttonRect[2]/2, yPos - buttonRect[3]/2, buttonRect[2], buttonRect[3]]);
-        } else {
-          buttonRect = object.getParamValue("patching_rect");
-          object.setParamValue("patching_rect",[xPos - buttonRect[2]/2, yPos - buttonRect[3]/2, buttonRect[2], buttonRect[3]]);
+          //get position of boids to set multislider value
+          var xPos = boids[i].position.x/width;
+          var yPos = boids[i].position.y/height;
+          distanceX.push(xPos);
+          distanceY.push(yPos);
         }
+        var multisliderXObject = sketchFrame.getObject(multisliderX);
+        multisliderXObject.setParamValue("distance", distanceX);
+        var multisliderYObject = sketchFrame.getObject(multisliderY);
+        multisliderYObject.setParamValue("distance", distanceY);
       }
     }
 
@@ -55,6 +57,7 @@
       var xebraState = new Xebra.State(options);
 
       xebraState.on("frame_added", function(frame) {
+        console.log("frame added");
         sketchFrame = frame;
         if (frame.viewMode === Xebra.VIEW_MODES.PRESENTATION) {
           frameRect = frame.getParamValue("presentation_rect"); 
@@ -66,19 +69,14 @@
       });
 
       xebraState.on("object_added", function(object) {
-        if (object.type === "button") {
-          boids.push(new Boid(random(width), random(height), object._id));
-        }
-      });
-
-      // Do something when a slider is removed
-      xebraState.on("object_removed", function(object) {
-        console.log('object removed!');
-      });
-
-      xebraState.on("object_changed", function(object, type, value) {
-        if (object.type === "button") {
-          // console.log('button changed!');
+        if (object.getParamValue("varname") === "multisliderX") {
+          multisliderX = object._id;
+          var size = object.getParamValue("size");
+          for (var i = 0; i < size; i++) {
+            boids.push(new Boid(random(width), random(height)));
+          }
+        } else if (object.getParamValue("varname") === "multisliderY") {
+          multisliderY = object._id;
         }
       });
 

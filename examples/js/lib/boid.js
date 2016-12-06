@@ -1,13 +1,12 @@
-// Boid class by Daniel Shiffman, modified
+// Boid class by Daniel Shiffman
 // Methods for Separation, Cohesion, Alignment added
-function Boid(x, y, id) {
+function Boid(x, y) {
   this.acceleration = createVector(0, 0);
   this.velocity = p5.Vector.random2D();
   this.position = createVector(x, y);
   this.r = 8.0;
   this.maxspeed = 3;    // Maximum speed
   this.maxforce = 0.05; // Maximum steering force
-  this.id = id;
 }
 
 Boid.prototype.run = function(boids) {
