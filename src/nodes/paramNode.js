@@ -145,7 +145,9 @@ class ParamNode extends XebraNode {
 	}
 
 	/**
-	 * The current value of this parameter. Setting the value will trigger an update in Max, if connected
+	 * The current value of this parameter. Setting the value will trigger an update in Max, if connected.
+	 * This will not cause an ObjectNode.param_changed event to fire, however, since this is only fired
+	 * on changes that come from Max.
 	 * @type {Xebra.ParamValueType}
 	 * @fires ParamNode#set
 	 */
