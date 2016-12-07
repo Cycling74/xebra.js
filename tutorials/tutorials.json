@@ -25,5 +25,8 @@
 	},
 	"08-motion" : {
 		"title" : "08 Motion and Orientation"
+	},
+	"09-arbitrarymessages" : {
+		"title" : "09 Sending Arbitrary Messages"
 	}
 }
