@@ -342,7 +342,7 @@ class State extends EventEmitter {
 		if (this._motionNodes.size === 1) {
 			/**
 			 * Motion Enable event
-			 * @event State#enable_motion
+			 * @event State#motion_enabled
 			 */
 			this.emit("motion_enabled");
 		}
@@ -363,7 +363,7 @@ class State extends EventEmitter {
 		if (this._motionNodes.size === 0) {
 			/**
 			 * Motion Disable event
-			 * @event State#disable_motion
+			 * @event State#motion_disabled
 			 */
 			this.emit("motion_disabled");
 		}
@@ -636,7 +636,7 @@ class State extends EventEmitter {
 
 		// reset motion
 		this._motionNodes = new Map();
-		this.emit("disable_motion");
+		this.emit("motion_disabled");
 
 		this._rootNode = new ObjectNode(0, "root");
 		this._doInsertNode(this._rootNode);
