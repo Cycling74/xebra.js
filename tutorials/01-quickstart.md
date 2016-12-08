@@ -4,7 +4,7 @@ Xebra provides a direct interface to user interface elements in a remote instanc
 
 In this guide, we'll make a simple webpage with an HTML button for each Max button in the connected patch. To start with, open up Max and create a new patcher. Then, press the 'n' key and type 'mira.frame' to create a mira.frame object. In order for a patcher to expose its content to Xebra, it must contain at least one mira.frame object.
 
-![A Max patcher containing a single mira.frame object](docs/img/01-patcher.png)
+![A Max patcher containing a single mira.frame object](img/01-patcher.png)
 
 ### The Webpage
 
@@ -171,4 +171,4 @@ The full contents of `index.html` should look like this:
 
 Having come this far, why not enjoy a little fanfare? Try creating the following patch:
 
-![A major chord max patcher](docs/img/01-fanfare.png)
+![A major chord max patcher](img/01-fanfare.png)
