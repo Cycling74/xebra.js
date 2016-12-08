@@ -8,7 +8,7 @@ const fs = require("fs");
 const TUT_FILENAME = "00-objectlist.md";
 const TUT_PATH = path.resolve(__dirname, `../tutorials/${TUT_FILENAME}`);
 
-const TUT_HEADER = "This is an overview of the currently available objects and their parameters in Xebra.\n```";
+const TUT_HEADER = "This is an overview of the currently available objects and their parameters in Xebra. For more information about these objects, their functionality, and the functionality of each of their parameters, see the Max documentation. The reference guide is available from within Max, and also online at {@link https://docs.cycling74.com/max7/}\n```";
 const TUT_FOOTER = "```";
 
 const objContent = [];

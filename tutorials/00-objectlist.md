@@ -1,4 +1,4 @@
-This is an overview of the currently available objects and their parameters in Xebra. For more information about these objects, their functionality, and the functionality of each of their parameters, see the Max documentation. The reference guide is available from within Max, and also online at {@external https://docs.cycling74.com/max7/}
+This is an overview of the currently available objects and their parameters in Xebra. For more information about these objects, their functionality, and the functionality of each of their parameters, see the Max documentation. The reference guide is available from within Max, and also online at {@link https://docs.cycling74.com/max7/}
 ```
 button
 
