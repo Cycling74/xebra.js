@@ -1,4 +1,4 @@
-## Hostname and Port
+### Hostname and Port
 
 Xebra connects to Max using a websocket connection. Max opens this connection as soon as a `mira.frame` object is created in any Max patcher. When such an object is created, Max will print the port number in the console. By default, this number will be 8086.
 
@@ -42,7 +42,7 @@ If Java is not installed on your machine, you'll have to find your IP address an
 </script>
 ```
 
-## Connection States
+### Connection States
 
 Once you've created a new instances of Xebra.State, you can call `connect` to attempt a connection to the remote instance of Max.
 
