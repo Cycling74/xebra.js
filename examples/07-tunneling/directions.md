@@ -6,12 +6,12 @@ Localtunnel is an npm package, therefore a prerequisite to installing it is inst
 ```bash
 $ npm install -g localtunnel
 $ lt -p <port_of_xebra_sketch> -s <your_custom_subdomain>
-``` 
+```
 
 For example, say you're serving a xebra sketch using `http-server`, another npm module, which runs on a default port of `8080`. Then, to generate a public url for the sketch, you would run
 ```bash
 $ lt -p 8080 -s xebra
-``` 
+```
 The sketch would be accessible at http(s)://xebra.localtunnel.me.
 
 ## ngrok
