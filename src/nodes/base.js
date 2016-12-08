@@ -1,7 +1,6 @@
 import { EventEmitter } from "events";
 import { OBJECT_PARAMETERS, OPTIONAL_OBJECT_PARAMETERS, MANDATORY_OBJECTS } from "../lib/objectList.js";
 
-
 /**
  * @desc <strong>Constructor for internal use only</strong>
  * Base class for Max nodes in the Xebra state tree. Through Xebra, Max exposes patchers, mira.frame objects,
