@@ -1,5 +1,5 @@
 /**
- * Motion Types supported by Xebra. Use these as type identifiers when calling sendMotionData on Xebra.State
+ * Motion Types supported by Xebra. Use these as type identifiers when calling sendMotionData on Xebra.State.
  * @static
  * @constant
  * @memberof Xebra
@@ -19,7 +19,7 @@ const MOTION_TYPES = Object.freeze({
 });
 
 /**
- * Unit Styles of live.* objects
+ * Unit Styles of live.* objects.
  * @static
  * @constant
  * @memberof Xebra
@@ -51,7 +51,7 @@ const LIVE_UNIT_STYLES = Object.freeze({
 });
 
 /**
- * Available View Modes of XebraState
+ * Available View Modes of XebraState.
  * @static
  * @constant
  * @memberof Xebra

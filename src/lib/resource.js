@@ -5,9 +5,9 @@ let XEBRA_RESOURCE_ID = 0;
 
 /**
  * @desc Represents some data that the remote Max instance has access to. The intended use is to support Max objects
- * like fpic and live.tab, which may want to display images. Can also be used to fetch data from files in Max's search path.
- * Setting `filename` (or setting `dimensions` in the case of .svg files) will query Max for that data in Max's search path.
- * Listen for the {@link Resource.event:data_received} event to receive the data as a data URI string.
+ * like fpic and live.tab, which may want to display images. Can also be used to fetch data from files in Max's search
+ * path. Setting `filename` (or setting `dimensions` in the case of .svg files) will query Max for that data in Max's
+ * search path. Listen for the {@link Resource.event:data_received} event to receive the data as a data URI string.
  * Only images are currently supported.
  * @class
  * @extends EventEmitter
@@ -70,9 +70,8 @@ class Resource extends EventEmitter {
 	}
 
 	/**
-	 * Id of the ObjectNode that owns the resource. If the resource is not bound to an ObjectNode, returns null.
-	 * Max can use the object id to augment the search path with the parent patcher of the object, if the
-	 * object id is supplied
+	 * Id of the ObjectNode that owns the resource. If the resource is not bound to an ObjectNode, returns null. Max can
+	 * use the object id to augment the search path with the parent patcher of the object, if the object id is supplied.
 	 * @type {Xebra.NodeId}
 	 */
 	get objectContext() {
@@ -98,7 +97,8 @@ class Resource extends EventEmitter {
 	 * Dimensions of the resource. These are <strong>not</strong> updated automatically, and <strong>cannot</strong> be
 	 * used to determine the dimensions of a raster image in Max's filepath. Instead, use the data URI returned with the
 	 * {@link Resource.event:data_received} event to determine size. Setting these dimensions will trigger a new data
-	 * fetch, if the resource is an .svg image. Max will be used to render the image and a .png data-uri will be returned.
+	 * fetch, if the resource is an .svg image. Max will be used to render the image and a .png data-uri will be
+	 * returned.
 	 * @type {ResourceDimensions}
 	 */
 	get dimensions() {
@@ -140,7 +140,7 @@ class Resource extends EventEmitter {
 	}
 
 	/**
-	 * Handle incoming resource data
+	 * Handle incoming resource data.
 	 * @private
 	 * @param {object} data - The resource data
 	 */

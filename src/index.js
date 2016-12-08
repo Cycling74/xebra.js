@@ -12,7 +12,8 @@ const RESOURCE_REQUEST_DOMAIN = Object.freeze({
 });
 
 /**
- * List of objects available for synchronization in Xebra. Use this or a subset of this when setting the supported_objects option in Xebra.State.
+ * List of objects available for synchronization in Xebra. Use this or a subset of this when setting the
+ * supported_objects option in Xebra.State.
  *
  * @static
  * @constant
@@ -120,7 +121,7 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * Indicated whether motion tracking is currently enabled/disabled
+	 * Returns whether motion tracking is currently enabled/disabled.
 	 * @type {boolean}
 	 * @readonly
 	 */
@@ -129,7 +130,7 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * The current connection state
+	 * Returns the current connection state.
 	 * @type {number}
 	 * @readonly
 	 * @see {Xebra.CONNECTION_STATES}
@@ -139,9 +140,9 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * Name of the current xebra connection. For some Max objects, like mira.motion and mira.multitouch, multiple
-	 * xebra clients (connected via Xebra.js or the Mira iOS app) can send events to the same object. This name
-	 * property will be appended to these events, so that the events can be routed in Max.
+	 * Name of the current xebra connection. For some Max objects, like mira.motion and mira.multitouch, multiple xebra
+	 * clients (connected via Xebra.js or the Mira iOS app) can send events to the same object. This name property will
+	 * be appended to these events, so that the events can be routed in Max.
 	 * @type {string}
 	 */
 	get name() {
@@ -162,7 +163,7 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * Indicates whether the initial state has been received from Max and loaded
+	 * Returns whether the initial state has been received from Max and loaded.
 	 * @type {boolean}
 	 * @readonly
 	 */
@@ -171,7 +172,7 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * Port number of the Max WebSocket
+	 * Returns the port number of the Max WebSocket.
 	 * @type {number}
 	 * @readonly
 	 */
@@ -180,7 +181,7 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * WebSocket connection URL
+	 * WebSocket connection URL.
 	 * @type {string}
 	 * @readonly
 	 */
@@ -189,7 +190,7 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * UUID associated with this state
+	 * UUID associated with this state.
 	 * @type {string}
 	 * @readonly
 	 */
@@ -198,7 +199,7 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * UID assigned to this state by Max, after connection
+	 * UID assigned to this state by Max, after connection.
 	 * @private
 	 * @readonly
 	 */
@@ -643,7 +644,7 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * Closes the Xebra connection and resets the state
+	 * Closes the Xebra connection and resets the state.
 	 */
 	close() {
 		this._communicator.close();
@@ -651,14 +652,14 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * Connects to the Xebra server. If `auto_connect : true` is passed to State on
+	 * Connects to the Xebra server. If `auto_connect : true` is passed to State on.
 	 */
 	connect() {
 		this._communicator.connect();
 	}
 
 	/**
-	 * Create a {@link Resource}, which can be used to retrieve image data from the Max search path
+	 * Create a {@link Resource}, which can be used to retrieve image data from the Max search path.
 	 * @return {Resource}
 	 */
 	createResource() {
@@ -666,7 +667,7 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * Send mira.motion updates to parameters on the root node
+	 * Send mira.motion updates to parameters on the root node.
 	 * @see Xebra.MOTION_TYPES
 	 * @param {string} motionType - The type of motion
 	 * @param {number} motionX
@@ -692,7 +693,7 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * Returns a list of available patchers
+	 * Returns a list of available patchers.
 	 * @return {PatcherNode[]}
 	 */
 	getPatchers() {
@@ -700,7 +701,7 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * Returns a list of node objects with the given scripting name (the Max attribute 'varname')
+	 * Returns a list of node objects with the given scripting name (the Max attribute 'varname').
 	 * @return {ObjectNode[]}
 	 */
 	getObjectsByScriptingName(scriptingName) {
@@ -712,7 +713,7 @@ class State extends EventEmitter {
 		return retVal;
 	}
 		/**
-		 * Returns the object speficied by the given id
+		 * Returns the object speficied by the given id.
 		 * @param {Xebra.Node} id - The id of the object
 		 * @return {ObjectNode|null} the object or null if not known
 		*/
@@ -733,11 +734,13 @@ export { State };
  * @constant
  * @memberof Xebra
  * @type {object}
- * @property {number} INIT - The connection hasn't been set up yet, it's still waiting for a call to connect (unless auto_connect is set to true)
+ * @property {number} INIT - The connection hasn't been set up yet, it's still waiting for a call to connect (unless
+ *     auto_connect is set to true)
  * @property {number} CONNECTING - The connection is being established
  * @property {number} CONNECTED - The connection is established and alive
  * @property {number} CONNECTION_FAIL - The connection could NEVER be established
- * @property {number} RECONNECTING - The connection was lost and attempts to reconnect are made (based on reconnect, reconnect_attempts and reconnect_timeout options)
+ * @property {number} RECONNECTING - The connection was lost and attempts to reconnect are made (based on reconnect,
+ *     reconnect_attempts and reconnect_timeout options)
  * @property {number} DISCONNECTED - The connection was lost and all attempts to reconnect failed
  */
 const CONNECTION_STATES = XebraCommunicator.CONNECTION_STATES;

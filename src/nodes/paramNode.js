@@ -59,10 +59,10 @@ function _getHardcodedOSCTypes(type) {
 /**
  * @class
  * @desc <strong>Constructor for internal use only</strong>
- * Representation of a Max object parameter. Usually, a parameter is simply a Max
- * attribute. Setting the value of the parameter will update the Max object attribute with
- * the same name. Some parameters do not map to attributes, for example the "distance"
- * parameter of a slider object, which controls the value of the slider.
+ *
+ * Representation of a Max object parameter. Usually, a parameter is simply a Max attribute. Setting the value of the
+ * parameter will update the Max object attribute with the same name. Some parameters do not map to attributes, for
+ * example the "distance" parameter of a slider object, which controls the value of the slider.
  * @extends XebraNode
  */
 class ParamNode extends XebraNode {
@@ -84,8 +84,8 @@ class ParamNode extends XebraNode {
 	}
 
 	/**
-	 * The sequence number associated with the most recent modification. Whenever the value of the
-	 * parameter is updated in Max or some other remote endpoint, this sequence number will increase.
+	 * The sequence number associated with the most recent modification. Whenever the value of the parameter is updated
+	 * in Max or some other remote endpoint, this sequence number will increase.
 	 * @type {number}
 	 */
 	get remoteSequence() {
@@ -145,9 +145,8 @@ class ParamNode extends XebraNode {
 	}
 
 	/**
-	 * The current value of this parameter. Setting the value will trigger an update in Max, if connected.
-	 * This will not cause an ObjectNode.param_changed event to fire, however, since this is only fired
-	 * on changes that come from Max.
+	 * The current value of this parameter. Setting the value will trigger an update in Max, if connected. This will not
+	 * cause an ObjectNode.param_changed event to fire, however, since this is only fired on changes that come from Max.
 	 * @type {Xebra.ParamValueType}
 	 * @fires ParamNode#set
 	 */
@@ -174,7 +173,7 @@ class ParamNode extends XebraNode {
 	}
 
 	/**
-	 * Inits the node with the given value
+	 * Inits the node with the given value.
 	 * @ignore
 	 * @param  {Xebra.ParamValueType} value [description]
 	 */
@@ -183,7 +182,8 @@ class ParamNode extends XebraNode {
 	}
 
 	/**
-	 * Modifies the value of the parameter. This is used in order to apply remote modifications. Use the param.value getter/setter if you want to read/change the value.
+	 * Modifies the value of the parameter. This is used in order to apply remote modifications. Use the param.value
+	 * getter/setter if you want to read/change the value.
 	 * @ignore
 	 * @param  {Xebra.ParamValueType} value - The new value
 	 * @param  {string[]} value - The OSC types

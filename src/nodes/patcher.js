@@ -3,9 +3,10 @@ import ObjectNode from "./objectNode.js";
 
 /**
  * @desc <strong>Constructor for internal use only</strong>
- * Represent a single Max patcher. Use `getFrames` and `getObjects` to iterate over instances of {@link FrameNode}
- * and {@link ObjectNode}, respectively. The very handy `getObjectByScriptingName` function can be used to
- * get the {@link ObjectNode} instance bound to a Max object with the given `varname` attribute.
+ *
+ * Represent a single Max patcher. Use `getFrames` and `getObjects` to iterate over instances of {@link FrameNode} and
+ * {@link ObjectNode}, respectively. The very handy `getObjectByScriptingName` function can be used to get the
+ * {@link ObjectNode} instance bound to a Max object with the given `varname` attribute.
  * @class
  * @extends ObjectNode
  * @extends XebraNode
@@ -164,7 +165,7 @@ class PatcherNode extends ObjectNode {
 	// End of bound callbacks
 
 	/**
-	 * Name of the patcher (same as the filename for saved patchers)
+	 * Name of the patcher (same as the filename for saved patchers).
 	 * @type {string}
 	 */
 	get name() {
@@ -172,7 +173,7 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
-	 * Whether the Max patcher is currently in Presentation or Patching display
+	 * Returns whether the Max patcher is currently in Presentation or Patching display.
 	 * @type {number}
 	 * @see Xebra.VIEW_MODES
 	 */
@@ -189,7 +190,7 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
-	 * Assigns an object to the contained frames based on its rect position
+	 * Assigns an object to the contained frames based on its rect position.
 	 * @private
 	 * @param {ObjectNode} obj - the object to assign
 	 */
@@ -221,7 +222,7 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
-	 * Assigns the contained objects to the given frame based on the rect
+	 * Assigns the contained objects to the given frame based on the rect.
 	 * @private
 	 * @param {FrameNode} frame - the frame to assign objects to
 	 */
@@ -267,7 +268,7 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
-	 * Adds a frame to the patcher
+	 * Adds a frame to the patcher.
 	 * @ignore
 	 * @param {FrameNode} frame
 	 * @fires XebraState.frame_added
@@ -296,7 +297,7 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
-	 * Adds an object to the patcher
+	 * Adds an object to the patcher.
 	 * @ignore
 	 * @param {ObjectNode} obj
 	 * @listens ObjectNode.param_changed
@@ -325,7 +326,7 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
-	 * Get the frame with the given id
+	 * Returns the frame with the given id.
 	 * @param  {Xebra.NodeId} id
 	 * @return {Frame|null}
 	 */
@@ -334,7 +335,7 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
-	 * Get a list of frames that are present in this patch
+	 * Returns a list of frames that are present in this patch.
 	 * @return {FrameNode[]}
 	 */
 	getFrames() {
@@ -348,7 +349,7 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
-	 * Get the object with the given id
+	 * Returns the object with the given id.
 	 * @param  {Xebra.NodeId} id
 	 * @return {ObjectNode|null}
 	 */
@@ -357,7 +358,7 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
-	 * Get the object with the given scripting name
+	 * Returns the object with the given scripting name.
 	 * @param  {String} scripting_name
 	 * @return {ObjectNode|null}
 	 */
@@ -367,7 +368,7 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
-	 * Get a list of objects that are present in this patch
+	 * Returns a list of objects that are present in this patch.
 	 * @return {ObjectNode[]}
 	 */
 	getObjects() {
@@ -381,7 +382,7 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
-	 * Remove the frame identified by the given id from the patch
+	 * Removes the frame identified by the given id from the patch.
 	 * @ignore
 	 * @param  {Xebra.NodeId} id
 	 * @fires XebraState.frame_removed
@@ -403,7 +404,7 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
-	 * Remove the object identified by the given id from the patch
+	 * Removes the object identified by the given id from the patch.
 	 * @ignore
 	 * @fires XebraState.object_removed
 	 * @param  {Xebra.NodeId} id

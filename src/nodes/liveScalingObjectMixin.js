@@ -3,13 +3,11 @@ function clamp(v, lo, hi) {
 }
 
 /**
- * Certain live.* objects, for example live.slider and live.dial, manage their internal state
- * using two separate but related parameters: "distance" and "value". The "distance" parameter
- * is always a value between 0 and 1, ignoring the range and possible nonlinear scaling applied
- * to the object. The "value" parameter is the one that the object will display, and is
- * computed by applying the exponent and range parameters to the "distance" parameter.
- * This mixin simply performs this calculation automatically whenever the "distance" parameter
- * is set.
+ * Certain live.* objects, for example live.slider and live.dial, manage their internal state using two separate but
+ * related parameters: "distance" and "value". The "distance" parameter is always a value between 0 and 1, ignoring the
+ * range and possible nonlinear scaling applied to the object. The "value" parameter is the one that the object will
+ * display, and is computed by applying the exponent and range parameters to the "distance" parameter. This mixin
+ * simply performs this calculation automatically whenever the "distance" parameter is set.
  *
  * @mixin LiveScalingObjectMixin
  * @example

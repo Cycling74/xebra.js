@@ -2,11 +2,11 @@ import XebraNode from "./base.js";
 
 /**
  * @desc <strong>Constructor for internal use only</strong>
- * Representation of a Max object in the Xebra state tree. The `nodeType` property returns the type
- * of the ObjectNode, which corresponds to the Max class of the object it represents. The `getParamTypes`
- * function will return an array of the parameters supported by this object, which usually corresponds
- * to the attributes of the Max object. To listen to parameter changes from Max, subscribe to the
- * {@link ObjectNode.event:param_changed} event.
+ *
+ * Representation of a Max object in the Xebra state tree. The `nodeType` property returns the type of the ObjectNode,
+ * which corresponds to the Max class of the object it represents. The `getParamTypes` function will return an array of
+ * the parameters supported by this object, which usually corresponds to the attributes of the Max object. To listen to
+ * parameter changes from Max, subscribe to the {@link ObjectNode.event:param_changed} event.
  * @extends XebraNode
  */
 class ObjectNode extends XebraNode {
@@ -85,8 +85,8 @@ class ObjectNode extends XebraNode {
 	 */
 	_onParamSet = (param) => {
 		/**
-		 * Parameter set event. Used internally in order to communicate parameter changes to Max. Use param_changed instead if you'd like
-		 * to keep track of parameter changes.
+		 * Parameter set event. Used internally in order to communicate parameter changes to Max. Use param_changed instead
+		 * if you'd like to keep track of parameter changes.
 		 *
 		 * @event ObjectNode.param_set
 		 * @param {ObjectNode} object     This

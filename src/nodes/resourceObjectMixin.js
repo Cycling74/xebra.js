@@ -2,11 +2,10 @@ import { OBJECTS } from "../lib/objectList.js";
 import { ResourceController } from "../lib/resource.js";
 
 /**
- * Request and manage remote resources from the Max seach path. A resource includes both metadata,
- * like image size and file type, as well as the file data itself. Only images are currently supported.
+ * Request and manage remote resources from the Max seach path. A resource includes both metadata, like image size and
+ * file type, as well as the file data itself. Only images are currently supported.
  *
- * This Mixin is currently applied to instances of ObjectNode representing
- * fpic, live.tab and live.text
+ * This Mixin is currently applied to instances of ObjectNode representing fpic, live.tab and live.text.
  *
  * @mixin ResourceObjectMixin
  * @example

@@ -3,9 +3,8 @@ import { OBJECT_PARAMETERS, OPTIONAL_OBJECT_PARAMETERS, MANDATORY_OBJECTS } from
 
 /**
  * @desc <strong>Constructor for internal use only</strong>
- * Base class for Max nodes in the Xebra state tree. Through Xebra, Max exposes patchers, mira.frame objects,
- * other Max objects and assignable parameters for each object. Each of these is represented by a different
- * XebraNode subclass.
+ * Base class for Max nodes in the Xebra state tree. Through Xebra, Max exposes patchers, mira.frame objects, other Max
+ * objects and assignable parameters for each object. Each of these is represented by a different XebraNode subclass.
  * @class
  */
 class XebraNode extends EventEmitter {
@@ -25,7 +24,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Destroys the node by destroying all child nodes and removing all attached listeners
+	 * Destroys the node by destroying all child nodes and removing all attached listeners.
 	 * @ignore
 	 */
 	destroy() {
@@ -41,7 +40,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * The creation sequence number associated with this node. An increasing integer unique to each node
+	 * The creation sequence number associated with this node. This number is an increasing integer unique to each node.
 	 * @member {number}
 	 */
 	get creationSequence() {
@@ -49,7 +48,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Unique id associated with each XebraNode
+	 * Unique id associated with each XebraNode.
 	 * @readonly
 	 * @member {Xebra.NodeId}
 	 */
@@ -58,7 +57,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * @desc Have all of the parameters for the object been added yet
+	 * @desc Returns whether all of the parameters for the object have been added yet.
 	 * @readonly
 	 * @private
 	 * @type {boolean}
@@ -68,9 +67,9 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Type associated with this node. For Objects, Frames and Patchers, this will correspond to the class name
-	 * of the Max object. For parameters, this will be the name of the associated parameter. Parameters usually
-	 * correspond to the name of a Max object's attribute.
+	 * Type associated with this node. For Objects, Frames and Patchers, this will correspond to the class name of the
+	 * Max object. For parameters, this will be the name of the associated parameter. Parameters usually correspond to
+	 * the name of a Max object's attribute.
 	 * @member {string}
 	 */
 	get type() {
@@ -86,7 +85,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Callback when a parameter value is changed due to a modification in Max
+	 * Callback when a parameter value is changed due to a modification in Max.
 	 * @abstract
 	 * @method
 	 * @private
@@ -96,7 +95,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Callback when a parameter value was set by the client
+	 * Callback when a parameter value was set by the client.
 	 * @abstract
 	 * @method
 	 * @private
@@ -106,7 +105,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Add child
+	 * Adds a child.
 	 * @ignore
 	 * @param {Xebra.NodeId} id - The id of the child to be added
 	 * @param {XebraNode} node - The child to add
@@ -116,7 +115,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Execute callback function for each child of the node
+	 * Execute callback function for each child of the node.
 	 * @ignore
 	 * @param {function} callback - The callback to execute
 	 * @param {object} context - The context of the callback
@@ -126,7 +125,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Get the child with the given id
+	 * Returns the child with the given id.
 	 * @ignore
 	 * @param {Xebra.NodeId}
 	 * @return {XebraNode|null}
@@ -136,7 +135,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Get all children of the node
+	 * Returns all children of the node.
 	 * @ignore
 	 * @return {XebraNode[]}
 	 */
@@ -145,7 +144,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Check whether the given id is a direct child
+	 * Returns whether the given id is a direct child.
 	 * @ignore
 	 * @param {Xebra.NodeId} id - The id of the potential child
 	 * @return {boolean}
@@ -155,7 +154,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Remove the direct child connection to the node with the given id
+	 * Removes the direct child connection to the node with the given id.
 	 * @ignore
 	 * @param {Xebra.NodeId} id - The id of the child to remove the connection to
 	 */
@@ -166,8 +165,8 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Adds a Parameter node to this node's children. Also adds the node as a listener for the Parameter node,
-	 * so local and remote changes to that node will trigger {@link State.object_changed} events.
+	 * Adds a Parameter node to this node's children. Also adds the node as a listener for the Parameter node, so local
+	 * and remote changes to that node will trigger {@link State.object_changed} events.
 	 * @ignore
 	 * @listens ParamNode#change
 	 * @listens ParamNode#set
@@ -183,7 +182,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Returns a list of the names of all available parameters
+	 * Returns a list of the names of all available parameters.
 	 * @return {string[]}
 	 */
 	getParamTypes() {
@@ -194,7 +193,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Returns a list of the parameters that are not required for this object to be initialized
+	 * Returns a list of the parameters that are not required for this object to be initialized.
 	 * @ignore
 	 * @return {string[]}
 	 */
@@ -203,7 +202,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Get the value for the parameter with the name <i>type</i>
+	 * Returns the value for the parameter with the name <i>type</i>.
 	 * @param  {String} type - Parameter type identifier
 	 * @return {Xebra.ParamValueType} returns the value(s) of the given parameter type or null
 	 */
@@ -214,7 +213,7 @@ class XebraNode extends EventEmitter {
 	}
 
 	/**
-	 * Set the value for the parameter with the name <i>type</i> to the given value
+	 * Sets the value for the parameter with the name <i>type</i> to the given value.
 	 * @param {String} type - Parameter type identifier
 	 * @param {Object} value - Parameter value
 	 */

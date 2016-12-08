@@ -94,11 +94,13 @@ function stringForLiveValue(liveValue, unitStyle) {
 }
 
 /**
- * Adds a virtual, readonly "displayvalue" parameter to the object in order to
- * simplify reading the different display and unit styles of certain live objects. For example,
- * if the value of the "distance" parameter is 0.5, then depending on the configuration of the
- * object, the "displayvalue" parameter could be "400 Hz" or "C3#". This mixin is currently
- * added to ObjectNodes representing live.dial, live.numbox and live.slider objects.
+ * Adds a virtual, readonly "displayvalue" parameter to the object in order to simplify reading the different display
+ * and unit styles of certain live objects.
+ *
+ * For example, if the value of the "distance" parameter is 0.5, then depending on the configuration of the object, the
+ * "displayvalue" parameter could be "400 Hz" or "C3#".
+ *
+ * This mixin is currently added to ObjectNodes representing live.dial, live.numbox and live.slider objects.
  *
  * @mixin LiveDisplayValueMixin
  * @example
@@ -116,7 +118,7 @@ function stringForLiveValue(liveValue, unitStyle) {
  */
 export default (objClass) => class extends objClass {
 	/**
-	 * Get the value for the parameter specified by the given parameter type identifier
+	 * Returns the value for the parameter specified by the given parameter type identifier.
 	 * @param  {string} type Parameter type identifier
 	 * @return {Xebra.ParamValueType}
 	 * @ignore

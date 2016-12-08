@@ -3,9 +3,9 @@ import ObjectNode from "./objectNode.js";
 
 /**
  * @desc <strong>Constructor for internal use only</strong>
- * FrameNode instances represent mira.frame objects in a Max patcher. Using the FrameNode object,
- * it is possible to see which Max objects intersect a given mira.frame object, in both Patching
- * as well as Presentation Modes.
+ *
+ * FrameNode instances represent mira.frame objects in a Max patcher. Using the FrameNode object, it is possible to see
+ * which Max objects intersect a given mira.frame object, in both Patching as well as Presentation Modes.
  * @class
  * @extends ObjectNode
  * @extends XebraNode
@@ -27,11 +27,10 @@ class FrameNode extends ObjectNode {
 	}
 
 	/**
-	 * The view mode of the FrameNode. In Patching mode, object positions and visibility will be
-	 * calculated relative to the patching_rect of the mira.frame object. In Presentation mode,
-	 * the presentation_rect will be used. Linked mode will defer to Max. If Max is in Presentation
-	 * mode, Xebra will use Presentation mode, and if Max is in Patching mode, Xebra will use
-	 * Patching mode as well.
+	 * The view mode of the FrameNode. In Patching mode, object positions and visibility will be calculated relative to
+	 * the patching_rect of the mira.frame object. In Presentation mode, the presentation_rect will be used. Linked mode
+	 * will defer to Max. If Max is in Presentation mode, Xebra will use Presentation mode, and if Max is in Patching
+	 * mode, Xebra will use Patching mode as well.
 	 * @type {number}
 	 * @see Xebra.VIEW_MODES
 	 */
@@ -81,7 +80,7 @@ class FrameNode extends ObjectNode {
 	}
 
 	/**
-	 * Callback when a contained object got destroyed
+	 * Callback called when a contained object is destroyed.
 	 * @private
 	 * @param {ObjectNode} obj - The destroyed object
 	 */
@@ -92,7 +91,7 @@ class FrameNode extends ObjectNode {
 	// End of bound callbacks
 
 	/**
-	 * Add the given object to the frame
+	 * Adds the given object to the frame.
 	 * @ignore
 	 * @param {ObjectNode} obj
 	 * @listens ObjectNode.param_changed
@@ -114,7 +113,7 @@ class FrameNode extends ObjectNode {
 	}
 
 	/**
-	 * Check whether the frame contains the object identified by the given id
+	 * Checks whether the frame contains the object identified by the given id.
 	 * @param  {Xebra.NodeId} id - The id of the object
 	 * @return {boolean}
 	 */
@@ -123,7 +122,7 @@ class FrameNode extends ObjectNode {
 	}
 
 	/**
-	 * Boundary check whether the given rect is visible within the frame
+	 * Boundary check whether the given rect is visible within the frame.
 	 * @param  {Xebra.PatchingRect} rect - The rectangle to check
 	 * @return {boolean} whether the rect is contained or not
 	 */
@@ -144,7 +143,7 @@ class FrameNode extends ObjectNode {
 	}
 
 	/**
-	 * Get the object with the given id
+	 * Returns the object with the given id.
 	 * @param  {Xebra.NodeId} id - The id of the object
 	 * @return {ObjectNode|null} The object (if contained) or null
 	 */
@@ -153,7 +152,7 @@ class FrameNode extends ObjectNode {
 	}
 
 	/**
-	 * Get a list of all objects contained in the frame
+	 * Returns a list of all objects contained in the frame.
 	 * @return {ObjectNode[]} An array of all contained objects
 	 */
 	getObjects() {
@@ -167,7 +166,8 @@ class FrameNode extends ObjectNode {
 	}
 
 	/**
-	 * Returns the frame of the object relative the the frame, in the current view mode, or null if the object is not in the frame
+	 * Returns the frame of the object relative the the frame, in the current view mode, or null if the object is not in
+	 * the frame.
 	 * @return {Xebra.PatchingRect|null} Relative object frame.
 	 */
 	getRelativeRect(object) {
@@ -179,7 +179,7 @@ class FrameNode extends ObjectNode {
 	}
 
 	/**
-	 * Check whether the current view mode is linked
+	 * Checks whether the current view mode is linked.
 	 * @return {boolean} Whether the frame defers to Max for it's viewMode or not
 	 */
 	isViewModeLinked() {
@@ -187,7 +187,7 @@ class FrameNode extends ObjectNode {
 	}
 
 	/**
-	 * Remove the object with the given id from the frame
+	 * Removes the object with the given id from the frame.
 	 * @ignore
 	 * @fires XebraState.object_removed
 	 * @param  {Xebra.NodeId} id - The id of the object to remove
