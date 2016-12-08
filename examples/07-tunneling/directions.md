@@ -26,7 +26,7 @@ $ ngrok http 8080
 and then ngrok returns a public url.
 
 ## WIFI/LAN
-If the device you are running Max and your xebra sketch is connected to WIFI/LAN, then any device also connected to the same WIFI/LAN network can access the xebra sketch as well. If you are on a Mac, go to your terminal and run
+If the device you are running Max and your xebra sketch is connected to WIFI/LAN, then any device also connected to the same WIFI/LAN network can access the xebra sketch as well. If you are on a Mac/Unix/Linux/etc., go to your terminal and run
 ```bash
 $ ifconfig
 ```
