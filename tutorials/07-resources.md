@@ -1,4 +1,4 @@
-## Object Resources
+### Object Resources
 
 In order to render, many Max objects need data from local files. A typical example would be the `fpic` object, which displays an image. To manage this local file connection, Xebra uses a {@link Resource} object. Changing the value of the `pic` attribute in Max, or the `pic` parameter in Xebra, will update the `filename` parameter of the {@link Resource} object associated with the `fpic` ObjectNode. This will cause Max to look in its search path for an image with that name. Once it finds that image, it will send the data to the {@link Resource}, which can update the the `fpic` ObjectNode. Given an instance of an ObjectNode, you can see how many resources that node owns by calling `getResourceCount`
 
@@ -34,7 +34,7 @@ resource.dimensions = {width: 100, height: 100};
 fpicObject.setParamValue("pic", "elementjit.svg");
 ```
 
-## Other Resources
+### Other Resources
 
 It's not necessary to have an instance of {@link ObjectNode} to get an image {@link Resource} from Max. You can also create your own resources using the {@link State} object directly. Resources created this way can be used to pull image objects from Max's search path. To create such resources, use the {@link State.createResource} function.
 

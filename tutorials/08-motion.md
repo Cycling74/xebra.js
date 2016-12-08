@@ -1,4 +1,4 @@
-## Sending Motion Data
+### Sending Motion Data
 
 Xebra can pass acceleration, rotation and compass data to Max. These motion updates are received by Max through the mira.motion object. Unlike other xebra parameters, which each belong to an instance of {@link ObjectNode}, the parameters that manage motion data are owned by the root {@link State} object. This is by design: motion updates are expected to occur frequently, on the order of 100 times a second, so all mira.motion objects share a group of global parameters.
 

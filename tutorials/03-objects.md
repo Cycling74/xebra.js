@@ -1,4 +1,4 @@
-## Supported Objects
+### Supported Objects
 
 Xebra listens to changes in the Max patcher, and will emit events whenever an object is added or removed. By default, Xebra will listen to changes for all of the objects in {@link Xebra.SUPPORTED_OBJECTS}; you can, however, use your own list of `supported_objects` if you would only like to process a subset of Max objects.
 
@@ -10,7 +10,7 @@ var xebraState = new Xebra.State({
 });
 ```
 
-## Listening for Objects
+### Listening for Objects
 
 Whenever a new object is created in Max, Xebra.State will emit an "object_added" event {@link State.event:object_added}. When an object is removed, an "object_removed" event will be emitted {@link State.event:object_removed}. You can listen to these changes to make changes to your application, for example by adding to and removing from the DOM.
 
@@ -38,7 +38,7 @@ function removeHTMLButton(object) {
 }
 ```
 
-## Listening to Object Changes
+### Listening to Object Changes
 
 If the value of some object parameter changes, then Xebra.State will emit an "object_changed" event as well. This event will include both the object as well as the parameter.
 
@@ -62,4 +62,14 @@ function colorToHex(colorArray) {
 }
 ```
 
-## Setting Parameters
+### Setting Parameters
+
+Updating the state of a parameter is as simple as calling {@link ObjectNode.setParamValue} with the name and value of the parameter you'd like to update.
+
+```
+var button; // ObjectNode bound to a button in Max
+button.setParamValue("bgcolor", [1.0, 0.0, 0.0, 0.0]); // Make the button red
+button.setParamValue("value", 1); // Make the button send a bang
+```
+
+For a complete list of all supported objects and parameters, see {@tutorial 00-objectlist}. Also be sure to see {@tutorial 06-valuevsdistance} for a list of unusual parameters.

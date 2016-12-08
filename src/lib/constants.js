@@ -4,11 +4,11 @@
  * @constant
  * @memberof Xebra
  * @type {object}
- * @property {string} ACCEL
- * @property {string} GRAVITY
- * @property {string} ORIENTATION
- * @property {string} RAWACCEL
- * @property {string} ROTATIONRATE
+ * @property {string} ACCEL - Acceleration, minus any acceleration due to gravity
+ * @property {string} GRAVITY - Acceleration due to gravity
+ * @property {string} ORIENTATION - Roll, pitch and yaw
+ * @property {string} RAWACCEL - Raw acceleration, including both user acceleration as well as gravity
+ * @property {string} ROTATIONRATE - Raw gyroscope readings: x, y and z rotation rates
  */
 const MOTION_TYPES = Object.freeze({
 	ROTATIONRATE : "rotationrate",

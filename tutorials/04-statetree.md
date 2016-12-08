@@ -1,4 +1,4 @@
-## Enumerating Objects and Viewmode
+### Enumerating Objects and Viewmode
 
 After objects have been created, you can iterate over the objects currently in Xebra.State by iterating through the children of each patcher. This code snippet will print out the entire state currently contained in Xebra.State.
 
@@ -39,4 +39,4 @@ patchers.forEach( function(patcher) {
 } );
 ```
 
-The objects within a frame are those whose bounding rectangles intersect the bounding rectangle of the mira.frame. Whether or not this bounding rectangle is determined using the patching\_rect attribute or the presentation\_rect attribute depends on the value of `viewMode` for both the {@link PatcherNode} as well as the {@link FrameNode}. If the `viewMode` for a {@link FrameNode} is set to {@link Xebra.VIEW_MODES.PATCHING}, then the patching\_rect of the frame is used. If `viewMode` is set to {@link Xebra.VIEW_MODES.PRESENTATION}, then the presentation\_rect of the frame is used. If `viewMode` is set to {@link Xebra.VIEW_MODES.LINKED}, then the frame will use whatever value of `viewMode` the parent patcher is using.
+The objects within a frame are those whose bounding rectangles intersect the bounding rectangle of the mira.frame. Whether or not this bounding rectangle is determined using the patching\_rect attribute or the presentation\_rect attribute depends on the value of `viewMode` for both the {@link PatcherNode} as well as the {@link FrameNode}. If the `viewMode` for a {@link FrameNode} is set to Xebra.VIEW_MODES.PATCHING, then the patching\_rect of the frame is used. If `viewMode` is set to Xebra.VIEW_MODES.PRESENTATION, then the presentation\_rect of the frame is used. If `viewMode` is set to Xebra.VIEW_MODES.LINKED, then the frame will use whatever value of `viewMode` the parent patcher is using.
