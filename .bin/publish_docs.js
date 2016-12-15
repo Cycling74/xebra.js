@@ -3,10 +3,15 @@
 
 const ghpages = require('gh-pages');
 const path = require('path');
+const packageInfo = require(path.join(__dirname, '..', 'package.json'));
 
-ghpages.publish(path.join(process.cwd(), 'docs'), (err) =>
+const options = {
+	message: "updating Docs to version " + packageInfo.version
+}
+
+ghpages.publish(path.join(process.cwd(), 'docs'), options, (err) =>
 {
-		console.log("Publishing Docs folder to gh-pages branch...\n" );
+		console.log("Publishing Docs folder version: " + packageInfo.version + " to gh-pages branch...\n" );
     if (err)
     {
         console.log(err);
