@@ -94,6 +94,7 @@ class ObjectNode extends XebraNode {
 		 * @param {ParamNode}  param      The parameter node
 		 */
 		this.emit("param_set", this, param);
+		this.emit("param_changed", this, param);
 	}
 
 	// End of bound callbacks
