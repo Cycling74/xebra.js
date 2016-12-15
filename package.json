@@ -29,6 +29,7 @@
 		"predocs" : "rimraf ./docs",
 		"docs" : "sh ./.bin/docs",
 		"gen_objectTut" : "node ./.bin/gen_objList.js",
+		"prelib" : "rimraf ./lib",
 		"lib" : "babel ./src -d ./lib",
 		"lint": "eslint src -c ./.eslintrc.json"
 	},
