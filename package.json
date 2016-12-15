@@ -24,6 +24,7 @@
 	},
 	"scripts" : {
 
+		"prebuild" : "rimraf ./dist",
 		"build" : "node ./.bin/build.js",
 		"predocs" : "rimraf ./docs",
 		"docs" : "sh ./.bin/docs",
