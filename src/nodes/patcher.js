@@ -318,7 +318,7 @@ class PatcherNode extends ObjectNode {
 
 			if (obj.isReady) {
 				this.emit("object_added", obj);
-			this._assignObjectToFrames(obj);
+				this._assignObjectToFrames(obj);
 			} else {
 				obj.once("initialized", this._onObjectInitialized);
 			}

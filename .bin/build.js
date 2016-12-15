@@ -7,22 +7,6 @@ var uglifyJS = require("uglify-js");
 
 var packageInfo = require(path.resolve(__dirname, "../package.json"));
 
-var rmDirSync = function(fpath) {
-	var files = [];
-	if (fs.existsSync(fpath) ) {
-		files = fs.readdirSync(fpath);
-		files.forEach(function(file, index) {
-			var curPath = path.join(fpath, file);
-			if (fs.lstatSync(curPath).isDirectory()) {
-				rmDirSync(curPath);
-			} else {
-				fs.unlinkSync(curPath);
-			}
-		});
-		fs.rmdirSync(fpath);
-	}
-};
-
 var OUT_DIR = path.resolve(__dirname, "../dist");
 var OUT_FILE = path.join(OUT_DIR, "xebra.js");
 var OUT_MIN_FILE = path.join(OUT_DIR, "xebra.min.js");
@@ -42,8 +26,6 @@ var license = [
 
 
 // Deleting Old Dist Files
-console.log("Cleaning up old dist files");
-rmDirSync(OUT_DIR);
 fs.mkdirSync(OUT_DIR);
 
 // Bundle

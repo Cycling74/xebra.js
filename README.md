@@ -1,7 +1,8 @@
 xebra.js
 =============
 
-Xebra connects Max to the browser, and the browser to Max.
+Xebra connects Max to the browser, and the browser to Max. Max is a visual programming language for music and multimedia developed and maintained by [Cycling '74](https://cycling74.com/).
+
 
 Adding a mira.frame object to a Max patcher creates an open websocket that exposes the contents of the Max patcher. Xebra connects to that socket and maps changes in the Max patcher to JavaScript events.
 
@@ -107,7 +108,8 @@ $> npm run docs
 ```
 
 Otherwise you can find the current docs conveniently hosted here:
-// TODO add doc PermaLink
+
+[https://cycling74.github.io/xebra.js/](https://cycling74.github.io/xebra.js/)
 
 ## License
 
