@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Source: index.js</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
+    
+    
+    <script>
+    var config = {"monospaceLinks":false,"cleverLinks":false,"default":{"outputSourceFiles":true,"staticFiles":{"paths":["tutorials"],"include":[],"excludePattern":".+\\.md$"}},"applicationName":"Xebra","footer":"TODO","copyright":"TODO","linenums":true};
+    </script>
+    
+
+    
+</head>
+<body>
+<div id="wrap" class="clearfix">
+    
+<div class="navigation">
+    <h3 class="applicationName"><a href="index.html">Xebra</a></h3>
+
+    <div class="search">
+        <input id="search" type="text" class="form-control input-sm" placeholder="Search Documentations">
+    </div>
+    <ul class="list">
+        <!--  NAMESPACES -->
+        <ul>
+            <li class="nav-header">Namespaces</li>
+            
+                <li class="item" data-name="Xebra">
+                <span class="title">
+                    <a href="Xebra.html">Xebra</a>
+                    
+                    <span class="static">static</span>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="Xebra.CONNECTION_STATES"><a href="Xebra.html#.CONNECTION_STATES">CONNECTION_STATES</a></li>
+                
+                    <li data-name="Xebra.LIVE_UNIT_STYLES"><a href="Xebra.html#.LIVE_UNIT_STYLES">LIVE_UNIT_STYLES</a></li>
+                
+                    <li data-name="Xebra.MOTION_TYPES"><a href="Xebra.html#.MOTION_TYPES">MOTION_TYPES</a></li>
+                
+                    <li data-name="Xebra.SUPPORTED_OBJECTS"><a href="Xebra.html#.SUPPORTED_OBJECTS">SUPPORTED_OBJECTS</a></li>
+                
+                    <li data-name="Xebra.VIEW_MODES"><a href="Xebra.html#.VIEW_MODES">VIEW_MODES</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                <span class="subtitle">Typedefs</span>
+                
+                    <li data-name="Xebra.NodeId"><a href="Xebra.html#.NodeId">NodeId</a></li>
+                
+                    <li data-name="Xebra.ParamValueType"><a href="Xebra.html#.ParamValueType">ParamValueType</a></li>
+                
+                    <li data-name="Xebra.PatchingRect"><a href="Xebra.html#.PatchingRect">PatchingRect</a></li>
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                </ul>
+            </li>
+            
+        </ul>
+        <!--  CLASSES -->
+        <ul>
+            <li class="nav-header">Classes</li>
+            
+            <li class="item" data-name="FrameNode">
+                <span class="title">
+                    <a href="FrameNode.html">FrameNode</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="FrameNode#creationSequence"><a href="FrameNode.html#creationSequence">creationSequence</a></li>
+                
+                    <li data-name="FrameNode#id"><a href="FrameNode.html#id">id</a></li>
+                
+                    <li data-name="FrameNode#patcherId"><a href="FrameNode.html#patcherId">patcherId</a></li>
+                
+                    <li data-name="FrameNode#type"><a href="FrameNode.html#type">type</a></li>
+                
+                    <li data-name="FrameNode#viewMode"><a href="FrameNode.html#viewMode">viewMode</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="FrameNode#containsObject"><a href="FrameNode.html#containsObject">containsObject</a></li>
+                
+                    <li data-name="FrameNode#containsRect"><a href="FrameNode.html#containsRect">containsRect</a></li>
+                
+                    <li data-name="FrameNode#getObject"><a href="FrameNode.html#getObject">getObject</a></li>
+                
+                    <li data-name="FrameNode#getObjects"><a href="FrameNode.html#getObjects">getObjects</a></li>
+                
+                    <li data-name="FrameNode#getParamTypes"><a href="FrameNode.html#getParamTypes">getParamTypes</a></li>
+                
+                    <li data-name="FrameNode#getParamValue"><a href="FrameNode.html#getParamValue">getParamValue</a></li>
+                
+                    <li data-name="FrameNode#getRelativeRect"><a href="FrameNode.html#getRelativeRect">getRelativeRect</a></li>
+                
+                    <li data-name="FrameNode#isViewModeLinked"><a href="FrameNode.html#isViewModeLinked">isViewModeLinked</a></li>
+                
+                    <li data-name="FrameNode#setParamValue"><a href="FrameNode.html#setParamValue">setParamValue</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="ObjectNode">
+                <span class="title">
+                    <a href="ObjectNode.html">ObjectNode</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="ObjectNode#creationSequence"><a href="ObjectNode.html#creationSequence">creationSequence</a></li>
+                
+                    <li data-name="ObjectNode#id"><a href="ObjectNode.html#id">id</a></li>
+                
+                    <li data-name="ObjectNode#patcherId"><a href="ObjectNode.html#patcherId">patcherId</a></li>
+                
+                    <li data-name="ObjectNode#type"><a href="ObjectNode.html#type">type</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="ObjectNode#getParamTypes"><a href="ObjectNode.html#getParamTypes">getParamTypes</a></li>
+                
+                    <li data-name="ObjectNode#getParamValue"><a href="ObjectNode.html#getParamValue">getParamValue</a></li>
+                
+                    <li data-name="ObjectNode#setParamValue"><a href="ObjectNode.html#setParamValue">setParamValue</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="ObjectNode.event:param_changed"><a href="ObjectNode.html#.event:param_changed">param_changed</a></li>
+                
+                    <li data-name="ObjectNode.event:param_set"><a href="ObjectNode.html#.event:param_set">param_set</a></li>
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="ParamNode">
+                <span class="title">
+                    <a href="ParamNode.html">ParamNode</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="ParamNode#creationSequence"><a href="ParamNode.html#creationSequence">creationSequence</a></li>
+                
+                    <li data-name="ParamNode#id"><a href="ParamNode.html#id">id</a></li>
+                
+                    <li data-name="ParamNode#remoteSequence"><a href="ParamNode.html#remoteSequence">remoteSequence</a></li>
+                
+                    <li data-name="ParamNode#type"><a href="ParamNode.html#type">type</a></li>
+                
+                    <li data-name="ParamNode#value"><a href="ParamNode.html#value">value</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="ParamNode#getParamTypes"><a href="ParamNode.html#getParamTypes">getParamTypes</a></li>
+                
+                    <li data-name="ParamNode#getParamValue"><a href="ParamNode.html#getParamValue">getParamValue</a></li>
+                
+                    <li data-name="ParamNode#setParamValue"><a href="ParamNode.html#setParamValue">setParamValue</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="ParamNode.event:change"><a href="ParamNode.html#.event:change">change</a></li>
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="PatcherNode">
+                <span class="title">
+                    <a href="PatcherNode.html">PatcherNode</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="PatcherNode#creationSequence"><a href="PatcherNode.html#creationSequence">creationSequence</a></li>
+                
+                    <li data-name="PatcherNode#id"><a href="PatcherNode.html#id">id</a></li>
+                
+                    <li data-name="PatcherNode#name"><a href="PatcherNode.html#name">name</a></li>
+                
+                    <li data-name="PatcherNode#patcherId"><a href="PatcherNode.html#patcherId">patcherId</a></li>
+                
+                    <li data-name="PatcherNode#type"><a href="PatcherNode.html#type">type</a></li>
+                
+                    <li data-name="PatcherNode#viewMode"><a href="PatcherNode.html#viewMode">viewMode</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="PatcherNode#getFrame"><a href="PatcherNode.html#getFrame">getFrame</a></li>
+                
+                    <li data-name="PatcherNode#getFrames"><a href="PatcherNode.html#getFrames">getFrames</a></li>
+                
+                    <li data-name="PatcherNode#getObject"><a href="PatcherNode.html#getObject">getObject</a></li>
+                
+                    <li data-name="PatcherNode#getObjectByScriptingName"><a href="PatcherNode.html#getObjectByScriptingName">getObjectByScriptingName</a></li>
+                
+                    <li data-name="PatcherNode#getObjects"><a href="PatcherNode.html#getObjects">getObjects</a></li>
+                
+                    <li data-name="PatcherNode#getParamTypes"><a href="PatcherNode.html#getParamTypes">getParamTypes</a></li>
+                
+                    <li data-name="PatcherNode#getParamValue"><a href="PatcherNode.html#getParamValue">getParamValue</a></li>
+                
+                    <li data-name="PatcherNode#setParamValue"><a href="PatcherNode.html#setParamValue">setParamValue</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="PatcherNode.event:frame_changed"><a href="PatcherNode.html#.event:frame_changed">frame_changed</a></li>
+                
+                    <li data-name="PatcherNode.event:object_changed"><a href="PatcherNode.html#.event:object_changed">object_changed</a></li>
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="Resource">
+                <span class="title">
+                    <a href="Resource.html">Resource</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="Resource#dimensions"><a href="Resource.html#dimensions">dimensions</a></li>
+                
+                    <li data-name="Resource#filename"><a href="Resource.html#filename">filename</a></li>
+                
+                    <li data-name="Resource#id"><a href="Resource.html#id">id</a></li>
+                
+                    <li data-name="Resource#isSVG"><a href="Resource.html#isSVG">isSVG</a></li>
+                
+                    <li data-name="Resource#objectContext"><a href="Resource.html#objectContext">objectContext</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="Resource#destroy"><a href="Resource.html#destroy">destroy</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="Resource.event:data_received"><a href="Resource.html#.event:data_received">data_received</a></li>
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="State">
+                <span class="title">
+                    <a href="State.html">State</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="State#connectionState"><a href="State.html#connectionState">connectionState</a></li>
+                
+                    <li data-name="State#hostname"><a href="State.html#hostname">hostname</a></li>
+                
+                    <li data-name="State#isMotionEnabled"><a href="State.html#isMotionEnabled">isMotionEnabled</a></li>
+                
+                    <li data-name="State#isStateLoaded"><a href="State.html#isStateLoaded">isStateLoaded</a></li>
+                
+                    <li data-name="State#name"><a href="State.html#name">name</a></li>
+                
+                    <li data-name="State#port"><a href="State.html#port">port</a></li>
+                
+                    <li data-name="State#uuid"><a href="State.html#uuid">uuid</a></li>
+                
+                    <li data-name="State#wsUrl"><a href="State.html#wsUrl">wsUrl</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="State#close"><a href="State.html#close">close</a></li>
+                
+                    <li data-name="State#connect"><a href="State.html#connect">connect</a></li>
+                
+                    <li data-name="State#createResource"><a href="State.html#createResource">createResource</a></li>
+                
+                    <li data-name="State#getObjectById"><a href="State.html#getObjectById">getObjectById</a></li>
+                
+                    <li data-name="State#getObjectsByScriptingName"><a href="State.html#getObjectsByScriptingName">getObjectsByScriptingName</a></li>
+                
+                    <li data-name="State#getPatchers"><a href="State.html#getPatchers">getPatchers</a></li>
+                
+                    <li data-name="State#sendMotionData"><a href="State.html#sendMotionData">sendMotionData</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="State.event:frame_added"><a href="State.html#.event:frame_added">frame_added</a></li>
+                
+                    <li data-name="State.event:frame_changed"><a href="State.html#.event:frame_changed">frame_changed</a></li>
+                
+                    <li data-name="State.event:frame_removed"><a href="State.html#.event:frame_removed">frame_removed</a></li>
+                
+                    <li data-name="State.event:object_added"><a href="State.html#.event:object_added">object_added</a></li>
+                
+                    <li data-name="State.event:object_changed"><a href="State.html#.event:object_changed">object_changed</a></li>
+                
+                    <li data-name="State.event:object_removed"><a href="State.html#.event:object_removed">object_removed</a></li>
+                
+                    <li data-name="State.event:patcher_added"><a href="State.html#.event:patcher_added">patcher_added</a></li>
+                
+                    <li data-name="State.event:patcher_changed"><a href="State.html#.event:patcher_changed">patcher_changed</a></li>
+                
+                    <li data-name="State.event:patcher_removed"><a href="State.html#.event:patcher_removed">patcher_removed</a></li>
+                
+                    <li data-name="State#event:client_param_changed"><a href="State.html#event:client_param_changed">client_param_changed</a></li>
+                
+                    <li data-name="State#event:connection_changed"><a href="State.html#event:connection_changed">connection_changed</a></li>
+                
+                    <li data-name="State#event:loaded"><a href="State.html#event:loaded">loaded</a></li>
+                
+                    <li data-name="State#event:motion_disabled"><a href="State.html#event:motion_disabled">motion_disabled</a></li>
+                
+                    <li data-name="State#event:motion_enabled"><a href="State.html#event:motion_enabled">motion_enabled</a></li>
+                
+                    <li data-name="State#event:reset"><a href="State.html#event:reset">reset</a></li>
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="XebraNode">
+                <span class="title">
+                    <a href="XebraNode.html">XebraNode</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="XebraNode#creationSequence"><a href="XebraNode.html#creationSequence">creationSequence</a></li>
+                
+                    <li data-name="XebraNode#id"><a href="XebraNode.html#id">id</a></li>
+                
+                    <li data-name="XebraNode#type"><a href="XebraNode.html#type">type</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="XebraNode#getParamTypes"><a href="XebraNode.html#getParamTypes">getParamTypes</a></li>
+                
+                    <li data-name="XebraNode#getParamValue"><a href="XebraNode.html#getParamValue">getParamValue</a></li>
+                
+                    <li data-name="XebraNode#setParamValue"><a href="XebraNode.html#setParamValue">setParamValue</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="XebraNode.event:destroy"><a href="XebraNode.html#.event:destroy">destroy</a></li>
+                
+                </ul>
+            </li>
+            
+        </ul>
+        <!--  MIXINS -->
+        <ul>
+            <li class="nav-header">Mixins</li>
+            
+            <li class="item" data-name="LiveDisplayValueMixin">
+                <span class="title">
+                    <a href="LiveDisplayValueMixin.html">LiveDisplayValueMixin</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="LiveScalingObjectMixin">
+                <span class="title">
+                    <a href="LiveScalingObjectMixin.html">LiveScalingObjectMixin</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="ResourceObjectMixin">
+                <span class="title">
+                    <a href="ResourceObjectMixin.html">ResourceObjectMixin</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="ResourceObjectMixin#getResourceAtIndex"><a href="ResourceObjectMixin.html#getResourceAtIndex">getResourceAtIndex</a></li>
+                
+                    <li data-name="ResourceObjectMixin#getResourceCount"><a href="ResourceObjectMixin.html#getResourceCount">getResourceCount</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="ResourceObjectMixin.event:resources_changed"><a href="ResourceObjectMixin.html#.event:resources_changed">resources_changed</a></li>
+                
+                </ul>
+            </li>
+            
+        </ul>
+        <!--  MIXINS -->
+        <ul>
+            <li class="nav-header">Tutorials</li>
+            
+            <li class="item" data-name="00-objectlist">
+                <span class="title">
+                    <a href="tutorial-00-objectlist.html">00 Object List</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="01-quickstart">
+                <span class="title">
+                    <a href="tutorial-01-quickstart.html">01 QuickStart</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="02-connecting">
+                <span class="title">
+                    <a href="tutorial-02-connecting.html">02 Connecting</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="03-objects">
+                <span class="title">
+                    <a href="tutorial-03-objects.html">03 Working with Objects</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="04-statetree">
+                <span class="title">
+                    <a href="tutorial-04-statetree.html">04 Object State Tree</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="05-scriptingname">
+                <span class="title">
+                    <a href="tutorial-05-scriptingname.html">05 Scripting Name</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="06-valuevsdistance">
+                <span class="title">
+                    <a href="tutorial-06-valuevsdistance.html">06 Value vs. Distance</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="07-resources">
+                <span class="title">
+                    <a href="tutorial-07-resources.html">07 Image Resources</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="08-motion">
+                <span class="title">
+                    <a href="tutorial-08-motion.html">08 Motion and Orientation</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="09-arbitrarymessages">
+                <span class="title">
+                    <a href="tutorial-09-arbitrarymessages.html">09 Sending Arbitrary Messages</a>
+                </span>
+            </li>
+            
+        </ul>
+    </ul>
+</div>
+
+    <div class="main">
+        <h1 class="page-title" data-filename="index.js.html">Source: index.js</h1>
+        
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { OBJECTS, MANDATORY_OBJECTS, OBJECT_PARAMETERS } from "./lib/objectList.js";
+import { ResourceController } from "./lib/resource.js";
+import { EventEmitter } from "events";
+import pick from "lodash.pick";
+import XebraCommunicator from "xebra-communicator";
+
+import { getInstanceForObjectType, ObjectNode, ParamNode } from "./nodes/index.js";
+
+const RESOURCE_REQUEST_DOMAIN = Object.freeze({
+	INFO : "info",
+	DATA : "data"
+});
+
+/**
+ * List of objects available for synchronization in Xebra. Use this or a subset of this when setting the
+ * supported_objects option in Xebra.State.
+ *
+ * @static
+ * @constant
+ * @memberof Xebra
+ * @type {string[]}
+ */
+const SUPPORTED_OBJECTS = Object.freeze(Array.from(Object.values(OBJECTS)));
+
+/**
+ * @namespace Xebra
+ * @tutorial 01-quickstart
+ */
+
+// /////////////////////
+// Type Definitions   //
+// /////////////////////
+
+/**
+ * A string or number based id
+ * @typedef {number|string} NodeId
+ * @memberof Xebra
+ */
+
+/**
+ * @typedef {number[]} PatchingRect
+ * @memberof Xebra
+ * @desc Patching Rectangle attribute consisting of 4 Numbers (x, y, width, height)
+ */
+
+/**
+ * @typedef {number|string|string[]|number[]|object} ParamValueType
+ * @memberof Xebra
+ * @desc Generic parameter value type
+ */
+
+// /////////////////////
+
+
+/**
+ * @desc State instances wrap the state sync and connection with the Max backend.
+ * @class
+ */
+class State extends EventEmitter {
+
+	/**
+	 * @param  {Object} options
+	 * @param  {Boolean} options.auto_connect=true - Whether to autoconnect on startup
+	 * @param  {String} options.hostname - The host of the Xebra backend
+	 * @param  {Number} options.port - The port of the Xebra backend
+	 * @param  {Boolean} options.secure=false - Whether to use a secure WS connection or not (ws vs wss)
+	 * @param  {Boolean} options.reconnect=true - Whether to try auto-reconnecting after the connection closed
+	 * @param  {Number} options.reconnect_attempts=5 - The amount of retries before considering it a failure
+	 * @param  {Number} options.reconnect_timeout=1000 - Timeout between reconnects in ms
+	 * @param  {string[]} options.supported_objects - List of objects to include in the state
+	 */
+	constructor(options) {
+		super();
+
+		const commOptions = pick(options, ["auto_connect", "hostname", "port", "secure", "reconnect", "reconnect_attempts", "reconnect_timeout"]);
+		if (!options.supported_objects) options.supported_objects = SUPPORTED_OBJECTS;
+
+		commOptions.supported_objects = Object.assign({}, MANDATORY_OBJECTS);
+		options.supported_objects.forEach((objName) => {
+			const params = OBJECT_PARAMETERS[objName];
+			if (params) {
+				commOptions.supported_objects[objName] = params;
+			} else if (!MANDATORY_OBJECTS.hasOwnProperty(objName)) {
+				console.log(`WARN: Unsupported or unknown object ${objName}`);
+			}
+		});
+
+		this._communicator = new XebraCommunicator(commOptions);
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.CONNECTION_CHANGE, this._onConnectionChange);
+
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.ADD_NODE, this._addNode);
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.ADD_PARAM, this._addParam);
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.DELETE_NODE, this._deleteNode);
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.HANDLE_RESOURCE_DATA, this._handleResourceData);
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.HANDLE_RESOURCE_INFO, this._handleResourceInfo);
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.INIT_NODE, this._modifyNode);
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.MODIFY_NODE, this._modifyNode);
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.STATEDUMP, this._statedump);
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.CLIENT_param_changed, this._clientParamChange);
+
+		this._resourceRequests = {
+			info : {
+				sequence : 0,
+				resourceToSequence : {},
+				sequenceToResource : {}
+			},
+			data : {
+				sequence : 0,
+				resourceToSequence : {},
+				sequenceToResource : {}
+			}
+		};
+
+		this._isStateLoaded = false;
+		this._rootNode = null;
+		this._state = new Map();
+		this._patchers = new Map();
+		this._motionNodes = new Map();
+		this._resourceController = new ResourceController();
+		this._resourceController.on("get_resource_info", this._onGetResourceInfo);
+	}
+
+	/**
+	 * Returns whether motion tracking is currently enabled/disabled.
+	 * @type {boolean}
+	 * @readonly
+	 */
+	get isMotionEnabled() {
+		return this._motionNodes.size > 0;
+	}
+
+	/**
+	 * Returns the current connection state.
+	 * @type {number}
+	 * @readonly
+	 * @see {Xebra.CONNECTION_STATES}
+	 */
+	get connectionState() {
+		return this._communicator.connectionState;
+	}
+
+	/**
+	 * Name of the current xebra connection. For some Max objects, like mira.motion and mira.multitouch, multiple xebra
+	 * clients (connected via Xebra.js or the Mira iOS app) can send events to the same object. This name property will
+	 * be appended to these events, so that the events can be routed in Max.
+	 * @type {string}
+	 */
+	get name() {
+		return this._communicator.name;
+	}
+
+	set name(name) {
+		this._communicator.name = name;
+	}
+
+	/**
+	 * Hostname of the Max WebSocket
+	 * @type {string}
+	 * @readonly
+	 */
+	get hostname() {
+		return this._communicator.host;
+	}
+
+	/**
+	 * Returns whether the initial state has been received from Max and loaded.
+	 * @type {boolean}
+	 * @readonly
+	 */
+	get isStateLoaded() {
+		return this._isStateLoaded;
+	}
+
+	/**
+	 * Returns the port number of the Max WebSocket.
+	 * @type {number}
+	 * @readonly
+	 */
+	get port() {
+		return this._communicator.port;
+	}
+
+	/**
+	 * WebSocket connection URL.
+	 * @type {string}
+	 * @readonly
+	 */
+	get wsUrl() {
+		return this._communicator.wsUrl;
+	}
+
+	/**
+	 * UUID associated with this state.
+	 * @type {string}
+	 * @readonly
+	 */
+	get uuid() {
+		return this._communicator.uuid;
+	}
+
+	/**
+	 * UID assigned to this state by Max, after connection.
+	 * @private
+	 * @readonly
+	 */
+	get xebraUuid() {
+		return this._communicator.xebraUuid;
+	}
+
+	/* Connection related events */
+
+	/**
+	 * @private
+	 * @throws throws an Error when the RESOURCE_REQUEST_DOMAIN is invalid
+	 */
+	_makeResourceRequest(context, resource, domain) {
+		if (domain !== RESOURCE_REQUEST_DOMAIN.INFO &amp;&amp; domain !== RESOURCE_REQUEST_DOMAIN.DATA) {
+			throw new Error(`Resource request domain must be one of: ${RESOURCE_REQUEST_DOMAIN.DATA}, ${RESOURCE_REQUEST_DOMAIN.INFO}`);
+		}
+
+		// If there was a previous request from this resource, remove it
+		if (this._resourceRequests[domain].resourceToSequence.hasOwnProperty(resource.id)) {
+			const oldSequence = this._resourceRequests[domain].resourceToSequence[resource.id];
+			delete this._resourceRequests[domain].sequenceToResource[oldSequence];
+		}
+
+		const sequence = ++this._resourceRequests[domain].sequence;
+		this._resourceRequests[domain].resourceToSequence[resource.id] = sequence;
+		this._resourceRequests[domain].sequenceToResource[sequence] = resource;
+		const payload = {
+			context : context,
+			name : resource.filename,
+			width : resource.dimensions.width,
+			height : resource.dimensions.height,
+			sequence : sequence,
+			as_png : 1 // This asks Max to render SVG surfaces to PNG instead of raw bytes
+		};
+
+		if (domain === RESOURCE_REQUEST_DOMAIN.INFO) {
+			this._communicator.getResourceInfo(payload);
+		} else if (domain === RESOURCE_REQUEST_DOMAIN.DATA) {
+			this._communicator.getResourceData(payload);
+		}
+	}
+
+
+	/**
+	 * @private
+	 */
+	_onConnectionChange = (status) => {
+		/**
+		 * ConnectionState change event
+		 * @event State#connection_changed
+		 */
+		this.emit("connection_changed", status);
+	}
+
+	/**
+	 * @private
+	 */
+	_onGetResourceInfo = (resource) => {
+		this._makeResourceRequest(resource.objectContext, resource, "info");
+	}
+
+	/**
+	 * @private
+	 * @fires State.frame_changed
+	 * @fires State.object_changed
+	 * @fires State.patcher_changed
+	 */
+	_onNodeChange = (object, param) => {
+		if (object.type === OBJECTS.MIRA_FRAME) {
+			/**
+			 * Frame changed event
+			 * @event State.frame_changed
+			 * @param {FrameNode}				frame     The changed frame
+			 * @param {ParamNode}		param      The parameter node
+			 */
+			if (object.isReady) this.emit("frame_changed", object, param);
+		}
+		if (object.type === OBJECTS.PATCHER) {
+			/**
+			 * Patcher changed event
+			 * @event State.patcher_changed
+			 * @param {PatcherNode}    patcher    The changed patcher
+			 * @param {ParamNode}  param      The parameter node
+			 */
+			if (object.isReady) this.emit("patcher_changed", object, param);
+		}
+
+		/**
+		 * Object changed event
+		 * @event State.object_changed
+		 * @param {ObjectNode} object     The changed object
+		 * @param {ParamNode}  param      The parameter node
+		 */
+		if (object.isReady) this.emit("object_changed", object, param);
+	}
+
+	/**
+	 * @private
+	 */
+	_onNodeInitialized = (object) => {
+		this.emit("object_added", object);
+	}
+
+	/**
+	 * @private
+	 */
+	_onFrameInitialized = (frame) => {
+		this.emit("frame_added", frame);
+	}
+
+	/**
+	 * @private
+	 */
+	_onPatcherInitialized = (patcher) => {
+		this.emit("patcher_added", patcher);
+	}
+
+	/**
+	 * @private
+	 */
+	_onModifiyNodeChange = (object, param) => {
+		let val = param.value;
+		if (!Array.isArray(val)) val = [val];
+
+		this._communicator.sendModifyMessage({
+			id : param.id,
+			sequence : param.sequence,
+			creation_sequence : param.creationSequence,
+			values : val,
+			types : param.types
+		});
+	}
+
+	/**
+	 * @private
+	 */
+	_addMotion(node) {
+		this._motionNodes.set(node.id, node);
+
+		if (this._motionNodes.size === 1) {
+			/**
+			 * Motion Enable event
+			 * @event State#motion_enabled
+			 */
+			this.emit("motion_enabled");
+		}
+	}
+
+	/**
+	 * @private
+	 */
+	_getMotion(id) {
+		return this._motionNodes.get(id) || null;
+	}
+
+	/**
+	 * @private
+	 */
+	_removeMotion(node) {
+		this._motionNodes.delete(node.id);
+		if (this._motionNodes.size === 0) {
+			/**
+			 * Motion Disable event
+			 * @event State#motion_disabled
+			 */
+			this.emit("motion_disabled");
+		}
+	}
+
+	/**
+	 * @private
+	 */
+	_addPatcher(node) {
+		this._patchers.set(node.id, node);
+	}
+
+	/**
+	 * @private
+	 */
+	_getPatcher(id) {
+		return this._patchers.get(id) || null;
+	}
+
+	/**
+	 * @private
+	 */
+	_removePatcher(node) {
+		this._patchers.delete(node.id);
+	}
+
+	/**
+	 * @private
+	 *
+	 * @listens ObjectNode.param_changed
+	 * @listens ObjectNode#param_set
+	 * @fires State.frame_added
+	 * @fires State.object_added
+	 * @fires State.patcher_added
+	 */
+	_addNode = (data) => {
+
+		const node = getInstanceForObjectType(data.id, data.type, data.sequence, data.parent_id);
+
+		// patchers and frames are handled differently as we have to put them into the correct
+		// list other than just adding them to the statetree.
+		if (node.type === OBJECTS.PATCHER) {
+			this._addPatcher(node);
+
+			/**
+			 * Patcher added event
+			 * @event State.patcher_added
+			 * @param {PatcherNode} object The added patcher
+			 */
+			if (node.isReady) {
+				this.emit("patcher_added", node);
+			} else {
+				node.once("initialized", this._onPatcherInitialized);
+			}
+
+		} else if (data.type === OBJECTS.MIRA_FRAME) {
+			const parentPatcher = this._getPatcher(data.parent_id);
+			parentPatcher.addFrame(node);
+
+			/**
+			 * Frame added event
+			 * @event State.frame_added
+			 * @param {FrameNode} object The added frame
+			 */
+			if (node.isReady) {
+				this.emit("frame_added", node);
+			} else {
+				node.once("initialized", this._onFrameInitialized);
+			}
+
+		} else { // object node
+			const parentPatcher = this._getPatcher(data.parent_id);
+			parentPatcher.addObject(node);
+
+			if (node.type === OBJECTS.MIRA_MOTION) this._addMotion(node);
+		}
+
+		this._doInsertNode(node);
+
+		/**
+		 * Object added event
+		 * @event State.object_added
+		 * @param {ObjectNode} object The added object
+		 */
+		if (node.isReady) {
+			this.emit("object_added", node);
+		} else {
+			node.once("initialized", this._onNodeInitialized);
+		}
+	}
+
+	/**
+	 * @private
+	 */
+	_doInsertNode(node) {
+		this._state.set(node.id, node);
+		node.on("param_changed", this._onNodeChange);
+		node.on("param_set", this._onModifiyNodeChange);
+		if (node.resourceController) node.resourceController.on("get_resource_info", this._onGetResourceInfo);
+	}
+
+	/**
+	 * @private
+	 */
+	_addParam = (data) => {
+		const parent = this._state.get(data.parent_id);
+		const param = new ParamNode(data.id, data.type, data.sequence);
+
+		this._state.set(param.id, param);
+
+		parent.addParam(param);
+	}
+
+	/**
+	 * @private
+	 */
+	_clientParamChange = (key, value) => {
+		/**
+		 * Client param change event
+		 * @event State#client_param_changed
+		 * @param {String} key
+		 * @param {String} value
+		 */
+		this.emit("client_param_changed", key, value);
+	}
+
+	/**
+	 * @private
+	 * @fires State.frame_removed
+	 * @fires State.object_removed
+	 * @fires State.patcher_removed
+	 */
+	_deleteNode = (data) => {
+		const node = this._state.get(data.id);
+		if (!node) return;
+
+		const parentPatcher = this._getPatcher(node.patcherId);
+
+		// remove frame from parent patcher
+		if (node.type === OBJECTS.MIRA_FRAME) {
+			if (parentPatcher) parentPatcher.removeFrame(node.id);
+
+			/**
+			 * Frame removed event
+			 * @event State.frame_removed
+			 * @param {FrameNode} object The removed frame
+			 */
+			if (node.isReady) this.emit("frame_removed", node);
+		} else if (node.type === OBJECTS.PATCHER) {
+
+			/**
+			 * Patcher removed event
+			 * @event State.patcher_removed
+			 * @param {PatcherNode} object The removed patcher
+			 */
+			if (node.isReady) this.emit("patcher_removed", node);
+		} else {
+			if (parentPatcher) parentPatcher.removeObject(node.id);
+		}
+
+		if (node.type === OBJECTS.MIRA_MOTION) this._removeMotion(node);
+
+		this._destroyNode(node);
+
+		/**
+		 * Object removed event
+		 * @event State.object_removed
+		 * @param {ObjectNode} object The removed object
+		 */
+		if (node.isReady) this.emit("object_removed", node);
+	}
+
+	_destroyNode(node) {
+		node.destroy();
+
+		node.forEachChild((child) => {
+			if (child instanceof ParamNode) this._destroyNode(child);
+		}, this);
+
+		this._state.delete(node.id);
+	}
+
+	/**
+	 * private
+	 */
+
+	_handleResourceData = (data) => {
+		if (data.request) {
+			const sequence = data.request.sequence;
+			const resource = this._resourceRequests.data.sequenceToResource[sequence];
+			if (resource) {
+				resource.handleData(data);
+				delete this._resourceRequests.data.resourceToSequence[resource.id];
+				delete this._resourceRequests.data.sequenceToResource[sequence];
+			}
+
+		}
+	}
+
+	_handleResourceInfo = (data) => {
+		if (data.request) {
+			const sequence = data.request.sequence;
+			const resource = this._resourceRequests.info.sequenceToResource[sequence];
+			if (resource) {
+				this._makeResourceRequest(data.request.context, resource, "data");
+				delete this._resourceRequests.info.resourceToSequence[resource.id];
+				delete this._resourceRequests.info.sequenceToResource[sequence];
+			}
+		} else {
+			console.log("Could not handle badly formatted resource info response", data);
+		}
+	}
+
+	/**
+	 * @private
+	 */
+	_modifyNode = (data) => {
+		const node = this._state.get(data.id);
+		if (node) node.modify(data.values, data.types, data.sequence);
+	}
+
+	/**
+	 * @private
+	 */
+	_statedump = (data) => {
+		/**
+		 * State reset event
+		 * @event State#reset
+		 */
+		if (this._state) {
+			this.emit("reset");
+		}
+
+		this._resetState();
+
+		for (let i = 0, il = data.messages.length; i &lt; il; i++) {
+			const msg = data.messages[i];
+			if (msg.message === XebraCommunicator.XEBRA_MESSAGES.ADD_NODE) {
+				this._addNode(msg.payload);
+			} else if (msg.message === XebraCommunicator.XEBRA_MESSAGES.ADD_PARAM) {
+				this._addParam(msg.payload);
+			} else if (msg.message === XebraCommunicator.XEBRA_MESSAGES.MODIFY_NODE) {
+				this._modifyNode(msg.payload, true);
+			}
+		}
+
+		/**
+		 * State loaded event
+		 * @event State#loaded
+		 */
+		this._isStateLoaded = true;
+		this.emit("loaded");
+	}
+
+	/**
+	 * @private
+	 */
+	_resetState() {
+		// destroy all old nodes
+		if (this._state) {
+			this._state.forEach((node) => {
+				node.destroy();
+			});
+			this._state.clear();
+		}
+
+		this._isStateLoaded = false;
+		this._state = new Map();
+		this._patchers = new Map();
+
+		// reset motion
+		this._motionNodes = new Map();
+		this.emit("motion_disabled");
+
+		this._rootNode = new ObjectNode(0, "root");
+		this._doInsertNode(this._rootNode);
+	}
+
+	/**
+	 * Closes the Xebra connection and resets the state.
+	 */
+	close() {
+		this._communicator.close();
+		this._resetState();
+	}
+
+	/**
+	 * Connects to the Xebra server. If `auto_connect : true` is passed to State on.
+	 */
+	connect() {
+		this._communicator.connect();
+	}
+
+	/**
+	 * Create a {@link Resource}, which can be used to retrieve image data from the Max search path.
+	 * @return {Resource}
+	 */
+	createResource() {
+		return this._resourceController.createResource();
+	}
+
+	/**
+	 * Send mira.motion updates to parameters on the root node.
+	 * @see Xebra.MOTION_TYPES
+	 * @param {string} motionType - The type of motion
+	 * @param {number} motionX
+	 * @param {number} motionY
+	 * @param {number} motionZ
+	 * @param {number} timestamp
+	 * @throws Will throw an error when motion is currently disabled on the instance of State
+	 */
+	sendMotionData(motionType, motionX, motionY, motionZ, timestamp) {
+		const xuuid = this.xebraUuid;
+		if (!xuuid) return;
+
+		if (!this.isMotionEnabled) throw new Error("Can't send motion data when motion is disabled");
+
+		this._rootNode.setParamValue(motionType, [
+			xuuid,
+			xuuid,
+			motionX,
+			motionY,
+			motionZ,
+			timestamp
+		]);
+	}
+
+	/**
+	 * Returns a list of available patchers.
+	 * @return {PatcherNode[]}
+	 */
+	getPatchers() {
+		return Array.from(this._patchers.values());
+	}
+
+	/**
+	 * Returns a list of node objects with the given scripting name (the Max attribute 'varname').
+	 * @return {ObjectNode[]}
+	 */
+	getObjectsByScriptingName(scriptingName) {
+		const retVal = [];
+		this._patchers.forEach((patcher, id) => {
+			const obj = patcher.getObjectByScriptingName(scriptingName);
+			if (obj) retVal.push(obj);
+		});
+		return retVal;
+	}
+		/**
+		 * Returns the object speficied by the given id.
+		 * @param {Xebra.Node} id - The id of the object
+		 * @return {ObjectNode|null} the object or null if not known
+		*/
+	getObjectById(id) {
+		const node = this._state.get(id);
+		if (!node || !(node instanceof ObjectNode)) return null;
+		return node;
+	}
+}
+
+export { State };
+
+// constants
+
+/**
+ * Connection States
+ * @static
+ * @constant
+ * @memberof Xebra
+ * @type {object}
+ * @property {number} INIT - The connection hasn't been set up yet, it's still waiting for a call to connect (unless
+ *     auto_connect is set to true)
+ * @property {number} CONNECTING - The connection is being established
+ * @property {number} CONNECTED - The connection is established and alive
+ * @property {number} CONNECTION_FAIL - The connection could NEVER be established
+ * @property {number} RECONNECTING - The connection was lost and attempts to reconnect are made (based on reconnect,
+ *     reconnect_attempts and reconnect_timeout options)
+ * @property {number} DISCONNECTED - The connection was lost and all attempts to reconnect failed
+ */
+const CONNECTION_STATES = XebraCommunicator.CONNECTION_STATES;
+const VERSION = XebraCommunicator.XEBRA_VERSION;
+
+export * from "./lib/constants.js";
+export {
+	CONNECTION_STATES,
+	SUPPORTED_OBJECTS,
+	VERSION
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+
+        
+
+        <footer>
+            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Dec 15 2016 10:51:47 GMT-0800 (PST)
+        </footer>
+    </div>
+</div>
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>

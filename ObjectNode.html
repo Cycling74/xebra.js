@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Class: ObjectNode</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
+    
+    
+    <script>
+    var config = {"monospaceLinks":false,"cleverLinks":false,"default":{"outputSourceFiles":true,"staticFiles":{"paths":["tutorials"],"include":[],"excludePattern":".+\\.md$"}},"applicationName":"Xebra","footer":"TODO","copyright":"TODO","linenums":true};
+    </script>
+    
+
+    
+</head>
+<body>
+<div id="wrap" class="clearfix">
+    
+<div class="navigation">
+    <h3 class="applicationName"><a href="index.html">Xebra</a></h3>
+
+    <div class="search">
+        <input id="search" type="text" class="form-control input-sm" placeholder="Search Documentations">
+    </div>
+    <ul class="list">
+        <!--  NAMESPACES -->
+        <ul>
+            <li class="nav-header">Namespaces</li>
+            
+                <li class="item" data-name="Xebra">
+                <span class="title">
+                    <a href="Xebra.html">Xebra</a>
+                    
+                    <span class="static">static</span>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="Xebra.CONNECTION_STATES"><a href="Xebra.html#.CONNECTION_STATES">CONNECTION_STATES</a></li>
+                
+                    <li data-name="Xebra.LIVE_UNIT_STYLES"><a href="Xebra.html#.LIVE_UNIT_STYLES">LIVE_UNIT_STYLES</a></li>
+                
+                    <li data-name="Xebra.MOTION_TYPES"><a href="Xebra.html#.MOTION_TYPES">MOTION_TYPES</a></li>
+                
+                    <li data-name="Xebra.SUPPORTED_OBJECTS"><a href="Xebra.html#.SUPPORTED_OBJECTS">SUPPORTED_OBJECTS</a></li>
+                
+                    <li data-name="Xebra.VIEW_MODES"><a href="Xebra.html#.VIEW_MODES">VIEW_MODES</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                <span class="subtitle">Typedefs</span>
+                
+                    <li data-name="Xebra.NodeId"><a href="Xebra.html#.NodeId">NodeId</a></li>
+                
+                    <li data-name="Xebra.ParamValueType"><a href="Xebra.html#.ParamValueType">ParamValueType</a></li>
+                
+                    <li data-name="Xebra.PatchingRect"><a href="Xebra.html#.PatchingRect">PatchingRect</a></li>
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                </ul>
+            </li>
+            
+        </ul>
+        <!--  CLASSES -->
+        <ul>
+            <li class="nav-header">Classes</li>
+            
+            <li class="item" data-name="FrameNode">
+                <span class="title">
+                    <a href="FrameNode.html">FrameNode</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="FrameNode#creationSequence"><a href="FrameNode.html#creationSequence">creationSequence</a></li>
+                
+                    <li data-name="FrameNode#id"><a href="FrameNode.html#id">id</a></li>
+                
+                    <li data-name="FrameNode#patcherId"><a href="FrameNode.html#patcherId">patcherId</a></li>
+                
+                    <li data-name="FrameNode#type"><a href="FrameNode.html#type">type</a></li>
+                
+                    <li data-name="FrameNode#viewMode"><a href="FrameNode.html#viewMode">viewMode</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="FrameNode#containsObject"><a href="FrameNode.html#containsObject">containsObject</a></li>
+                
+                    <li data-name="FrameNode#containsRect"><a href="FrameNode.html#containsRect">containsRect</a></li>
+                
+                    <li data-name="FrameNode#getObject"><a href="FrameNode.html#getObject">getObject</a></li>
+                
+                    <li data-name="FrameNode#getObjects"><a href="FrameNode.html#getObjects">getObjects</a></li>
+                
+                    <li data-name="FrameNode#getParamTypes"><a href="FrameNode.html#getParamTypes">getParamTypes</a></li>
+                
+                    <li data-name="FrameNode#getParamValue"><a href="FrameNode.html#getParamValue">getParamValue</a></li>
+                
+                    <li data-name="FrameNode#getRelativeRect"><a href="FrameNode.html#getRelativeRect">getRelativeRect</a></li>
+                
+                    <li data-name="FrameNode#isViewModeLinked"><a href="FrameNode.html#isViewModeLinked">isViewModeLinked</a></li>
+                
+                    <li data-name="FrameNode#setParamValue"><a href="FrameNode.html#setParamValue">setParamValue</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="ObjectNode">
+                <span class="title">
+                    <a href="ObjectNode.html">ObjectNode</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="ObjectNode#creationSequence"><a href="ObjectNode.html#creationSequence">creationSequence</a></li>
+                
+                    <li data-name="ObjectNode#id"><a href="ObjectNode.html#id">id</a></li>
+                
+                    <li data-name="ObjectNode#patcherId"><a href="ObjectNode.html#patcherId">patcherId</a></li>
+                
+                    <li data-name="ObjectNode#type"><a href="ObjectNode.html#type">type</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="ObjectNode#getParamTypes"><a href="ObjectNode.html#getParamTypes">getParamTypes</a></li>
+                
+                    <li data-name="ObjectNode#getParamValue"><a href="ObjectNode.html#getParamValue">getParamValue</a></li>
+                
+                    <li data-name="ObjectNode#setParamValue"><a href="ObjectNode.html#setParamValue">setParamValue</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="ObjectNode.event:param_changed"><a href="ObjectNode.html#.event:param_changed">param_changed</a></li>
+                
+                    <li data-name="ObjectNode.event:param_set"><a href="ObjectNode.html#.event:param_set">param_set</a></li>
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="ParamNode">
+                <span class="title">
+                    <a href="ParamNode.html">ParamNode</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="ParamNode#creationSequence"><a href="ParamNode.html#creationSequence">creationSequence</a></li>
+                
+                    <li data-name="ParamNode#id"><a href="ParamNode.html#id">id</a></li>
+                
+                    <li data-name="ParamNode#remoteSequence"><a href="ParamNode.html#remoteSequence">remoteSequence</a></li>
+                
+                    <li data-name="ParamNode#type"><a href="ParamNode.html#type">type</a></li>
+                
+                    <li data-name="ParamNode#value"><a href="ParamNode.html#value">value</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="ParamNode#getParamTypes"><a href="ParamNode.html#getParamTypes">getParamTypes</a></li>
+                
+                    <li data-name="ParamNode#getParamValue"><a href="ParamNode.html#getParamValue">getParamValue</a></li>
+                
+                    <li data-name="ParamNode#setParamValue"><a href="ParamNode.html#setParamValue">setParamValue</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="ParamNode.event:change"><a href="ParamNode.html#.event:change">change</a></li>
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="PatcherNode">
+                <span class="title">
+                    <a href="PatcherNode.html">PatcherNode</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="PatcherNode#creationSequence"><a href="PatcherNode.html#creationSequence">creationSequence</a></li>
+                
+                    <li data-name="PatcherNode#id"><a href="PatcherNode.html#id">id</a></li>
+                
+                    <li data-name="PatcherNode#name"><a href="PatcherNode.html#name">name</a></li>
+                
+                    <li data-name="PatcherNode#patcherId"><a href="PatcherNode.html#patcherId">patcherId</a></li>
+                
+                    <li data-name="PatcherNode#type"><a href="PatcherNode.html#type">type</a></li>
+                
+                    <li data-name="PatcherNode#viewMode"><a href="PatcherNode.html#viewMode">viewMode</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="PatcherNode#getFrame"><a href="PatcherNode.html#getFrame">getFrame</a></li>
+                
+                    <li data-name="PatcherNode#getFrames"><a href="PatcherNode.html#getFrames">getFrames</a></li>
+                
+                    <li data-name="PatcherNode#getObject"><a href="PatcherNode.html#getObject">getObject</a></li>
+                
+                    <li data-name="PatcherNode#getObjectByScriptingName"><a href="PatcherNode.html#getObjectByScriptingName">getObjectByScriptingName</a></li>
+                
+                    <li data-name="PatcherNode#getObjects"><a href="PatcherNode.html#getObjects">getObjects</a></li>
+                
+                    <li data-name="PatcherNode#getParamTypes"><a href="PatcherNode.html#getParamTypes">getParamTypes</a></li>
+                
+                    <li data-name="PatcherNode#getParamValue"><a href="PatcherNode.html#getParamValue">getParamValue</a></li>
+                
+                    <li data-name="PatcherNode#setParamValue"><a href="PatcherNode.html#setParamValue">setParamValue</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="PatcherNode.event:frame_changed"><a href="PatcherNode.html#.event:frame_changed">frame_changed</a></li>
+                
+                    <li data-name="PatcherNode.event:object_changed"><a href="PatcherNode.html#.event:object_changed">object_changed</a></li>
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="Resource">
+                <span class="title">
+                    <a href="Resource.html">Resource</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="Resource#dimensions"><a href="Resource.html#dimensions">dimensions</a></li>
+                
+                    <li data-name="Resource#filename"><a href="Resource.html#filename">filename</a></li>
+                
+                    <li data-name="Resource#id"><a href="Resource.html#id">id</a></li>
+                
+                    <li data-name="Resource#isSVG"><a href="Resource.html#isSVG">isSVG</a></li>
+                
+                    <li data-name="Resource#objectContext"><a href="Resource.html#objectContext">objectContext</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="Resource#destroy"><a href="Resource.html#destroy">destroy</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="Resource.event:data_received"><a href="Resource.html#.event:data_received">data_received</a></li>
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="State">
+                <span class="title">
+                    <a href="State.html">State</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="State#connectionState"><a href="State.html#connectionState">connectionState</a></li>
+                
+                    <li data-name="State#hostname"><a href="State.html#hostname">hostname</a></li>
+                
+                    <li data-name="State#isMotionEnabled"><a href="State.html#isMotionEnabled">isMotionEnabled</a></li>
+                
+                    <li data-name="State#isStateLoaded"><a href="State.html#isStateLoaded">isStateLoaded</a></li>
+                
+                    <li data-name="State#name"><a href="State.html#name">name</a></li>
+                
+                    <li data-name="State#port"><a href="State.html#port">port</a></li>
+                
+                    <li data-name="State#uuid"><a href="State.html#uuid">uuid</a></li>
+                
+                    <li data-name="State#wsUrl"><a href="State.html#wsUrl">wsUrl</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="State#close"><a href="State.html#close">close</a></li>
+                
+                    <li data-name="State#connect"><a href="State.html#connect">connect</a></li>
+                
+                    <li data-name="State#createResource"><a href="State.html#createResource">createResource</a></li>
+                
+                    <li data-name="State#getObjectById"><a href="State.html#getObjectById">getObjectById</a></li>
+                
+                    <li data-name="State#getObjectsByScriptingName"><a href="State.html#getObjectsByScriptingName">getObjectsByScriptingName</a></li>
+                
+                    <li data-name="State#getPatchers"><a href="State.html#getPatchers">getPatchers</a></li>
+                
+                    <li data-name="State#sendMotionData"><a href="State.html#sendMotionData">sendMotionData</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="State.event:frame_added"><a href="State.html#.event:frame_added">frame_added</a></li>
+                
+                    <li data-name="State.event:frame_changed"><a href="State.html#.event:frame_changed">frame_changed</a></li>
+                
+                    <li data-name="State.event:frame_removed"><a href="State.html#.event:frame_removed">frame_removed</a></li>
+                
+                    <li data-name="State.event:object_added"><a href="State.html#.event:object_added">object_added</a></li>
+                
+                    <li data-name="State.event:object_changed"><a href="State.html#.event:object_changed">object_changed</a></li>
+                
+                    <li data-name="State.event:object_removed"><a href="State.html#.event:object_removed">object_removed</a></li>
+                
+                    <li data-name="State.event:patcher_added"><a href="State.html#.event:patcher_added">patcher_added</a></li>
+                
+                    <li data-name="State.event:patcher_changed"><a href="State.html#.event:patcher_changed">patcher_changed</a></li>
+                
+                    <li data-name="State.event:patcher_removed"><a href="State.html#.event:patcher_removed">patcher_removed</a></li>
+                
+                    <li data-name="State#event:client_param_changed"><a href="State.html#event:client_param_changed">client_param_changed</a></li>
+                
+                    <li data-name="State#event:connection_changed"><a href="State.html#event:connection_changed">connection_changed</a></li>
+                
+                    <li data-name="State#event:loaded"><a href="State.html#event:loaded">loaded</a></li>
+                
+                    <li data-name="State#event:motion_disabled"><a href="State.html#event:motion_disabled">motion_disabled</a></li>
+                
+                    <li data-name="State#event:motion_enabled"><a href="State.html#event:motion_enabled">motion_enabled</a></li>
+                
+                    <li data-name="State#event:reset"><a href="State.html#event:reset">reset</a></li>
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="XebraNode">
+                <span class="title">
+                    <a href="XebraNode.html">XebraNode</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                <span class="subtitle">Members</span>
+                
+                    <li data-name="XebraNode#creationSequence"><a href="XebraNode.html#creationSequence">creationSequence</a></li>
+                
+                    <li data-name="XebraNode#id"><a href="XebraNode.html#id">id</a></li>
+                
+                    <li data-name="XebraNode#type"><a href="XebraNode.html#type">type</a></li>
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="XebraNode#getParamTypes"><a href="XebraNode.html#getParamTypes">getParamTypes</a></li>
+                
+                    <li data-name="XebraNode#getParamValue"><a href="XebraNode.html#getParamValue">getParamValue</a></li>
+                
+                    <li data-name="XebraNode#setParamValue"><a href="XebraNode.html#setParamValue">setParamValue</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="XebraNode.event:destroy"><a href="XebraNode.html#.event:destroy">destroy</a></li>
+                
+                </ul>
+            </li>
+            
+        </ul>
+        <!--  MIXINS -->
+        <ul>
+            <li class="nav-header">Mixins</li>
+            
+            <li class="item" data-name="LiveDisplayValueMixin">
+                <span class="title">
+                    <a href="LiveDisplayValueMixin.html">LiveDisplayValueMixin</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="LiveScalingObjectMixin">
+                <span class="title">
+                    <a href="LiveScalingObjectMixin.html">LiveScalingObjectMixin</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                </ul>
+            </li>
+            
+            <li class="item" data-name="ResourceObjectMixin">
+                <span class="title">
+                    <a href="ResourceObjectMixin.html">ResourceObjectMixin</a>
+                    
+                </span>
+                <ul class="members itemMembers">
+                
+                </ul>
+                <ul class="typedefs itemMembers">
+                
+                </ul>
+                <ul class="methods itemMembers">
+                
+                <span class="subtitle">Methods</span>
+                
+                    <li data-name="ResourceObjectMixin#getResourceAtIndex"><a href="ResourceObjectMixin.html#getResourceAtIndex">getResourceAtIndex</a></li>
+                
+                    <li data-name="ResourceObjectMixin#getResourceCount"><a href="ResourceObjectMixin.html#getResourceCount">getResourceCount</a></li>
+                
+                </ul>
+                <ul class="events itemMembers">
+                
+                <span class="subtitle">Events</span>
+                
+                    <li data-name="ResourceObjectMixin.event:resources_changed"><a href="ResourceObjectMixin.html#.event:resources_changed">resources_changed</a></li>
+                
+                </ul>
+            </li>
+            
+        </ul>
+        <!--  MIXINS -->
+        <ul>
+            <li class="nav-header">Tutorials</li>
+            
+            <li class="item" data-name="00-objectlist">
+                <span class="title">
+                    <a href="tutorial-00-objectlist.html">00 Object List</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="01-quickstart">
+                <span class="title">
+                    <a href="tutorial-01-quickstart.html">01 QuickStart</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="02-connecting">
+                <span class="title">
+                    <a href="tutorial-02-connecting.html">02 Connecting</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="03-objects">
+                <span class="title">
+                    <a href="tutorial-03-objects.html">03 Working with Objects</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="04-statetree">
+                <span class="title">
+                    <a href="tutorial-04-statetree.html">04 Object State Tree</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="05-scriptingname">
+                <span class="title">
+                    <a href="tutorial-05-scriptingname.html">05 Scripting Name</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="06-valuevsdistance">
+                <span class="title">
+                    <a href="tutorial-06-valuevsdistance.html">06 Value vs. Distance</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="07-resources">
+                <span class="title">
+                    <a href="tutorial-07-resources.html">07 Image Resources</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="08-motion">
+                <span class="title">
+                    <a href="tutorial-08-motion.html">08 Motion and Orientation</a>
+                </span>
+            </li>
+            
+            <li class="item" data-name="09-arbitrarymessages">
+                <span class="title">
+                    <a href="tutorial-09-arbitrarymessages.html">09 Sending Arbitrary Messages</a>
+                </span>
+            </li>
+            
+        </ul>
+    </ul>
+</div>
+
+    <div class="main">
+        <h1 class="page-title" data-filename="ObjectNode.html">Class: ObjectNode</h1>
+        
+
+
+
+<section>
+    
+<header>
+    <h2>
+    ObjectNode
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="ObjectNode">
+            
+            new ObjectNode<span class="signature">(id, type, creationSeq, patcherId)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="nodes_objectNode.js.html">nodes/objectNode.js</a>, <a href="nodes_objectNode.js.html#line12">line 12</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p><strong>Constructor for internal use only</strong></p>
+<p>Representation of a Max object in the Xebra state tree. The <code>nodeType</code> property returns the type of the ObjectNode,
+which corresponds to the Max class of the object it represents. The <code>getParamTypes</code> function will return an array of
+the parameters supported by this object, which usually corresponds to the attributes of the Max object. To listen to
+parameter changes from Max, subscribe to the <a href="ObjectNode.html#.event:param_changed">ObjectNode.event:param_changed</a> event.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Xebra.html#.NodeId">Xebra.NodeId</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The id of the node</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>Type identifier of the node</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>creationSeq</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The sequence number for the creation of this node</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>patcherId</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The id of the parent node</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+        <h3 class="subsection-title">Extends</h3>
+        
+        <ul>
+            <li><a href="XebraNode.html">XebraNode</a></li>
+        </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl>
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="creationSequence">creationSequence<span class="type-signature">:number</span></h4>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The creation sequence number associated with this node. This number is an increasing integer unique to each node.</p>
+    </div>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="id">id<span class="type-signature"><a href="Xebra.html#.NodeId">:Xebra.NodeId</a></span></h4>
+        <span class="name-attr">readonly</span>
+    </div>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Unique id associated with each XebraNode.</p>
+    </div>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="patcherId">patcherId<span class="type-signature"><a href="Xebra.html#.NodeId">:Xebra.NodeId</a></span></h4>
+        <span class="name-attr">readonly</span>
+    </div>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Unique id of the parent patcher of the Max object.</p>
+    </div>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="type">type<span class="type-signature">:string</span></h4>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Type associated with this node. For Objects, Frames and Patchers, this will correspond to the class name of the
+Max object. For parameters, this will be the name of the associated parameter. Parameters usually correspond to
+the name of a Max object's attribute.</p>
+    </div>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="getParamTypes">
+            
+                <span class="inherited"><a href="XebraNode.html#getParamTypes">inherited</a></span>
+            
+            getParamTypes<span class="signature">()</span><span class="return-type">:Array.&lt;string></span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="nodes_base.js.html">nodes/base.js</a>, <a href="nodes_base.js.html#line188">line 188</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Returns a list of the names of all available parameters.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        Array.&lt;string>
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="getParamValue">
+            
+                <span class="inherited"><a href="XebraNode.html#getParamValue">inherited</a></span>
+            
+            getParamValue<span class="signature">(type)</span><span class="return-type">:<a href="Xebra.html#.ParamValueType">Xebra.ParamValueType</a></span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="nodes_base.js.html">nodes/base.js</a>, <a href="nodes_base.js.html#line209">line 209</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Returns the value for the parameter with the name <i>type</i>.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>Parameter type identifier</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="Xebra.html#.ParamValueType">Xebra.ParamValueType</a>
+                        
+                    
+            </td>
+            <td class="description last">returns the value(s) of the given parameter type or null</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="setParamValue">
+            
+                <span class="inherited"><a href="XebraNode.html#setParamValue">inherited</a></span>
+            
+            setParamValue<span class="signature">(type, value)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="nodes_base.js.html">nodes/base.js</a>, <a href="nodes_base.js.html#line220">line 220</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Sets the value for the parameter with the name <i>type</i> to the given value.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>Parameter type identifier</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>Parameter value</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Events</h3>
+        
+        <dl>
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".event:param_changed">
+            
+            ObjectNode.event:param_changed
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="nodes_objectNode.js.html">nodes/objectNode.js</a>, <a href="nodes_objectNode.js.html#line69">line 69</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Parameter Changed event. Listen to this event to be notified when the value of a parameter changes.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ObjectNode.html">ObjectNode</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>This</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>param</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ParamNode.html">ParamNode</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The parameter node</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".event:param_set">
+            
+            ObjectNode.event:param_set
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="nodes_objectNode.js.html">nodes/objectNode.js</a>, <a href="nodes_objectNode.js.html#line98">line 98</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Parameter set event. Used internally in order to communicate parameter changes to Max. Use param_changed instead
+if you'd like to keep track of parameter changes.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ObjectNode.html">ObjectNode</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>This</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>param</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ParamNode.html">ParamNode</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The parameter node</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
+    
+</article>
+
+</section>  
+
+
+
+
+
+        
+
+        <footer>
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Dec 15 2016 10:51:47 GMT-0800 (PST)
+        </footer>
+    </div>
+</div>
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>
