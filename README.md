@@ -108,6 +108,7 @@ $> npm run docs
 ```
 
 Otherwise you can find the current docs conveniently hosted here:
+
 [https://cycling74.github.io/xebra.js/](https://cycling74.github.io/xebra.js/)
 
 ## License
