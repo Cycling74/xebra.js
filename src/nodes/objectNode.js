@@ -61,9 +61,10 @@ class ObjectNode extends XebraNode {
 			let paramTypes = this.getParamTypes();
 			let optionalParamTypes = this.getOptionalParamTypes();
 			let isReady = true;
-			for (let i=0; i<paramTypes.length; i++) {
+			for (let i = 0; i < paramTypes.length; i++) {
 				const type = paramTypes[i];
-				if ((this.getParamValue(type) == null) && (optionalParamTypes.indexOf(type) === -1)) {
+				const value = this.getParamValue(type);
+				if (( value === null || value === undefined) && (optionalParamTypes.indexOf(type) === -1)) {
 					isReady = false;
 					break;
 				}
