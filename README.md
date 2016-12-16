@@ -21,7 +21,9 @@ Alternatively you can install Xebra using npm
 $> npm install xebra.js
 ```
 
-## Basic Usage Example
+## Learn
+
+### Basic Usage Example
 
 From a web browser, start a websocket connection to Max by creating a new Xebra.State object.
 
@@ -64,8 +66,11 @@ sliderObj.setParamValue("distance", 72);
 ```
 will set the value of the `slider` object associated with `sliderObj` to `72`.
 
-For more examples, tutorials etc please check the [examples folder](examples) and the tutorials in the documentation.
-// TODO: make PermaLink to docs
+For more examples and tutorials please check the [examples folder](examples) and the tutorials section in the [documentation][documentation].
+
+### API Reference
+
+Check out, learn more and use the Xebra.js API using the [documentation][documentation].
 
 ## Contribute
 
@@ -107,10 +112,10 @@ If you would like to rebuild the documentation please run
 $> npm run docs
 ```
 
-Otherwise you can find the current docs conveniently hosted here:
-
-[https://cycling74.github.io/xebra.js/](https://cycling74.github.io/xebra.js/)
+For convenience we also host the latest version of the [documentation online][documentation].
 
 ## License
 
 [MIT](LICENSE)
+
+[documentation]: https://cycling74.github.io/xebra.js/
