@@ -28,6 +28,10 @@
     "templates": {
         "cleverLinks": false,
         "monospaceLinks": false,
+        "meta" : {
+            "titlePrefix": "Xebra.js Docs",
+            "description": "Xebra.js API Documentation"
+        },
         "default": {
 			"outputSourceFiles" : true,
             "staticFiles": {
@@ -51,6 +55,7 @@
 	  "private" : false,
 	  "lenient" : true,
 	  "destination" : "./docs",
+      "package" : "./package.json",
 	  "readme" : "./README.md",
 	  "template" : "./node_modules/jaguarjs-jsdoc",
 	  "tutorials" : "./tutorials"
