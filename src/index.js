@@ -153,7 +153,7 @@ class State extends EventEmitter {
 	}
 
 	/**
-	 * Hostname of the Max WebSocket
+	 * Hostname of the Max WebSocket.
 	 * @type {string}
 	 * @readonly
 	 */
@@ -248,7 +248,7 @@ class State extends EventEmitter {
 	 */
 	_onConnectionChange = (status) => {
 		/**
-		 * ConnectionState change event
+		 * This event is emitted when the state of the web socket connection to the Max patch (ConnectionState) changes.
 		 * @event State#connection_changed
 		 */
 		this.emit("connection_changed", status);
@@ -270,7 +270,8 @@ class State extends EventEmitter {
 	_onNodeChange = (object, param) => {
 		if (object.type === OBJECTS.MIRA_FRAME) {
 			/**
-			 * Frame changed event
+			 * This event is emitted when a parameter of a frame is changed. This change can come from Max or when the value
+			 * of the parameter is set directly.
 			 * @event State.frame_changed
 			 * @param {FrameNode}				frame     The changed frame
 			 * @param {ParamNode}		param      The parameter node
@@ -279,7 +280,8 @@ class State extends EventEmitter {
 		}
 		if (object.type === OBJECTS.PATCHER) {
 			/**
-			 * Patcher changed event
+			 * This event is emitted when a parameter of a patcher is changed. This change can come from Max or when the
+			 * value of the parameter is set directly.
 			 * @event State.patcher_changed
 			 * @param {PatcherNode}    patcher    The changed patcher
 			 * @param {ParamNode}  param      The parameter node
@@ -288,7 +290,8 @@ class State extends EventEmitter {
 		}
 
 		/**
-		 * Object changed event
+		 * This event is emitted when a parameter of an object is changed. This change can come from Max or when the value
+		 * of the parameter is set directly.
 		 * @event State.object_changed
 		 * @param {ObjectNode} object     The changed object
 		 * @param {ParamNode}  param      The parameter node
@@ -341,7 +344,7 @@ class State extends EventEmitter {
 
 		if (this._motionNodes.size === 1) {
 			/**
-			 * Motion Enable event
+			 * This event is emitted when there is at least one mira.motion object in Max.
 			 * @event State#motion_enabled
 			 */
 			this.emit("motion_enabled");
@@ -362,7 +365,8 @@ class State extends EventEmitter {
 		this._motionNodes.delete(node.id);
 		if (this._motionNodes.size === 0) {
 			/**
-			 * Motion Disable event
+			 * This event is emitted when the last mira.motion object is removed from Max. This event is not emitted when
+			 * xebra first connects to Max, and there are no mira.motion objects in Max. 
 			 * @event State#motion_disabled
 			 */
 			this.emit("motion_disabled");
@@ -409,7 +413,7 @@ class State extends EventEmitter {
 			this._addPatcher(node);
 
 			/**
-			 * Patcher added event
+			 * This event is emitted when a patcher is added in Max.
 			 * @event State.patcher_added
 			 * @param {PatcherNode} object The added patcher
 			 */
@@ -424,7 +428,7 @@ class State extends EventEmitter {
 			parentPatcher.addFrame(node);
 
 			/**
-			 * Frame added event
+			 * This event is emitted when a frame is added in Max.
 			 * @event State.frame_added
 			 * @param {FrameNode} object The added frame
 			 */
@@ -444,7 +448,7 @@ class State extends EventEmitter {
 		this._doInsertNode(node);
 
 		/**
-		 * Object added event
+		 * This event is emitted when an object is added in Max.
 		 * @event State.object_added
 		 * @param {ObjectNode} object The added object
 		 */
@@ -483,6 +487,7 @@ class State extends EventEmitter {
 	_clientParamChange = (key, value) => {
 		/**
 		 * Client param change event
+		 * @private
 		 * @event State#client_param_changed
 		 * @param {String} key
 		 * @param {String} value
@@ -507,7 +512,7 @@ class State extends EventEmitter {
 			if (parentPatcher) parentPatcher.removeFrame(node.id);
 
 			/**
-			 * Frame removed event
+			 * This event is emitted when a frame is removed from Max.
 			 * @event State.frame_removed
 			 * @param {FrameNode} object The removed frame
 			 */
@@ -515,7 +520,7 @@ class State extends EventEmitter {
 		} else if (node.type === OBJECTS.PATCHER) {
 
 			/**
-			 * Patcher removed event
+			 * This event is emitted when a patcher is removed from Max.
 			 * @event State.patcher_removed
 			 * @param {PatcherNode} object The removed patcher
 			 */
@@ -529,7 +534,7 @@ class State extends EventEmitter {
 		this._destroyNode(node);
 
 		/**
-		 * Object removed event
+		 * This event is emitted when an object is removed from Max.
 		 * @event State.object_removed
 		 * @param {ObjectNode} object The removed object
 		 */
@@ -591,6 +596,7 @@ class State extends EventEmitter {
 	_statedump = (data) => {
 		/**
 		 * State reset event
+ 		 * @private
 		 * @event State#reset
 		 */
 		if (this._state) {
@@ -612,6 +618,7 @@ class State extends EventEmitter {
 
 		/**
 		 * State loaded event
+		 * @private
 		 * @event State#loaded
 		 */
 		this._isStateLoaded = true;
@@ -673,7 +680,7 @@ class State extends EventEmitter {
 	 * @param {number} motionY
 	 * @param {number} motionZ
 	 * @param {number} timestamp
-	 * @throws Will throw an error when motion is currently disabled on the instance of State
+	 * @throws Will throw an error when motion is currently disabled on the instance of State.
 	 */
 	sendMotionData(motionType, motionX, motionY, motionZ, timestamp) {
 		const xuuid = this.xebraUuid;
