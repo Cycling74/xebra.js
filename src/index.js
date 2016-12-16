@@ -24,7 +24,6 @@ const SUPPORTED_OBJECTS = Object.freeze(Array.from(Object.values(OBJECTS)));
 
 /**
  * @namespace Xebra
- * @tutorial 01-quickstart
  */
 
 // /////////////////////
