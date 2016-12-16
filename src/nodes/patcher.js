@@ -100,6 +100,10 @@ class PatcherNode extends ObjectNode {
 	 * @fires PatcherNode.object_added
 	 */
 	_onObjectInitialized = (object) => {
+		const varname = object.getParamValue("varname");
+		if (varname) {
+			this._storeScriptingNameLookup(object.id, varname);
+		}
 		this._assignObjectToFrames(object);
 		this.emit("object_added", object);
 	}
