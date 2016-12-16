@@ -249,7 +249,7 @@ class State extends EventEmitter {
 	_onConnectionChange = (status) => {
 		/**
 		 * This event is emitted when the state of the web socket connection to the Max patch (ConnectionState) changes.
-		 * @event State#connection_changed
+		 * @event State.connection_changed
 		 */
 		this.emit("connection_changed", status);
 	}
@@ -345,7 +345,7 @@ class State extends EventEmitter {
 		if (this._motionNodes.size === 1) {
 			/**
 			 * This event is emitted when there is at least one mira.motion object in Max.
-			 * @event State#motion_enabled
+			 * @event State.motion_enabled
 			 */
 			this.emit("motion_enabled");
 		}
@@ -367,7 +367,7 @@ class State extends EventEmitter {
 			/**
 			 * This event is emitted when the last mira.motion object is removed from Max. This event is not emitted when
 			 * xebra first connects to Max, and there are no mira.motion objects in Max. 
-			 * @event State#motion_disabled
+			 * @event State.motion_disabled
 			 */
 			this.emit("motion_disabled");
 		}
@@ -595,9 +595,10 @@ class State extends EventEmitter {
 	 */
 	_statedump = (data) => {
 		/**
-		 * State reset event
- 		 * @private
-		 * @event State#reset
+		 * This event is emitted when the web socket connection is persistently interrupted to the point that the xebra
+		 * state and Max state fall out of sync. In this case, xebra will attempt to reset and rebuild the state, which
+		 * fires this event. This should happen very infrequently. A state#loaded event will fire when this event fires.
+		 * @event State.reset
 		 */
 		if (this._state) {
 			this.emit("reset");
@@ -617,9 +618,10 @@ class State extends EventEmitter {
 		}
 
 		/**
-		 * State loaded event
-		 * @private
-		 * @event State#loaded
+		 * This event is emitted when the entire Max state has been loaded. At this point, all `frame_added`,
+		 * `object_added`, and `patcher_added` events will have fired, and all of their parameters will have been
+		 * loaded. This is analogous to $(document).ready() in jQuery.
+		 * @event State.loaded
 		 */
 		this._isStateLoaded = true;
 		this.emit("loaded");
