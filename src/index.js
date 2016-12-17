@@ -366,7 +366,7 @@ class State extends EventEmitter {
 		if (this._motionNodes.size === 0) {
 			/**
 			 * This event is emitted when the last mira.motion object is removed from Max. This event is not emitted when
-			 * xebra first connects to Max, and there are no mira.motion objects in Max. 
+			 * xebra first connects to Max, and there are no mira.motion objects in Max.
 			 * @event State.motion_disabled
 			 */
 			this.emit("motion_disabled");
