@@ -33,9 +33,9 @@
     "test": "npm run lint",
     "preversion": "npm run test",
     "version": "npm run lib && npm run build",
-    "publish:patch": "npm version patch --no-git-tag-version && echo 'add actual publish here'",
-    "publish:minor": "npm version minor --no-git-tag-version && echo 'add actual publish here'",
-    "publish:major": "npm version major --no-git-tag-version && echo 'add actual publish here'",
+    "publish:patch": "npm version patch '%s' && npm publish",
+    "publish:minor": "npm version minor '%s' && npm publish",
+    "publish:major": "npm version major '%s' && npm publish",
     "postpublish": "npm run docs && node ./.bin/publish_docs.js"
   },
   "dependencies": {
