@@ -9,5 +9,5 @@ node_modules
 docs
 dist
 !.bin/docs
-# lib
-# !src/lib
+lib
+!src/lib
