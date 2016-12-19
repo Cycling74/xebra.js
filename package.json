@@ -1,6 +1,6 @@
 {
   "name": "xebra.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Xebra connects Max to the browser, and the browser to Max.",
   "author": {
     "name": "Cycling '74",
