@@ -10,10 +10,8 @@ Adding a mira.frame object to a Max patcher creates an open websocket that expos
 
 Getting started with Xebra is quite simple. Just grab one of the pre-built versions from here:
 
-* Minified Version
-* Unminified Version
-
-// TODO: add download PermaLinks
+* [Minified Version](https://cycling74.s3.amazonaws.com/download/xebra.min.js)
+* [Unminified Version](https://cycling74.s3.amazonaws.com/download/xebra.js)
 
 Alternatively you can install Xebra using npm
 
