@@ -15,7 +15,6 @@
   ],
   "main": "lib/index.js",
   "homepage": "http://cycling74.com",
-  "readme": "README.md",
   "bugs": "https://github.com/Cycling74/xebra.js/issues",
   "license": "MIT",
   "repository": {
