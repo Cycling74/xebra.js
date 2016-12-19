@@ -32,9 +32,9 @@
     "test": "npm run lint",
     "preversion": "npm run test",
     "version": "npm run lib && npm run build",
-    "publish:patch": "npm version patch -m ‘%s’ && npm publish",
-    "publish:minor": "npm version minor '%s' && npm publish",
-    "publish:major": "npm version major '%s' && npm publish",
+    "publish:patch": "npm version patch -m '%s' && npm publish",
+    "publish:minor": "npm version minor -m '%s' && npm publish",
+    "publish:major": "npm version major -m '%s' && npm publish",
     "postpublish": "npm run docs && node ./.bin/publish_docs.js"
   },
   "dependencies": {
