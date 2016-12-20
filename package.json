@@ -30,7 +30,7 @@
     "lib": "babel ./src -d ./lib",
     "lint": "eslint src -c ./.eslintrc.json",
     "test": "npm run lint",
-    "preversion": "npm run test",
+    "preversion": "npm update && npm run test",
     "version": "npm run lib && npm run build",
     "publish:patch": "npm version patch -m '%s' && npm publish",
     "publish:minor": "npm version minor -m '%s' && npm publish",
