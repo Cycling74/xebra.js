@@ -1,10 +1,15 @@
-import { OBJECTS, MANDATORY_OBJECTS, OBJECT_PARAMETERS } from "./lib/objectList.js";
+import { DEFAULT_PARAMS, OBJECTS, MANDATORY_OBJECTS, OBJECT_PARAMETERS } from "./lib/objectList.js";
 import { ResourceController } from "./lib/resource.js";
 import { EventEmitter } from "events";
 import pick from "lodash.pick";
+import uniq from "lodash.uniq";
 import XebraCommunicator from "xebra-communicator";
 
 import { getInstanceForObjectType, ObjectNode, ParamNode } from "./nodes/index.js";
+
+function isString(v) {
+	return typeof v === "string" || v instanceof String;
+}
 
 const RESOURCE_REQUEST_DOMAIN = Object.freeze({
 	INFO : "info",
@@ -75,13 +80,34 @@ class State extends EventEmitter {
 		if (!options.supported_objects) options.supported_objects = SUPPORTED_OBJECTS;
 
 		commOptions.supported_objects = Object.assign({}, MANDATORY_OBJECTS);
-		options.supported_objects.forEach((objName) => {
-			const params = OBJECT_PARAMETERS[objName];
-			if (params) {
-				commOptions.supported_objects[objName] = params;
-			} else if (!MANDATORY_OBJECTS.hasOwnProperty(objName)) {
-				console.log(`WARN: Unsupported or unknown object ${objName}`);
-			}
+		options.supported_objects.forEach((objDetails) => {
+			if (isString(objDetails)) {
+				const params = OBJECT_PARAMETERS[objDetails];
+				if (params) {
+					commOptions.supported_objects[objDetails] = params;
+					return;
+				}
+
+				if (!MANDATORY_OBJECTS.hasOwnProperty(objDetails)) {
+					console.log(`WARN: Unsupported or unknown object ${objDetails}. Please use the { name : ""<obj_name>", parameters: ["param_1", "param_2"] } syntax for non built-in objects.`);
+					return;
+				}
+			} else if (typeof objDetails === "object") {
+				if (!objDetails.name || !isString(objDetails.name) || !objDetails.parameters || !Array.isArray(objDetails.parameters)) {
+					console.log(`WARN: Skipping object defintion '${JSON.stringify(objDetails)}' Please declare objects using their name or the { name : ""<obj_name>", parameters: ["param_1", "param_2"] } syntax.`);
+					return;
+				}
+
+				// make sure that all required parameters are in place
+				let params = DEFAULT_PARAMS.concat(objDetails.parameters);
+				params = uniq(params);
+				commOptions.supported_objects[objDetails.name] = params;
+
+				return;
+ 			}
+
+			console.log(`WARN: Skipping object defintion '${objDetails}' Please declare objects using their name or the { name : ""<obj_name>", parameters: ["param_1", "param_2"] } syntax.`);
+			return;
 		});
 
 		this._communicator = new XebraCommunicator(commOptions);

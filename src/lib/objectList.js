@@ -47,7 +47,7 @@ export const MANDATORY_OBJECTS = Object.freeze({
 	[OBJECTS.MIRA_MOTION] : []
 });
 
-const DEFAULT_PARAMS = ["patching_rect", "presentation_rect", "zorder", "presentation", "hidden", "ignoreclick", "varname"];
+export const DEFAULT_PARAMS = ["patching_rect", "presentation_rect", "zorder", "presentation", "hidden", "ignoreclick", "varname"];
 
 export const OBJECT_PARAMETERS = Object.freeze({
 
