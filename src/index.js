@@ -104,7 +104,7 @@ class State extends EventEmitter {
 				commOptions.supported_objects[objDetails.name] = params;
 
 				return;
- 			}
+			}
 
 			console.log(`WARN: Skipping object defintion '${objDetails}' Please declare objects using their name or the { name : ""<obj_name>", parameters: ["param_1", "param_2"] } syntax.`);
 			return;
