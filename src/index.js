@@ -53,6 +53,12 @@ const SUPPORTED_OBJECTS = Object.freeze(Array.from(Object.values(OBJECTS)));
  * @desc Generic parameter value type
  */
 
+/**
+ * @typedef {number[]} Color
+ * @memberof Xebra
+ * @desc Color attribute consisting of 4 Numbers in the format of [r, g, b, a]
+ */
+
 // /////////////////////
 
 
