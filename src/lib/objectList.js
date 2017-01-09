@@ -32,12 +32,17 @@ export const OBJECTS = Object.freeze({
 });
 
 export const MANDATORY_OBJECTS = Object.freeze({
-	[OBJECTS.PATCHER] : [],
+	[OBJECTS.PATCHER] : [
+		"editing_bgcolor",
+		"locked_bgcolor"
+	],
 	[OBJECTS.PATCHERVIEW] : [
 		"name",
-		"presentation"
+		"presentation",
+		"locked"
 	],
 	[OBJECTS.MIRA_FRAME] : [
+		"color",
 		"patching_rect",
 		"presentation_rect",
 		"presentation",
@@ -457,4 +462,3 @@ export const OBJECT_PARAMETERS = Object.freeze({
 export const OPTIONAL_OBJECT_PARAMETERS = Object.freeze({
 	[OBJECTS.LIVE_TAB] : ["pictures"]
 });
-

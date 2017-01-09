@@ -177,6 +177,24 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
+	 * Indicates whether the patcher is currently locked or not
+	 * @return {boolean}
+	 */
+	get locked() {
+		const locked = this._view ? this._view.getParamValue("locked") : 0;
+		return locked ? true : false;
+	}
+
+	/**
+	 * Returns the current background color of the patcher considering whether it's currently locked or not
+	 * @return {Color}
+	 */
+	get bgColor() {
+		const bgcolor = this.locked ? this.getParamValue("locked_bgcolor") : this.getParamValue("editing_bgcolor");
+		return bgcolor || [1, 1, 1, 1];
+	}
+
+	/**
 	 * Returns whether the Max patcher is currently in Presentation or Patching display.
 	 * @type {number}
 	 * @see Xebra.VIEW_MODES
