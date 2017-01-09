@@ -748,13 +748,22 @@ class State extends EventEmitter {
 	}
 		/**
 		 * Returns the object speficied by the given id.
-		 * @param {Xebra.Node} id - The id of the object
+		 * @param {Xebra.NodeId} id - The id of the object
 		 * @return {ObjectNode|null} the object or null if not known
 		*/
 	getObjectById(id) {
 		const node = this._state.get(id);
 		if (!node || !(node instanceof ObjectNode)) return null;
 		return node;
+	}
+
+	/**
+	 * Returns the patcher speficied by the given id.
+	 * @param {Xebra.NodeId} id - The id of the patcher
+	 * @return {PatcherNode|null} the patcher or null if not known
+	*/
+	getPatcherById(id) {
+		return this._patchers.get(id) || null;
 	}
 }
 
