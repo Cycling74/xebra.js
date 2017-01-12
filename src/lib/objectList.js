@@ -188,7 +188,8 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"spacing",
 		"stepcolor",
 		"distance",
-		"touchy"
+		"touchy",
+		"currentstep"
 	]),
 	[OBJECTS.LIVE_NUMBOX] : DEFAULT_PARAMS.concat([
 		"activebgcolor",
