@@ -189,6 +189,8 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"stepcolor",
 		"distance",
 		"touchy",
+		"directions",
+		"setcell",
 		"currentstep"
 	]),
 	[OBJECTS.LIVE_NUMBOX] : DEFAULT_PARAMS.concat([
