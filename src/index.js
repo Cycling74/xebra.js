@@ -121,6 +121,7 @@ class State extends EventEmitter {
 
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.ADD_NODE, this._addNode);
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.ADD_PARAM, this._addParam);
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.CHANNEL_MESSAGE, this._channelMessage);
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.DELETE_NODE, this._deleteNode);
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.HANDLE_RESOURCE_DATA, this._handleResourceData);
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.HANDLE_RESOURCE_INFO, this._handleResourceInfo);
@@ -516,6 +517,14 @@ class State extends EventEmitter {
 	/**
 	 * @private
 	 */
+	_channelMessage = (channel, message) => {
+		// Do some kind of validation?
+		this.emit("channel_message_received", channel, message);
+	}
+
+	/**
+	 * @private
+	 */
 	_clientParamChange = (key, value) => {
 		/**
 		 * Client param change event
@@ -704,6 +713,16 @@ class State extends EventEmitter {
 	 */
 	createResource() {
 		return this._resourceController.createResource();
+	}
+
+	/**
+	 * Send an arbitrary message to the named channel. The type of the message will be coerced to
+	 * a Max type in the Max application by mira.channel
+	 * @param {string} channel - The name of the mira.channel objects that should receive this message
+	 * @param {number|string|array|object} message - the message to send
+	 */
+	sendMessageToChannel(channel, message) {
+		this._communicator.sendChannelMessage(channel, message);
 	}
 
 	/**
