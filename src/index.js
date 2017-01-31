@@ -518,7 +518,12 @@ class State extends EventEmitter {
 	 * @private
 	 */
 	_channelMessage = (channel, message) => {
-		// Do some kind of validation?
+		/**
+		 * This event is emitted when a message is sent to a mira.channel object
+		 * @event State.channel_message_received
+		 * @param {String} channel The name of the channel where the message was received
+		 * @param {Number|String|Array<Number|String>|Object} message The message received from Max
+		 */
 		this.emit("channel_message_received", channel, message);
 	}
 
@@ -718,8 +723,8 @@ class State extends EventEmitter {
 	/**
 	 * Send an arbitrary message to the named channel. The type of the message will be coerced to
 	 * a Max type in the Max application by mira.channel
-	 * @param {string} channel - The name of the mira.channel objects that should receive this message
-	 * @param {number|string|array|object} message - the message to send
+	 * @param {String} channel - The name of the mira.channel objects that should receive this message
+	 * @param {Number|String|Array<Number|String>|Object} message - the message to send
 	 */
 	sendMessageToChannel(channel, message) {
 		this._communicator.sendChannelMessage(channel, message);
