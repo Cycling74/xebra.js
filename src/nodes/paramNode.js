@@ -50,7 +50,7 @@ const HARDCODED_TYPES = {
 	rawaccel : ["h", "h", "d", "d", "d", "d"],
 	touchy : ["s", "s", "h", "h"],
 	setcell : ["h", "h", "h"],
-	directions: "h*"
+	directions : "h*"
 };
 
 function _getHardcodedOSCTypes(type) {
