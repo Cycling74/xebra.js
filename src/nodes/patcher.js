@@ -348,6 +348,21 @@ class PatcherNode extends ObjectNode {
 	}
 
 	/**
+	 * Returns a list of the names of all mira.channel objects
+	 * @return {string[]}
+	 */
+	getChannelNames() {
+		const names = new Set();
+		this._objects.forEach((id) => {
+			const obj = this.getChild(id);
+			if (obj.type === "mira.channel") {
+				names.add(obj.getParamValue("name"));
+			}
+		}, this);
+		return Array.from(names);
+	}
+
+	/**
 	 * Returns the frame with the given id.
 	 * @param  {Xebra.NodeId} id
 	 * @return {Frame|null}
@@ -358,10 +373,10 @@ class PatcherNode extends ObjectNode {
 
 	/**
 	 * Returns a list of frames that are present in this patch.
-	 * @return {FrameNode[]}
+	 * @return {FrameNode[]}		const frames = [];
+
 	 */
 	getFrames() {
-		const frames = [];
 
 		this._frames.forEach((id) => {
 			frames.push(this.getChild(id));

@@ -757,6 +757,20 @@ class State extends EventEmitter {
 	}
 
 	/**
+	 * Returns a list of the names of all mira.channel objects in all patchers
+	 * @return {string[]}
+	 */
+	getChannelNames() {
+		const names = new Set();
+		this._patchers.forEach((patcher) => {
+			patcher.getChannelNames().forEach((name) => {
+				names.add(name);
+			});
+		});
+		return Array.from(names);
+	}
+
+	/**
 	 * Returns a list of available patchers.
 	 * @return {PatcherNode[]}
 	 */

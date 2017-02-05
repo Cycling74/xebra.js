@@ -16,6 +16,7 @@ export const OBJECTS = Object.freeze({
 	LIVE_TOGGLE : "live.toggle",
 	MESSAGE : "message",
 	METER : "meter~",
+	MIRA_CHANNEL : "mira.channel",
 	MIRA_FRAME : "mira.frame",
 	MIRA_MOTION : "mira.motion",
 	MIRA_MULTITOUCH : "mira.multitouch",
@@ -40,6 +41,9 @@ export const MANDATORY_OBJECTS = Object.freeze({
 		"name",
 		"presentation",
 		"locked"
+	],
+	[OBJECTS.MIRA_CHANNEL] : [
+		"name"
 	],
 	[OBJECTS.MIRA_FRAME] : [
 		"color",
