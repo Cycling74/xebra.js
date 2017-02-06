@@ -373,11 +373,11 @@ class PatcherNode extends ObjectNode {
 
 	/**
 	 * Returns a list of frames that are present in this patch.
-	 * @return {FrameNode[]}		const frames = [];
+	 * @return {FrameNode[]}
 
 	 */
 	getFrames() {
-
+		const frames = [];
 		this._frames.forEach((id) => {
 			frames.push(this.getChild(id));
 		}, this);
