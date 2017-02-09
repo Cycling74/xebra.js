@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Class: State</title>
+    <title>Xebra.js Docs - Class: State</title>
     
     <meta name="description" content="Xebra.js API Documentation" />
     
@@ -17,7 +17,7 @@
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
-    
+
     
     <script>
     var config = {"monospaceLinks":false,"cleverLinks":false,"meta":{"titlePrefix":"Xebra.js Docs","description":"Xebra.js API Documentation"},"default":{"outputSourceFiles":true,"staticFiles":{"paths":["tutorials"],"include":[],"excludePattern":".+\\.md$"}},"applicationName":"Xebra","footer":"TODO","copyright":"TODO","linenums":true};
@@ -65,6 +65,8 @@
                 <ul class="typedefs itemMembers">
                 
                 <span class="subtitle">Typedefs</span>
+                
+                    <li data-name="Xebra.Color"><a href="Xebra.html#.Color">Color</a></li>
                 
                     <li data-name="Xebra.NodeId"><a href="Xebra.html#.NodeId">NodeId</a></li>
                 
@@ -232,9 +234,13 @@
                 
                 <span class="subtitle">Members</span>
                 
+                    <li data-name="PatcherNode#bgColor"><a href="PatcherNode.html#bgColor">bgColor</a></li>
+                
                     <li data-name="PatcherNode#creationSequence"><a href="PatcherNode.html#creationSequence">creationSequence</a></li>
                 
                     <li data-name="PatcherNode#id"><a href="PatcherNode.html#id">id</a></li>
+                
+                    <li data-name="PatcherNode#locked"><a href="PatcherNode.html#locked">locked</a></li>
                 
                     <li data-name="PatcherNode#name"><a href="PatcherNode.html#name">name</a></li>
                 
@@ -251,6 +257,8 @@
                 <ul class="methods itemMembers">
                 
                 <span class="subtitle">Methods</span>
+                
+                    <li data-name="PatcherNode#getChannelNames"><a href="PatcherNode.html#getChannelNames">getChannelNames</a></li>
                 
                     <li data-name="PatcherNode#getFrame"><a href="PatcherNode.html#getFrame">getFrame</a></li>
                 
@@ -358,11 +366,17 @@
                 
                     <li data-name="State#createResource"><a href="State.html#createResource">createResource</a></li>
                 
+                    <li data-name="State#getChannelNames"><a href="State.html#getChannelNames">getChannelNames</a></li>
+                
                     <li data-name="State#getObjectById"><a href="State.html#getObjectById">getObjectById</a></li>
                 
                     <li data-name="State#getObjectsByScriptingName"><a href="State.html#getObjectsByScriptingName">getObjectsByScriptingName</a></li>
                 
+                    <li data-name="State#getPatcherById"><a href="State.html#getPatcherById">getPatcherById</a></li>
+                
                     <li data-name="State#getPatchers"><a href="State.html#getPatchers">getPatchers</a></li>
+                
+                    <li data-name="State#sendMessageToChannel"><a href="State.html#sendMessageToChannel">sendMessageToChannel</a></li>
                 
                     <li data-name="State#sendMotionData"><a href="State.html#sendMotionData">sendMotionData</a></li>
                 
@@ -370,6 +384,8 @@
                 <ul class="events itemMembers">
                 
                 <span class="subtitle">Events</span>
+                
+                    <li data-name="State.event:channel_message_received"><a href="State.html#.event:channel_message_received">channel_message_received</a></li>
                 
                     <li data-name="State.event:connection_changed"><a href="State.html#.event:connection_changed">connection_changed</a></li>
                 
@@ -578,6 +594,12 @@
                 </span>
             </li>
             
+            <li class="item" data-name="10-customobjects">
+                <span class="title">
+                    <a href="tutorial-10-customobjects.html">10-customobjects</a>
+                </span>
+            </li>
+            
         </ul>
     </ul>
 </div>
@@ -586,21 +608,29 @@
         <h1 class="page-title" data-filename="State.html">Class: State</h1>
         
 
+    
+<div class="meta-bar">
+    <h3>xebra.js v1.2.0 - Documentation </h3>
+</div>
+
+
+
+
 
 
 <section>
-    
+
 <header>
     <h2>
     State
     </h2>
     
-</header>  
+</header>
 
 <article>
     <div class="container-overview">
     
-    
+
     
         
 <dt>
@@ -612,7 +642,7 @@
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line58">line 58</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line69">line 69</a>
         </div>
         
     </div>
@@ -969,20 +999,20 @@
 
     
     </div>
+
     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
-    
+
     
         <h3 class="subsection-title">Members</h3>
-        
+
         <dl>
             
 <dt>
@@ -1362,10 +1392,10 @@ be appended to these events, so that the events can be routed in Max.</p>
 
         </dl>
     
-    
+
     
         <h3 class="subsection-title">Methods</h3>
-        
+
         <dl>
             
 <dt>
@@ -1377,7 +1407,7 @@ be appended to these events, so that the events can be routed in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line680">line 680</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line728">line 728</a>
         </div>
         
     </div>
@@ -1448,7 +1478,7 @@ be appended to these events, so that the events can be routed in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line688">line 688</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line736">line 736</a>
         </div>
         
     </div>
@@ -1519,7 +1549,7 @@ be appended to these events, so that the events can be routed in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line696">line 696</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line744">line 744</a>
         </div>
         
     </div>
@@ -1612,6 +1642,106 @@ be appended to these events, so that the events can be routed in Max.</p>
             
 <dt>
     <div class="nameContainer">
+        <h4 class="name" id="getChannelNames">
+            
+            getChannelNames<span class="signature">()</span><span class="return-type">:Array.&lt;string></span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line781">line 781</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Returns a list of the names of all mira.channel objects in all patchers</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        Array.&lt;string>
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
         <h4 class="name" id="getObjectById">
             
             getObjectById<span class="signature">(id)</span><span class="return-type">:<a href="ObjectNode.html">ObjectNode</a>|null</span>
@@ -1619,7 +1749,7 @@ be appended to these events, so that the events can be routed in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line744">line 744</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line816">line 816</a>
         </div>
         
     </div>
@@ -1667,7 +1797,7 @@ be appended to these events, so that the events can be routed in Max.</p>
             <td class="type">
             
                 
-<span class="param-type">Xebra.Node</span>
+<span class="param-type"><a href="Xebra.html#.NodeId">Xebra.NodeId</a></span>
 
 
             
@@ -1767,7 +1897,7 @@ be appended to these events, so that the events can be routed in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line731">line 731</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line803">line 803</a>
         </div>
         
     </div>
@@ -1860,6 +1990,154 @@ be appended to these events, so that the events can be routed in Max.</p>
             
 <dt>
     <div class="nameContainer">
+        <h4 class="name" id="getPatcherById">
+            
+            getPatcherById<span class="signature">(id)</span><span class="return-type">:<a href="PatcherNode.html">PatcherNode</a>|null</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line827">line 827</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Returns the patcher speficied by the given id.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Xebra.html#.NodeId">Xebra.NodeId</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The id of the patcher</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="PatcherNode.html">PatcherNode</a>
+                         | 
+                    
+                        null
+                        
+                    
+            </td>
+            <td class="description last">the patcher or null if not known</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
         <h4 class="name" id="getPatchers">
             
             getPatchers<span class="signature">()</span><span class="return-type">:Array.&lt;<a href="PatcherNode.html">PatcherNode</a>></span>
@@ -1867,7 +2145,7 @@ be appended to these events, so that the events can be routed in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line723">line 723</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line795">line 795</a>
         </div>
         
     </div>
@@ -1960,6 +2238,155 @@ be appended to these events, so that the events can be routed in Max.</p>
             
 <dt>
     <div class="nameContainer">
+        <h4 class="name" id="sendMessageToChannel">
+            
+            sendMessageToChannel<span class="signature">(channel, message)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line754">line 754</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Send an arbitrary message to the named channel. The type of the message will be coerced to
+a Max type in the Max application by mira.channel</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The name of the mira.channel objects that should receive this message</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+|
+
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array.&lt;(Number|String)></span>
+|
+
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>the message to send</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
         <h4 class="name" id="sendMotionData">
             
             sendMotionData<span class="signature">(motionType, motionX, motionY, motionZ, timestamp)</span>
@@ -1967,7 +2394,7 @@ be appended to these events, so that the events can be routed in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line710">line 710</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line768">line 768</a>
         </div>
         
     </div>
@@ -2185,13 +2612,161 @@ be appended to these events, so that the events can be routed in Max.</p>
 
         </dl>
     
+
     
-    
-    
+
     
         <h3 class="subsection-title">Events</h3>
-        
+
         <dl>
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".event:channel_message_received">
+            
+            State.event:channel_message_received
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line219">line 219</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>This event is emitted when a message is sent to a mira.channel object</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The name of the channel where the message was received</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+|
+
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array.&lt;(Number|String)></span>
+|
+
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The message received from Max</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
             
 <dt>
     <div class="nameContainer">
@@ -2202,7 +2777,7 @@ be appended to these events, so that the events can be routed in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line75">line 75</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line86">line 86</a>
         </div>
         
     </div>
@@ -2273,7 +2848,7 @@ be appended to these events, so that the events can be routed in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line166">line 166</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line177">line 177</a>
         </div>
         
     </div>
@@ -2389,7 +2964,7 @@ be appended to these events, so that the events can be routed in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line88">line 88</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line99">line 99</a>
         </div>
         
     </div>
@@ -2529,7 +3104,7 @@ of the parameter is set directly.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line228">line 228</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line249">line 249</a>
         </div>
         
     </div>
@@ -2645,7 +3220,7 @@ of the parameter is set directly.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line313">line 313</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line334">line 334</a>
         </div>
         
     </div>
@@ -2718,7 +3293,7 @@ loaded. This is analogous to $(document).ready() in jQuery.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line560">line 560</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line603">line 603</a>
         </div>
         
     </div>
@@ -2790,7 +3365,7 @@ xebra first connects to Max, and there are no mira.motion objects in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line539">line 539</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line582">line 582</a>
         </div>
         
     </div>
@@ -2861,7 +3436,7 @@ xebra first connects to Max, and there are no mira.motion objects in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line186">line 186</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line197">line 197</a>
         </div>
         
     </div>
@@ -2977,7 +3552,7 @@ xebra first connects to Max, and there are no mira.motion objects in Max.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line108">line 108</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line119">line 119</a>
         </div>
         
     </div>
@@ -3117,7 +3692,7 @@ of the parameter is set directly.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line250">line 250</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line271">line 271</a>
         </div>
         
     </div>
@@ -3233,7 +3808,7 @@ of the parameter is set directly.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line152">line 152</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line163">line 163</a>
         </div>
         
     </div>
@@ -3349,7 +3924,7 @@ of the parameter is set directly.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line98">line 98</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line109">line 109</a>
         </div>
         
     </div>
@@ -3489,7 +4064,7 @@ value of the parameter is set directly.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line236">line 236</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line257">line 257</a>
         </div>
         
     </div>
@@ -3605,7 +4180,7 @@ value of the parameter is set directly.</p>
     
         
         <div class="tag-source">
-            <a href="index.js.html">index.js</a>, <a href="index.js.html#line290">line 290</a>
+            <a href="index.js.html">index.js</a>, <a href="index.js.html#line311">line 311</a>
         </div>
         
     </div>
@@ -3671,7 +4246,7 @@ fires this event. This should happen very infrequently. A state#loaded event wil
     
 </article>
 
-</section>  
+</section>
 
 
 
@@ -3680,7 +4255,7 @@ fires this event. This should happen very infrequently. A state#loaded event wil
         
 
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Dec 19 2016 09:28:26 GMT-0800 (PST)
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Feb 09 2017 15:26:56 GMT-0800 (PST)
         </footer>
     </div>
 </div>

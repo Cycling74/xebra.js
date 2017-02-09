@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Tutorial: 08 Motion and Orientation</title>
+    <title>Xebra.js Docs - Tutorial: 08 Motion and Orientation</title>
     
     <meta name="description" content="Xebra.js API Documentation" />
     
@@ -17,7 +17,7 @@
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
-    
+
     
     <script>
     var config = {"monospaceLinks":false,"cleverLinks":false,"meta":{"titlePrefix":"Xebra.js Docs","description":"Xebra.js API Documentation"},"default":{"outputSourceFiles":true,"staticFiles":{"paths":["tutorials"],"include":[],"excludePattern":".+\\.md$"}},"applicationName":"Xebra","footer":"TODO","copyright":"TODO","linenums":true};
@@ -65,6 +65,8 @@
                 <ul class="typedefs itemMembers">
                 
                 <span class="subtitle">Typedefs</span>
+                
+                    <li data-name="Xebra.Color"><a href="Xebra.html#.Color">Color</a></li>
                 
                     <li data-name="Xebra.NodeId"><a href="Xebra.html#.NodeId">NodeId</a></li>
                 
@@ -232,9 +234,13 @@
                 
                 <span class="subtitle">Members</span>
                 
+                    <li data-name="PatcherNode#bgColor"><a href="PatcherNode.html#bgColor">bgColor</a></li>
+                
                     <li data-name="PatcherNode#creationSequence"><a href="PatcherNode.html#creationSequence">creationSequence</a></li>
                 
                     <li data-name="PatcherNode#id"><a href="PatcherNode.html#id">id</a></li>
+                
+                    <li data-name="PatcherNode#locked"><a href="PatcherNode.html#locked">locked</a></li>
                 
                     <li data-name="PatcherNode#name"><a href="PatcherNode.html#name">name</a></li>
                 
@@ -251,6 +257,8 @@
                 <ul class="methods itemMembers">
                 
                 <span class="subtitle">Methods</span>
+                
+                    <li data-name="PatcherNode#getChannelNames"><a href="PatcherNode.html#getChannelNames">getChannelNames</a></li>
                 
                     <li data-name="PatcherNode#getFrame"><a href="PatcherNode.html#getFrame">getFrame</a></li>
                 
@@ -358,11 +366,17 @@
                 
                     <li data-name="State#createResource"><a href="State.html#createResource">createResource</a></li>
                 
+                    <li data-name="State#getChannelNames"><a href="State.html#getChannelNames">getChannelNames</a></li>
+                
                     <li data-name="State#getObjectById"><a href="State.html#getObjectById">getObjectById</a></li>
                 
                     <li data-name="State#getObjectsByScriptingName"><a href="State.html#getObjectsByScriptingName">getObjectsByScriptingName</a></li>
                 
+                    <li data-name="State#getPatcherById"><a href="State.html#getPatcherById">getPatcherById</a></li>
+                
                     <li data-name="State#getPatchers"><a href="State.html#getPatchers">getPatchers</a></li>
+                
+                    <li data-name="State#sendMessageToChannel"><a href="State.html#sendMessageToChannel">sendMessageToChannel</a></li>
                 
                     <li data-name="State#sendMotionData"><a href="State.html#sendMotionData">sendMotionData</a></li>
                 
@@ -370,6 +384,8 @@
                 <ul class="events itemMembers">
                 
                 <span class="subtitle">Events</span>
+                
+                    <li data-name="State.event:channel_message_received"><a href="State.html#.event:channel_message_received">channel_message_received</a></li>
                 
                     <li data-name="State.event:connection_changed"><a href="State.html#.event:connection_changed">connection_changed</a></li>
                 
@@ -578,19 +594,32 @@
                 </span>
             </li>
             
+            <li class="item" data-name="10-customobjects">
+                <span class="title">
+                    <a href="tutorial-10-customobjects.html">10-customobjects</a>
+                </span>
+            </li>
+            
         </ul>
     </ul>
 </div>
 
     <div class="main">
         <h1 class="page-title" data-filename="tutorial-08-motion.html">Tutorial: 08 Motion and Orientation</h1>
-        <section>
+        
     
+<div class="meta-bar">
+    <h3>xebra.js v1.2.0 - Documentation </h3>
+</div>
+
+
+<section>
+
 <header>
     
 
     <h2>08 Motion and Orientation</h2>
-</header>  
+</header>
 
 <article>
     <h3>Sending Motion Data</h3><p>Xebra can pass acceleration, rotation and compass data to Max. These motion updates are received by Max through the mira.motion object. Unlike other xebra parameters, which each belong to an instance of <a href="ObjectNode.html">ObjectNode</a>, the parameters that manage motion data are owned by the root <a href="State.html">State</a> object. This is by design: motion updates are expected to occur frequently, on the order of 100 times a second, so all mira.motion objects share a group of global parameters.</p>
@@ -638,13 +667,13 @@ xebraState.on(&quot;motion_enabled&quot;, enablePolling);
 xebraState.on(&quot;motion_disabled&quot;, disablePolling);</code></pre>
 </article>
 
-</section>  
+</section>
 
 
         
 
         <footer>
-            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Dec 19 2016 09:28:26 GMT-0800 (PST)
+            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Feb 09 2017 15:26:56 GMT-0800 (PST)
         </footer>
     </div>
 </div>
