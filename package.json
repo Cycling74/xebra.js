@@ -1,6 +1,6 @@
 {
   "name": "xebra.js",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Xebra connects Max to the browser, and the browser to Max.",
   "author": {
     "name": "Cycling '74",
@@ -30,7 +30,7 @@
     "lib": "babel ./src -d ./lib",
     "lint": "eslint src -c ./.eslintrc.json",
     "test": "npm run lint",
-    "preversion": "npm run test",
+    "preversion": "npm update && npm run test",
     "version": "npm run lib && npm run build",
     "publish:patch": "npm version patch -m '%s' && npm publish",
     "publish:minor": "npm version minor -m '%s' && npm publish",
@@ -40,6 +40,7 @@
   "dependencies": {
     "babel-runtime": "^6.18.0",
     "lodash.pick": "^4.4.0",
+    "lodash.uniq": "^4.5.0",
     "xebra-communicator": "^1.0.0"
   },
   "devDependencies": {

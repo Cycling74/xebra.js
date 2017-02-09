@@ -48,7 +48,10 @@ const HARDCODED_TYPES = {
 	accel : ["h", "h", "d", "d", "d", "d"],
 	orientation : ["h", "h", "d", "d", "d", "d"],
 	rawaccel : ["h", "h", "d", "d", "d", "d"],
-	touchy : ["s", "s", "h", "h"]
+	touchy : ["s", "s", "h", "h"],
+	setcell : ["h", "h", "h"],
+	directions: "h*",
+	constraint: "h*"
 };
 
 function _getHardcodedOSCTypes(type) {
@@ -131,6 +134,14 @@ class ParamNode extends XebraNode {
 	 * @type {string[]}
 	 */
 	get types() {
+
+		if (typeof this._types === "string") {
+			if (this._types.charAt(1) === "*") {
+				if (this._value === null) return [];
+				return new Array(this._value.length).fill(this._types.charAt(0));
+			}
+		}
+
 		return this._types;
 	}
 

@@ -8,7 +8,7 @@
 			margin: 0;
 		}
 	</style>
-	<script src="../../../dist/xebra.js"></script>
+	<script src="https://cycling74.s3.amazonaws.com/download/xebra.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.min.js"></script>
 	<script src="../../js/lib/boid.js"></script>
 </head>
@@ -59,7 +59,7 @@
 			xebraState.on("frame_added", function(frame) {
 				sketchFrame = frame;
 				if (frame.viewMode === Xebra.VIEW_MODES.PRESENTATION) {
-					frameRect = frame.getParamValue("presentation_rect"); 
+					frameRect = frame.getParamValue("presentation_rect");
 				} else {
 					frameRect = frame.getParamValue("patching_rect");
 				}

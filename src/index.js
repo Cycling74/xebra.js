@@ -1,10 +1,15 @@
-import { OBJECTS, MANDATORY_OBJECTS, OBJECT_PARAMETERS } from "./lib/objectList.js";
+import { DEFAULT_PARAMS, OBJECTS, MANDATORY_OBJECTS, OBJECT_PARAMETERS } from "./lib/objectList.js";
 import { ResourceController } from "./lib/resource.js";
 import { EventEmitter } from "events";
 import pick from "lodash.pick";
+import uniq from "lodash.uniq";
 import XebraCommunicator from "xebra-communicator";
 
 import { getInstanceForObjectType, ObjectNode, ParamNode } from "./nodes/index.js";
+
+function isString(v) {
+	return typeof v === "string" || v instanceof String;
+}
 
 const RESOURCE_REQUEST_DOMAIN = Object.freeze({
 	INFO : "info",
@@ -48,6 +53,12 @@ const SUPPORTED_OBJECTS = Object.freeze(Array.from(Object.values(OBJECTS)));
  * @desc Generic parameter value type
  */
 
+/**
+ * @typedef {number[]} Color
+ * @memberof Xebra
+ * @desc Color attribute consisting of 4 Numbers in the format of [r, g, b, a]
+ */
+
 // /////////////////////
 
 
@@ -75,13 +86,34 @@ class State extends EventEmitter {
 		if (!options.supported_objects) options.supported_objects = SUPPORTED_OBJECTS;
 
 		commOptions.supported_objects = Object.assign({}, MANDATORY_OBJECTS);
-		options.supported_objects.forEach((objName) => {
-			const params = OBJECT_PARAMETERS[objName];
-			if (params) {
-				commOptions.supported_objects[objName] = params;
-			} else if (!MANDATORY_OBJECTS.hasOwnProperty(objName)) {
-				console.log(`WARN: Unsupported or unknown object ${objName}`);
+		options.supported_objects.forEach((objDetails) => {
+			if (isString(objDetails)) {
+				const params = OBJECT_PARAMETERS[objDetails];
+				if (params) {
+					commOptions.supported_objects[objDetails] = params;
+					return;
+				}
+
+				if (!MANDATORY_OBJECTS.hasOwnProperty(objDetails)) {
+					console.log(`WARN: Unsupported or unknown object ${objDetails}. Please use the { name : ""<obj_name>", parameters: ["param_1", "param_2"] } syntax for non built-in objects.`);
+					return;
+				}
+			} else if (typeof objDetails === "object") {
+				if (!objDetails.name || !isString(objDetails.name) || !objDetails.parameters || !Array.isArray(objDetails.parameters)) {
+					console.log(`WARN: Skipping object defintion '${JSON.stringify(objDetails)}' Please declare objects using their name or the { name : ""<obj_name>", parameters: ["param_1", "param_2"] } syntax.`);
+					return;
+				}
+
+				// make sure that all required parameters are in place
+				let params = DEFAULT_PARAMS.concat(objDetails.parameters);
+				params = uniq(params);
+				commOptions.supported_objects[objDetails.name] = params;
+
+				return;
 			}
+
+			console.log(`WARN: Skipping object defintion '${objDetails}' Please declare objects using their name or the { name : ""<obj_name>", parameters: ["param_1", "param_2"] } syntax.`);
+			return;
 		});
 
 		this._communicator = new XebraCommunicator(commOptions);
@@ -89,6 +121,7 @@ class State extends EventEmitter {
 
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.ADD_NODE, this._addNode);
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.ADD_PARAM, this._addParam);
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.CHANNEL_MESSAGE, this._channelMessage);
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.DELETE_NODE, this._deleteNode);
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.HANDLE_RESOURCE_DATA, this._handleResourceData);
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.HANDLE_RESOURCE_INFO, this._handleResourceInfo);
@@ -484,6 +517,19 @@ class State extends EventEmitter {
 	/**
 	 * @private
 	 */
+	_channelMessage = (channel, message) => {
+		/**
+		 * This event is emitted when a message is sent to a mira.channel object
+		 * @event State.channel_message_received
+		 * @param {String} channel The name of the channel where the message was received
+		 * @param {Number|String|Array<Number|String>|Object} message The message received from Max
+		 */
+		this.emit("channel_message_received", channel, message);
+	}
+
+	/**
+	 * @private
+	 */
 	_clientParamChange = (key, value) => {
 		/**
 		 * Client param change event
@@ -675,6 +721,16 @@ class State extends EventEmitter {
 	}
 
 	/**
+	 * Send an arbitrary message to the named channel. The type of the message will be coerced to
+	 * a Max type in the Max application by mira.channel
+	 * @param {String} channel - The name of the mira.channel objects that should receive this message
+	 * @param {Number|String|Array<Number|String>|Object} message - the message to send
+	 */
+	sendMessageToChannel(channel, message) {
+		this._communicator.sendChannelMessage(channel, message);
+	}
+
+	/**
 	 * Send mira.motion updates to parameters on the root node.
 	 * @see Xebra.MOTION_TYPES
 	 * @param {string} motionType - The type of motion
@@ -701,6 +757,20 @@ class State extends EventEmitter {
 	}
 
 	/**
+	 * Returns a list of the names of all mira.channel objects in all patchers
+	 * @return {string[]}
+	 */
+	getChannelNames() {
+		const names = new Set();
+		this._patchers.forEach((patcher) => {
+			patcher.getChannelNames().forEach((name) => {
+				names.add(name);
+			});
+		});
+		return Array.from(names);
+	}
+
+	/**
 	 * Returns a list of available patchers.
 	 * @return {PatcherNode[]}
 	 */
@@ -722,13 +792,22 @@ class State extends EventEmitter {
 	}
 		/**
 		 * Returns the object speficied by the given id.
-		 * @param {Xebra.Node} id - The id of the object
+		 * @param {Xebra.NodeId} id - The id of the object
 		 * @return {ObjectNode|null} the object or null if not known
 		*/
 	getObjectById(id) {
 		const node = this._state.get(id);
 		if (!node || !(node instanceof ObjectNode)) return null;
 		return node;
+	}
+
+	/**
+	 * Returns the patcher speficied by the given id.
+	 * @param {Xebra.NodeId} id - The id of the patcher
+	 * @return {PatcherNode|null} the patcher or null if not known
+	*/
+	getPatcherById(id) {
+		return this._patchers.get(id) || null;
 	}
 }
 

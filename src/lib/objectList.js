@@ -16,6 +16,7 @@ export const OBJECTS = Object.freeze({
 	LIVE_TOGGLE : "live.toggle",
 	MESSAGE : "message",
 	METER : "meter~",
+	MIRA_CHANNEL : "mira.channel",
 	MIRA_FRAME : "mira.frame",
 	MIRA_MOTION : "mira.motion",
 	MIRA_MULTITOUCH : "mira.multitouch",
@@ -32,12 +33,20 @@ export const OBJECTS = Object.freeze({
 });
 
 export const MANDATORY_OBJECTS = Object.freeze({
-	[OBJECTS.PATCHER] : [],
+	[OBJECTS.PATCHER] : [
+		"editing_bgcolor",
+		"locked_bgcolor"
+	],
 	[OBJECTS.PATCHERVIEW] : [
 		"name",
-		"presentation"
+		"presentation",
+		"locked"
+	],
+	[OBJECTS.MIRA_CHANNEL] : [
+		"name"
 	],
 	[OBJECTS.MIRA_FRAME] : [
+		"color",
 		"patching_rect",
 		"presentation_rect",
 		"presentation",
@@ -47,7 +56,7 @@ export const MANDATORY_OBJECTS = Object.freeze({
 	[OBJECTS.MIRA_MOTION] : []
 });
 
-const DEFAULT_PARAMS = ["patching_rect", "presentation_rect", "zorder", "presentation", "hidden", "ignoreclick", "varname"];
+export const DEFAULT_PARAMS = ["patching_rect", "presentation_rect", "zorder", "presentation", "hidden", "ignoreclick", "varname"];
 
 export const OBJECT_PARAMETERS = Object.freeze({
 
@@ -183,7 +192,11 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"spacing",
 		"stepcolor",
 		"distance",
-		"touchy"
+		"touchy",
+		"directions",
+		"setcell",
+		"currentstep",
+		"constraint"
 	]),
 	[OBJECTS.LIVE_NUMBOX] : DEFAULT_PARAMS.concat([
 		"activebgcolor",
@@ -457,4 +470,3 @@ export const OBJECT_PARAMETERS = Object.freeze({
 export const OPTIONAL_OBJECT_PARAMETERS = Object.freeze({
 	[OBJECTS.LIVE_TAB] : ["pictures"]
 });
-
