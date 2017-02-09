@@ -121,6 +121,7 @@ class State extends EventEmitter {
 
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.ADD_NODE, this._addNode);
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.ADD_PARAM, this._addParam);
+		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.CHANNEL_MESSAGE, this._channelMessage);
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.DELETE_NODE, this._deleteNode);
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.HANDLE_RESOURCE_DATA, this._handleResourceData);
 		this._communicator.on(XebraCommunicator.XEBRA_MESSAGES.HANDLE_RESOURCE_INFO, this._handleResourceInfo);
@@ -516,6 +517,19 @@ class State extends EventEmitter {
 	/**
 	 * @private
 	 */
+	_channelMessage = (channel, message) => {
+		/**
+		 * This event is emitted when a message is sent to a mira.channel object
+		 * @event State.channel_message_received
+		 * @param {String} channel The name of the channel where the message was received
+		 * @param {Number|String|Array<Number|String>|Object} message The message received from Max
+		 */
+		this.emit("channel_message_received", channel, message);
+	}
+
+	/**
+	 * @private
+	 */
 	_clientParamChange = (key, value) => {
 		/**
 		 * Client param change event
@@ -707,6 +721,16 @@ class State extends EventEmitter {
 	}
 
 	/**
+	 * Send an arbitrary message to the named channel. The type of the message will be coerced to
+	 * a Max type in the Max application by mira.channel
+	 * @param {String} channel - The name of the mira.channel objects that should receive this message
+	 * @param {Number|String|Array<Number|String>|Object} message - the message to send
+	 */
+	sendMessageToChannel(channel, message) {
+		this._communicator.sendChannelMessage(channel, message);
+	}
+
+	/**
 	 * Send mira.motion updates to parameters on the root node.
 	 * @see Xebra.MOTION_TYPES
 	 * @param {string} motionType - The type of motion
@@ -730,6 +754,20 @@ class State extends EventEmitter {
 			motionZ,
 			timestamp
 		]);
+	}
+
+	/**
+	 * Returns a list of the names of all mira.channel objects in all patchers
+	 * @return {string[]}
+	 */
+	getChannelNames() {
+		const names = new Set();
+		this._patchers.forEach((patcher) => {
+			patcher.getChannelNames().forEach((name) => {
+				names.add(name);
+			});
+		});
+		return Array.from(names);
 	}
 
 	/**
