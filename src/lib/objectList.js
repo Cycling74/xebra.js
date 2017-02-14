@@ -195,7 +195,8 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"touchy",
 		"directions",
 		"setcell",
-		"currentstep"
+		"currentstep",
+		"constraint"
 	]),
 	[OBJECTS.LIVE_NUMBOX] : DEFAULT_PARAMS.concat([
 		"activebgcolor",
