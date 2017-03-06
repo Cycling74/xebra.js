@@ -281,7 +281,8 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"fontname",
 		"fontface",
 		"pictures",
-		"usepicture"
+		"usepicture",
+		"mode"
 	]),
 	[OBJECTS.LIVE_TOGGLE] : DEFAULT_PARAMS.concat([
 		"bgcolor",
