@@ -35,7 +35,8 @@ export const OBJECTS = Object.freeze({
 export const MANDATORY_OBJECTS = Object.freeze({
 	[OBJECTS.PATCHER] : [
 		"editing_bgcolor",
-		"locked_bgcolor"
+		"locked_bgcolor",
+		"openinpresentation"
 	],
 	[OBJECTS.PATCHERVIEW] : [
 		"name",
