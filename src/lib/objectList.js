@@ -371,7 +371,8 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"peakcolor",
 		"drawpeaks",
 		"signed",
-		"spacing"
+		"spacing",
+		"settype"
 	]),
 	[OBJECTS.NUMBER] : DEFAULT_PARAMS.concat([
 		"value",
