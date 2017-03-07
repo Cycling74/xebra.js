@@ -47,7 +47,7 @@ function stringForLiveValue(liveValue, unitStyle) {
 			break;
 		case LIVE_UNIT_STYLES.LIVE_UNIT_PERCENT:
 			if (Math.abs(liveValue) >= 100) {
-				outVal = `${Math.round(liveValue)} ` + " %";
+				outVal = `${Math.round(liveValue)} %`;
 			} else if (Math.abs(liveValue) >= 10) {
 				outVal = (liveValue).toFixed(1) + " %";
 			} else {
