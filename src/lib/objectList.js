@@ -101,7 +101,8 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"thickness",
 		"bgcolor",
 		"needlecolor",
-		"outlinecolor"
+		"outlinecolor",
+		"vtracking"
 	]),
 	[OBJECTS.FLONUM] : DEFAULT_PARAMS.concat([
 		"value",
@@ -230,6 +231,7 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"fontsize",
 		"fontface",
 		"orientation",
+		"relative",
 		"showname",
 		"shownumber",
 		"slidercolor",
@@ -439,6 +441,7 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"min",
 		"mult",
 		"orientation",
+		"relative",
 		"size",
 		"thickness"
 	]),
