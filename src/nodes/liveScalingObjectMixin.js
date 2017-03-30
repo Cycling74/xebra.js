@@ -1,3 +1,6 @@
+import { LIVE_VALUE_TYPES } from "../lib/constants.js";
+import { PARAMETER_ATTR } from "../lib/objectList.js";
+
 function clamp(v, lo, hi) {
 	return v < hi ? v > lo ? v : lo : hi;
 }
@@ -35,12 +38,20 @@ export default (objClass) => class extends objClass {
 	 */
 	_onParamSetForScaling = (param) => {
 		if (param.type === "distance") {
-			let dist = clamp(param.value, 0, 1);
-			const [min, max] = this.getParamValue("_parameter_range");
-			const pExpo = this.getParamValue("_parameter_exponent") || 1;
 
+			const paramType = this.getParamValue(PARAMETER_ATTR.TYPE);
+
+			// Calculate dist
+			let dist = clamp(param.value, 0, 1);
+			const pExpo = this.getParamValue(PARAMETER_ATTR.EXPONENT) || 1;
 			if (pExpo !== 1) dist = Math.pow(dist, pExpo);
-			const val = (dist * (max - min)) + min;
+
+			// Pre Calc value
+			const [min, max] = paramType === LIVE_VALUE_TYPES.ENUM ? [0, this.getParamValue(PARAMETER_ATTR.RANGE).length - 1] : this.getParamValue(PARAMETER_ATTR.RANGE);
+			let val = (dist * (max - min)) + min;
+
+			if (paramType !== LIVE_VALUE_TYPES.FLOAT) val = Math.round(val);
+
 			const valueParam = this._getParamForType("value");
 			if (valueParam) valueParam.modify(val, valueParam.types, valueParam.remoteSequence + 1);
 		}
