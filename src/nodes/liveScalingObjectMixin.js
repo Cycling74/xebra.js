@@ -61,6 +61,8 @@ export default (objClass) => class extends objClass {
 			if (parameterType === LIVE_VALUE_TYPES.ENUM) {
 				[min, max] = [0, this.getParamValue(PARAMETER_ATTR.RANGE).length - 1];
 				dist = alignStep(0, 1, dist, max);
+			} else if (parameterType === LIVE_VALUE_TYPES.INT) {
+				dist = alignStep(0, 1, dist, max - min);
 			} else if (parameterSteps > 1) {
 				dist = alignStep(0, 1, dist, parameterSteps - 1);
 			}
