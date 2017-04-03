@@ -48,6 +48,7 @@ export const MANDATORY_OBJECTS = Object.freeze({
 	],
 	[OBJECTS.MIRA_FRAME] : [
 		"color",
+		"mira_focus",
 		"patching_rect",
 		"presentation_rect",
 		"presentation",
