@@ -1,3 +1,13 @@
+export const PARAMETER_ATTR = Object.freeze({
+	EXPONENT: "_parameter_exponent",
+	SHORTNAME: "_parameter_longname",
+	RANGE: "_parameter_range",
+	SHORTNAME: "_parameter_shortname",
+	STEPS: "_parameter_steps",
+	TYPE: "_parameter_type",
+	UNIT_STYLE: "_parameter_unitstyle"
+});
+
 export const OBJECTS = Object.freeze({
 	BUTTON : "button",
 	COMMENT : "comment",
@@ -138,6 +148,10 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"rawsend"
 	]),
 	[OBJECTS.LIVE_BUTTON] : DEFAULT_PARAMS.concat([
+		PARAMETER_ATTR.LONGNAME,
+		PARAMETER_ATTR.SHORTNAME,
+		PARAMETER_ATTR.RANGE
+	],[
 		"active",
 		"bgcolor",
 		"bgoncolor",
@@ -147,7 +161,7 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"focusbordercolor",
 		"value"
 	]),
-	[OBJECTS.LIVE_DIAL] : DEFAULT_PARAMS.concat([
+	[OBJECTS.LIVE_DIAL] : DEFAULT_PARAMS.concat(Object.values(PARAMETER_ATTR), [
 		"fontname",
 		"fontsize",
 		"fontface",
@@ -167,10 +181,6 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"tribordercolor",
 		"tricolor",
 		"distance",
-		"_parameter_shortname",
-		"_parameter_unitstyle",
-		"_parameter_range",
-		"_parameter_exponent",
 		"value"
 	]),
 	[OBJECTS.LIVE_GRID] : DEFAULT_PARAMS.concat([
@@ -202,7 +212,7 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"currentstep",
 		"constraint"
 	]),
-	[OBJECTS.LIVE_NUMBOX] : DEFAULT_PARAMS.concat([
+	[OBJECTS.LIVE_NUMBOX] : DEFAULT_PARAMS.concat(Object.values(PARAMETER_ATTR), [
 		"activebgcolor",
 		"active",
 		"activeslidercolor",
@@ -217,12 +227,9 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"value",
 		"fontname",
 		"fontface",
-		"fontsize",
-		"_parameter_range",
-		"_parameter_unitstyle",
-		"_parameter_exponent"
+		"fontsize"
 	]),
-	[OBJECTS.LIVE_SLIDER] : DEFAULT_PARAMS.concat([
+	[OBJECTS.LIVE_SLIDER] : DEFAULT_PARAMS.concat(Object.values(PARAMETER_ATTR), [
 		"fontname",
 		"fontsize",
 		"fontface",
@@ -235,14 +242,15 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"tribordercolor",
 		"trioncolor",
 		"tricolor",
-		"_parameter_range",
-		"_parameter_shortname",
-		"_parameter_unitstyle",
-		"_parameter_exponent",
 		"value",
 		"distance"
 	]),
 	[OBJECTS.LIVE_TAB] : DEFAULT_PARAMS.concat([
+		PARAMETER_ATTR.LONGNAME,
+		PARAMETER_ATTR.SHORTNAME,
+		PARAMETER_ATTR.RANGE
+	],
+	[
 		"active",
 		"activebgcolor",
 		"activebgoncolor",
@@ -265,11 +273,14 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"fontname",
 		"fontsize",
 		"fontface",
-		"_parameter_range",
 		"value",
 		"usepicture"
 	]),
 	[OBJECTS.LIVE_TEXT] : DEFAULT_PARAMS.concat([
+		PARAMETER_ATTR.LONGNAME,
+		PARAMETER_ATTR.SHORTNAME,
+		PARAMETER_ATTR.RANGE
+	],[
 		"activebgcolor",
 		"active",
 		"bgcolor",
@@ -290,6 +301,10 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"mode"
 	]),
 	[OBJECTS.LIVE_TOGGLE] : DEFAULT_PARAMS.concat([
+		PARAMETER_ATTR.LONGNAME,
+		PARAMETER_ATTR.SHORTNAME,
+		PARAMETER_ATTR.RANGE
+	],[
 		"bgcolor",
 		"activebgcolor",
 		"bgoncolor",

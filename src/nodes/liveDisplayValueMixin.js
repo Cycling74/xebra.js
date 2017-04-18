@@ -1,4 +1,5 @@
-import { LIVE_UNIT_STYLES } from "../lib/constants.js";
+import { LIVE_VALUE_TYPES, LIVE_UNIT_STYLES } from "../lib/constants.js";
+import { PARAMETER_ATTR } from "../lib/objectList.js";
 
 function stringForLiveValue(liveValue, unitStyle) {
 	if (liveValue === undefined || unitStyle === undefined) return "";
@@ -128,10 +129,28 @@ export default (objClass) => class extends objClass {
 	*/
 	getParamValue(type) {
 		if (type === "displayvalue") {
+
+			const paramValueType = this.getParamValue(PARAMETER_ATTR.TYPE);
 			const val = this.getParamValue("value");
-			const unitStyle = this.getParamValue("_parameter_unitstyle");
+
+			if (paramValueType === LIVE_VALUE_TYPES.ENUM) {
+				const enums = this.getParamValue(PARAMETER_ATTR.RANGE);
+
+				const roundedVal = Math.round(val);
+
+				if (!enums.length) return "";
+
+				if (roundedVal <= 0) return enums[0];
+				if (roundedVal >= enums.length) return enums[enums.length - 1];
+
+				return enums[roundedVal];
+			}
+
+			// float and int
+			const unitStyle = this.getParamValue(PARAMETER_ATTR.UNIT_STYLE);
 			return stringForLiveValue(val, unitStyle);
 		}
+
 		return super.getParamValue(type);
 	}
 
