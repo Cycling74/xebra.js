@@ -1,6 +1,6 @@
 export const PARAMETER_ATTR = Object.freeze({
 	EXPONENT: "_parameter_exponent",
-	SHORTNAME: "_parameter_longname",
+	LONGNAME: "_parameter_longname",
 	RANGE: "_parameter_range",
 	SHORTNAME: "_parameter_shortname",
 	STEPS: "_parameter_steps",
