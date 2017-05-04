@@ -60,9 +60,9 @@ const LIVE_UNIT_STYLES = Object.freeze({
  * @property {string} LIVE_UNIT_INT - Integer Unit Style
  */
 const LIVE_VALUE_TYPES = Object.freeze({
-	FLOAT: "Float",
-	ENUM: "Enum",
-	INT: "Int (0-255)"
+	FLOAT : "Float",
+	ENUM : "Enum",
+	INT : "Int (0-255)"
 });
 
 /**

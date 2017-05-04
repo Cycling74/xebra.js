@@ -1,12 +1,12 @@
 export const PARAMETER_ATTR = Object.freeze({
-	CUSTOM_UNITS: "_parameter_units",
-	EXPONENT: "_parameter_exponent",
-	LONGNAME: "_parameter_longname",
-	RANGE: "_parameter_range",
-	SHORTNAME: "_parameter_shortname",
-	STEPS: "_parameter_steps",
-	TYPE: "_parameter_type",
-	UNIT_STYLE: "_parameter_unitstyle"
+	CUSTOM_UNITS : "_parameter_units",
+	EXPONENT : "_parameter_exponent",
+	LONGNAME : "_parameter_longname",
+	RANGE : "_parameter_range",
+	SHORTNAME : "_parameter_shortname",
+	STEPS : "_parameter_steps",
+	TYPE : "_parameter_type",
+	UNIT_STYLE : "_parameter_unitstyle"
 });
 
 export const OBJECTS = Object.freeze({
@@ -152,7 +152,7 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		PARAMETER_ATTR.LONGNAME,
 		PARAMETER_ATTR.SHORTNAME,
 		PARAMETER_ATTR.RANGE
-	],[
+	], [
 		"active",
 		"bgcolor",
 		"bgoncolor",
@@ -246,76 +246,84 @@ export const OBJECT_PARAMETERS = Object.freeze({
 		"value",
 		"distance"
 	]),
-	[OBJECTS.LIVE_TAB] : DEFAULT_PARAMS.concat([
-		PARAMETER_ATTR.LONGNAME,
-		PARAMETER_ATTR.SHORTNAME,
-		PARAMETER_ATTR.RANGE
-	],
-	[
-		"active",
-		"activebgcolor",
-		"activebgoncolor",
-		"bgcolor",
-		"bgoncolor",
-		"blinktime",
-		"bordercolor",
-		"button",
-		"focusbordercolor",
-		"mode",
-		"multiline",
-		"num_lines_patching",
-		"num_lines_presentation",
-		"pictures",
-		"rounded",
-		"spacing_x",
-		"spacing_y",
-		"textcolor",
-		"textoncolor",
-		"fontname",
-		"fontsize",
-		"fontface",
-		"value",
-		"usepicture"
-	]),
-	[OBJECTS.LIVE_TEXT] : DEFAULT_PARAMS.concat([
-		PARAMETER_ATTR.LONGNAME,
-		PARAMETER_ATTR.SHORTNAME,
-		PARAMETER_ATTR.RANGE
-	],[
-		"activebgcolor",
-		"active",
-		"bgcolor",
-		"activebgoncolor",
-		"bgoncolor",
-		"bordercolor",
-		"textcolor",
-		"activetextoncolor",
-		"activetextcolor",
-		"text",
-		"texton",
-		"value",
-		"fontsize",
-		"fontname",
-		"fontface",
-		"pictures",
-		"usepicture",
-		"mode"
-	]),
-	[OBJECTS.LIVE_TOGGLE] : DEFAULT_PARAMS.concat([
-		PARAMETER_ATTR.LONGNAME,
-		PARAMETER_ATTR.SHORTNAME,
-		PARAMETER_ATTR.RANGE
-	],[
-		"bgcolor",
-		"activebgcolor",
-		"bgoncolor",
-		"activebgoncolor",
-		"bordercolor",
-		"focusbordercolor",
-		"value",
-		"rounded",
-		"active"
-	]),
+	[OBJECTS.LIVE_TAB] : DEFAULT_PARAMS.concat(
+		[
+			PARAMETER_ATTR.LONGNAME,
+			PARAMETER_ATTR.SHORTNAME,
+			PARAMETER_ATTR.RANGE
+		],
+		[
+			"active",
+			"activebgcolor",
+			"activebgoncolor",
+			"bgcolor",
+			"bgoncolor",
+			"blinktime",
+			"bordercolor",
+			"button",
+			"focusbordercolor",
+			"mode",
+			"multiline",
+			"num_lines_patching",
+			"num_lines_presentation",
+			"pictures",
+			"rounded",
+			"spacing_x",
+			"spacing_y",
+			"textcolor",
+			"textoncolor",
+			"fontname",
+			"fontsize",
+			"fontface",
+			"value",
+			"usepicture"
+		]
+	),
+	[OBJECTS.LIVE_TEXT] : DEFAULT_PARAMS.concat(
+		[
+			PARAMETER_ATTR.LONGNAME,
+			PARAMETER_ATTR.SHORTNAME,
+			PARAMETER_ATTR.RANGE
+		],
+		[
+			"activebgcolor",
+			"active",
+			"bgcolor",
+			"activebgoncolor",
+			"bgoncolor",
+			"bordercolor",
+			"textcolor",
+			"activetextoncolor",
+			"activetextcolor",
+			"text",
+			"texton",
+			"value",
+			"fontsize",
+			"fontname",
+			"fontface",
+			"pictures",
+			"usepicture",
+			"mode"
+		]
+	),
+	[OBJECTS.LIVE_TOGGLE] : DEFAULT_PARAMS.concat(
+		[
+			PARAMETER_ATTR.LONGNAME,
+			PARAMETER_ATTR.SHORTNAME,
+			PARAMETER_ATTR.RANGE
+		],
+		[
+			"bgcolor",
+			"activebgcolor",
+			"bgoncolor",
+			"activebgoncolor",
+			"bordercolor",
+			"focusbordercolor",
+			"value",
+			"rounded",
+			"active"
+		]
+	),
 	[OBJECTS.MESSAGE] : DEFAULT_PARAMS.concat([
 		"textfield",
 		"fontsize",
