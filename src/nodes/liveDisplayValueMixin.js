@@ -1,7 +1,8 @@
 import { LIVE_VALUE_TYPES, LIVE_UNIT_STYLES } from "../lib/constants.js";
 import { PARAMETER_ATTR } from "../lib/objectList.js";
+import { sprintf } from "sprintf-js";
 
-function stringForLiveValue(liveValue, unitStyle) {
+function stringForLiveValue(liveValue, unitStyle, paramValueType, customUnit) {
 	if (liveValue === undefined || unitStyle === undefined) return "";
 
 	let outVal = null;
@@ -85,8 +86,22 @@ function stringForLiveValue(liveValue, unitStyle) {
 			break;
 		}
 		case LIVE_UNIT_STYLES.LIVE_UNIT_CUSTOM:
+
+			if (customUnit.indexOf("%") >= 0) {
+				// wrap in try catch here in order to catch invalid sprintf format strings
+				try {
+					outVal = sprintf(customUnit, liveValue);
+				} catch (e) {
+					outVal = customUnit;
+				}
+			} else {
+				outVal = `${paramValueType === LIVE_VALUE_TYPES.INT ? Math.round(liveValue) : (liveValue).toFixed(2)} ${customUnit}`;
+			}
+
+			break;
+
 		case LIVE_UNIT_STYLES.LIVE_UNIT_NATIVE:
-			outVal = (liveValue).toFixed(2);
+			outVal = paramValueType === LIVE_VALUE_TYPES.INT ? Math.round(liveValue) : (liveValue).toFixed(2);
 			break;
 		default:
 			outVal = "";
@@ -146,9 +161,7 @@ export default (objClass) => class extends objClass {
 				return enums[roundedVal];
 			}
 
-			// float and int
-			const unitStyle = this.getParamValue(PARAMETER_ATTR.UNIT_STYLE);
-			return stringForLiveValue(val, unitStyle);
+			return stringForLiveValue(val, this.getParamValue(PARAMETER_ATTR.UNIT_STYLE), paramValueType, this.getParamValue(PARAMETER_ATTR.CUSTOM_UNITS));
 		}
 
 		return super.getParamValue(type);

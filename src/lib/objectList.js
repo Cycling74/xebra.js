@@ -1,4 +1,5 @@
 export const PARAMETER_ATTR = Object.freeze({
+	CUSTOM_UNITS: "_parameter_units",
 	EXPONENT: "_parameter_exponent",
 	LONGNAME: "_parameter_longname",
 	RANGE: "_parameter_range",
