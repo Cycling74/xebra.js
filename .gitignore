@@ -2,12 +2,3 @@
 .DS_Store
 Thumbs.db
 Desktop.ini
-npm-debug.log
-
-# Project Files
-node_modules
-docs
-dist
-!.bin/docs
-lib
-!src/lib
